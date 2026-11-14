@@ -1,0 +1,1091 @@
+/* Estilos de la demo de ner-clinic-es. Sin dependencias; fuentes servidas por la app.
+ *
+ * Idea: la nota es una sola hoja que se escribe y luego se lee resaltada; al lado, la
+ * hoja de Charlson (las 17 categorías como un formulario impreso) y la lista de
+ * comorbilidades. Cada estado se distingue también sin color: confirmada con resaltador
+ * y subrayado continuo, a confirmar con subrayado de guiones, negada tachada y familiar
+ * con subrayado de puntos.
+ */
+
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("/estatico/fuentes/hanken-grotesk.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/estatico/fuentes/source-serif-4.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+:root {
+  --fondo: #e7edeb;
+  --hoja: #ffffff;
+  --tinta: #15232a;
+  --tinta-suave: #4b5b63;
+  --linea: #d0dad7;
+  --linea-fuerte: #a9b8b4;
+  --quirurgico: #0b6e5f;
+  --quirurgico-tinta: #ffffff;
+  --quirurgico-claro: #dbefe9;
+
+  --confirmada-fondo: #c6eadb;
+  --confirmada-borde: #0b6e5f;
+  --posible-fondo: #fbe6ad;
+  --posible-borde: #9a6400;
+  --negada: #b42318;
+  --familiar-fondo: #ebe7fb;
+  --familiar-borde: #5a48b8;
+
+  --error-fondo: #fbe9e7;
+  --error-borde: #b3261e;
+
+  --ui: "Hanken Grotesk", system-ui, sans-serif;
+  --nota: "Source Serif 4", Georgia, serif;
+  --radio: 6px;
+  --sombra: 0 1px 2px rgb(21 35 42 / 6%), 0 8px 24px -12px rgb(21 35 42 / 18%);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #0e181c;
+    --hoja: #15232a;
+    --tinta: #e2ebe9;
+    --tinta-suave: #9db0b4;
+    --linea: #283a41;
+    --linea-fuerte: #3f555d;
+    --quirurgico: #52c4aa;
+    --quirurgico-tinta: #0b1a17;
+    --quirurgico-claro: #1b3a35;
+
+    --confirmada-fondo: #1d4a3f;
+    --confirmada-borde: #52c4aa;
+    --posible-fondo: #4a3a10;
+    --posible-borde: #f0be4c;
+    --negada: #f4877d;
+    --familiar-fondo: #2b2652;
+    --familiar-borde: #ab9df2;
+
+    --error-fondo: #3d1c1a;
+    --error-borde: #f2b8b5;
+
+    --sombra: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px -12px rgb(0 0 0 / 50%);
+
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--ui);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--quirurgico);
+  outline-offset: 2px;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.saltar {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--tinta);
+  color: var(--hoja);
+  border-radius: var(--radio);
+}
+
+.saltar:focus {
+  top: 1rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* --- Cabecera --- */
+
+.cabecera,
+.mesa,
+.pie {
+  width: min(100% - 2rem, 78rem);
+  margin-inline: auto;
+}
+
+.cabecera {
+  padding-block: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "marca marca"
+    "titulo bajada"
+    "titulo aviso";
+  gap: 0.5rem 3rem;
+  align-items: end;
+}
+
+.marca { grid-area: marca; }
+.cabecera h1 { grid-area: titulo; align-self: end; }
+.bajada { grid-area: bajada; }
+.aviso { grid-area: aviso; }
+
+.marca {
+  font-weight: 700;
+  color: var(--quirurgico);
+  letter-spacing: 0.01em;
+}
+
+.cabecera h1 {
+  max-width: 22ch;
+  font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.bajada {
+  max-width: 60ch;
+  color: var(--tinta-suave);
+}
+
+.aviso {
+  max-width: 60ch;
+  font-size: 0.9375rem;
+  color: var(--tinta-suave);
+}
+
+.aviso strong {
+  color: var(--tinta);
+}
+
+/* --- Mesa: hoja de la nota + panel --- */
+
+.mesa {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 29rem);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.hoja {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--hoja);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+/* El único movimiento sin acción del usuario: una línea que recorre el borde superior
+   de la hoja mientras se analiza. */
+.hoja::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--quirurgico);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.analizando .hoja::before {
+  animation: analizar 1.4s ease-in-out infinite;
+}
+
+@keyframes analizar {
+  0% { transform: scaleX(0); transform-origin: left; }
+  50% { transform: scaleX(1); transform-origin: left; }
+  50.1% { transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+.hoja-barra {
+  padding: 0.875rem 2.5rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+.ejemplos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.125rem;
+  font-size: 0.9375rem;
+}
+
+.ejemplos-titulo {
+  color: var(--tinta-suave);
+}
+
+.ejemplo {
+  padding: 0.25rem 0;
+  background: none;
+  border: 0;
+  color: var(--tinta);
+  text-decoration: underline;
+  text-decoration-color: var(--linea-fuerte);
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+.ejemplo:hover {
+  text-decoration-color: currentColor;
+}
+
+.ejemplo[aria-current="true"] {
+  color: var(--quirurgico);
+  font-weight: 700;
+  text-decoration-color: currentColor;
+}
+
+/* La nota se escribe y se lee con la misma tipografía y el mismo margen: al analizar,
+   el texto no se mueve; solo aparecen las marcas. */
+#nota,
+.nota-resaltada {
+  display: block;
+  width: 100%;
+  min-height: 26rem;
+  margin: 0;
+  padding: 2rem 2.5rem;
+  font-family: var(--nota);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--tinta);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+#nota,
+.nota-resaltada {
+  flex: 1 1 auto;
+  min-height: min(26rem, 50vh);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+#nota {
+  border: 0;
+  background: transparent;
+  resize: vertical;
+  field-sizing: content;
+}
+
+#nota::placeholder {
+  color: var(--tinta-suave);
+  opacity: 0.75;
+}
+
+#nota:focus-visible,
+.nota-resaltada:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--quirurgico);
+}
+
+.hoja-pie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 1rem 2.5rem;
+  border-top: 1px solid var(--linea);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contador {
+  font-size: 0.875rem;
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.contador.excede {
+  color: var(--error-borde);
+  font-weight: 700;
+}
+
+.despertando {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 1rem 2.5rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--quirurgico);
+  border-radius: var(--radio);
+  background: var(--quirurgico-claro);
+  font-size: 0.9375rem;
+  color: var(--tinta);
+}
+
+.despertando[hidden] {
+  display: none;
+}
+
+.despertando p {
+  margin: 0;
+}
+
+.despertando-punto {
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.35rem;
+  border-radius: 50%;
+  background: var(--quirurgico);
+  animation: latido 1.2s ease-in-out infinite;
+}
+
+@keyframes latido {
+  0%, 100% { opacity: 0.35; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .despertando-punto { animation: none; }
+}
+
+.estado-peticion:empty {
+  display: none;
+}
+
+.estado-peticion {
+  padding: 0 2.5rem 1rem;
+  font-size: 0.9375rem;
+  color: var(--tinta-suave);
+}
+
+.boton {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radio);
+  border: 1px solid transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.boton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.boton-principal {
+  background: var(--quirurgico);
+  color: var(--quirurgico-tinta);
+}
+
+.boton-principal:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.boton-secundario {
+  background: var(--hoja);
+  border-color: var(--linea-fuerte);
+}
+
+.boton-secundario:hover {
+  border-color: var(--tinta);
+}
+
+.boton-texto {
+  background: none;
+  color: var(--tinta-suave);
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.error {
+  margin: 0 2.5rem 1.25rem;
+  padding: 0.875rem 1rem;
+  border-left: 4px solid var(--error-borde);
+  background: var(--error-fondo);
+  border-radius: 0 var(--radio) var(--radio) 0;
+}
+
+.error-titulo {
+  font-weight: 700;
+}
+
+.error-detalle {
+  font-size: 0.9375rem;
+}
+
+/* --- Marcas de estado: en la nota, en la leyenda y en los títulos de grupo --- */
+
+mark,
+.muestra {
+  color: inherit;
+  background: none;
+  border-radius: 3px;
+  padding: 0.05em 0.1em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+}
+
+.estado-confirmada mark,
+mark.estado-confirmada,
+.muestra.estado-confirmada,
+.estado-confirmada > .grupo-titulo .muestra {
+  background: var(--confirmada-fondo);
+  box-shadow: inset 0 -2px 0 var(--confirmada-borde);
+}
+
+mark.estado-posible,
+.muestra.estado-posible,
+.estado-posible > .grupo-titulo .muestra {
+  background: var(--posible-fondo);
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: var(--posible-borde);
+}
+
+mark.estado-negada,
+.muestra.estado-negada,
+.estado-negada > .grupo-titulo .muestra {
+  color: var(--negada);
+  text-decoration-line: line-through;
+  text-decoration-color: var(--negada);
+  text-decoration-thickness: 1.5px;
+}
+
+mark.estado-familiar,
+.muestra.estado-familiar,
+.estado-familiar > .grupo-titulo .muestra {
+  background: var(--familiar-fondo);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--familiar-borde);
+}
+
+mark {
+  cursor: pointer;
+  scroll-margin-block: 6rem;
+}
+
+mark.activa {
+  outline: 2px solid var(--tinta);
+  outline-offset: 2px;
+  animation: senalar 0.9s ease-out;
+}
+
+@keyframes senalar {
+  0% { outline-offset: 10px; outline-color: transparent; }
+  100% { outline-offset: 2px; outline-color: var(--tinta); }
+}
+
+/* --- Panel --- */
+
+.panel {
+  display: grid;
+  gap: 1.75rem;
+}
+
+/* Hoja de Charlson: un formulario impreso, con las celdas pegadas como en una tabla. */
+.charlson {
+  background: var(--hoja);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1.25rem 1.25rem 1.375rem;
+}
+
+.charlson-cabeza {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.charlson h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.charlson-total {
+  font-family: var(--nota);
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 600;
+  font-variant-numeric: lining-nums tabular-nums;
+  color: var(--quirurgico);
+}
+
+.charlson-si {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--tinta-suave);
+}
+
+.hoja-charlson {
+  margin-top: 1rem;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.peso {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+}
+
+.peso + .peso {
+  border-top: 1px solid var(--linea-fuerte);
+}
+
+.peso-titulo {
+  padding: 0.25rem 0;
+  text-align: center;
+  font-family: var(--nota);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--tinta);
+  border-right: 1px solid var(--linea-fuerte);
+  font-variant-numeric: tabular-nums;
+}
+
+.celdas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Líneas de la rejilla: cada celda dibuja su borde derecho e inferior; los que caen
+   sobre el borde exterior quedan ocultos por el `overflow: hidden` de la hoja. */
+.celda {
+  box-shadow: inset -1px -1px 0 var(--linea);
+}
+
+.celda {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 2.5rem;
+  padding: 0.375rem 0.5rem;
+  hyphens: auto;
+  border: 0;
+  border-radius: 0;
+  background: var(--hoja);
+  color: var(--tinta-suave);
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+.celda:disabled {
+  cursor: default;
+}
+
+.celda[data-estado="ausente"] {
+  color: var(--tinta-suave);
+  opacity: 0.7;
+}
+
+.celda[data-estado="suma"] {
+  background: var(--quirurgico);
+  color: var(--quirurgico-tinta);
+  font-weight: 700;
+}
+
+.celda[data-estado="posible"] {
+  color: var(--tinta);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--posible-fondo) 0 6px,
+    var(--hoja) 6px 10px
+  );
+}
+
+.celda[data-estado="cubierta"] {
+  color: var(--tinta);
+  background: var(--quirurgico-claro);
+  text-decoration: line-through;
+  text-decoration-color: var(--tinta-suave);
+}
+
+.celda:not(:disabled):hover {
+  box-shadow: inset 0 0 0 2px var(--tinta);
+}
+
+.celda[data-estado="suma"] {
+  box-shadow: inset -1px -1px 0 color-mix(in srgb, var(--quirurgico-tinta) 25%, transparent);
+}
+
+/* Comorbilidades */
+
+.hallazgos {
+  display: grid;
+  gap: 0.875rem;
+}
+
+.hallazgos-cabeza {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.hallazgos h2 {
+  font-size: 1.125rem;
+}
+
+.hallazgos h2:focus {
+  outline: none;
+}
+
+.meta {
+  font-size: 0.8125rem;
+  color: var(--tinta-suave);
+}
+
+.desactualizado {
+  padding: 0.625rem 0.875rem;
+  background: var(--posible-fondo);
+  border-radius: var(--radio);
+  font-size: 0.875rem;
+}
+
+.es-desactualizado .hoja-charlson,
+.es-desactualizado .grupos {
+  opacity: 0.5;
+}
+
+.vacio {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--tinta-suave);
+  font-size: 0.9375rem;
+}
+
+.leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 0.875rem;
+  font-size: 0.875rem;
+}
+
+.con-resultado .leyenda {
+  padding-bottom: 0.25rem;
+}
+
+.grupos {
+  display: grid;
+  gap: 2.25rem;
+}
+
+/* Cada grupo lleva una franja a la izquierda, del título a su última fila, con el mismo
+   trazo que sus marcas en la nota: continua, de guiones, gris o de puntos. Así se ve
+   dónde termina un estado y empieza el otro. */
+.grupo {
+  display: grid;
+  gap: 0.25rem;
+  padding-left: 0.875rem;
+  border-left: 4px solid var(--confirmada-borde);
+}
+
+.grupo.estado-posible { border-left: 4px dashed var(--posible-borde); }
+.grupo.estado-negada { border-left: 4px solid var(--negada); }
+.grupo.estado-familiar { border-left: 4px dotted var(--familiar-borde); }
+
+.grupo-titulo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.grupo-cantidad {
+  font-weight: 400;
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.grupo-descripcion {
+  font-size: 0.8125rem;
+  color: var(--tinta-suave);
+}
+
+.entidades {
+  margin-top: 0.375rem;
+  border-top: 1px solid var(--linea);
+}
+
+.entidad {
+  position: relative;
+  border-bottom: 1px solid var(--linea);
+}
+
+.entidad-boton {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.125rem 0.75rem;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.entidad-boton:hover:not(:disabled) {
+  background: var(--quirurgico-claro);
+}
+
+.entidad-boton:disabled {
+  cursor: default;
+}
+
+/* La fila activa toma el fondo de su estado, como su marca en la nota. */
+.entidad.activa {
+  background: var(--hoja);
+}
+
+.estado-confirmada .entidad.activa { background: var(--confirmada-fondo); }
+.estado-posible .entidad.activa { background: var(--posible-fondo); }
+.estado-familiar .entidad.activa { background: var(--familiar-fondo); }
+
+.entidad-nombre {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.estado-negada .entidad-nombre {
+  text-decoration: line-through;
+  text-decoration-color: var(--negada);
+  text-decoration-thickness: 1.5px;
+}
+
+.entidad-menciones {
+  font-size: 0.875rem;
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.entidad-detalle:empty {
+  display: none;
+}
+
+.entidad-detalle {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.625rem;
+  font-size: 0.8125rem;
+  color: var(--tinta-suave);
+}
+
+.cie10 {
+  padding: 0 0.375rem;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 3px;
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.otros-estados,
+.correccion {
+  grid-column: 1 / -1;
+  font-size: 0.8125rem;
+}
+
+.otros-estados {
+  color: var(--tinta-suave);
+  font-style: italic;
+}
+
+.correccion {
+  justify-self: start;
+  padding: 0 0.375rem;
+  background: var(--posible-fondo);
+  border-radius: 3px;
+}
+
+/* Opciones de código CIE-10 (#230): solo en la fila activa. */
+.entidad:not(.activa):not(.sin-destino) .opciones {
+  display: none;
+}
+
+.opciones {
+  margin: 0 0.75rem 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.opciones summary {
+  cursor: pointer;
+  color: var(--quirurgico);
+  font-weight: 700;
+  padding: 0.125rem 0;
+}
+
+.opciones-ayuda {
+  margin: 0.25rem 0 0.375rem;
+  color: var(--tinta-suave);
+}
+
+.opciones-lista {
+  display: grid;
+  gap: 2px;
+}
+
+.opcion {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.375rem 0.5rem;
+  background: var(--hoja);
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  text-align: left;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.opcion:hover {
+  border-color: var(--tinta);
+}
+
+.opcion[aria-pressed="true"] {
+  border-color: var(--quirurgico);
+  box-shadow: inset 3px 0 0 var(--quirurgico);
+}
+
+.opcion-similitud {
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.cie10.es-elegido {
+  border-color: var(--quirurgico);
+  background: var(--quirurgico);
+  color: var(--quirurgico-tinta);
+}
+
+.elegido {
+  color: var(--quirurgico);
+  font-weight: 700;
+}
+
+.posicion:empty {
+  display: none;
+}
+
+.posicion {
+  padding: 0 0.75rem 0.25rem;
+  font-size: 0.8125rem;
+  color: var(--tinta);
+}
+
+.reportar {
+  margin: 0 0.75rem 0.5rem;
+  padding: 0.125rem 0;
+  background: none;
+  border: 0;
+  font-size: 0.75rem;
+  color: var(--tinta-suave);
+  text-decoration: underline;
+  text-decoration-color: var(--linea-fuerte);
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+/* Solo en la fila activa (o ya marcada), para no repetir el botón en cada fila. */
+.entidad:not(.activa):not(.reportada) .reportar {
+  display: none;
+}
+
+.reportar[aria-pressed="true"] {
+  color: var(--error-borde);
+  text-decoration-color: currentColor;
+}
+
+.reporte-gracias {
+  padding: 0 0.75rem 0.625rem;
+  font-size: 0.75rem;
+  color: var(--tinta-suave);
+}
+
+.sin-hallazgos {
+  color: var(--tinta-suave);
+}
+
+.descartes {
+  font-size: 0.8125rem;
+  color: var(--tinta-suave);
+}
+
+.descartes summary {
+  cursor: pointer;
+}
+
+.descartes ul {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.25rem;
+  padding-left: 1rem;
+  list-style: disc;
+}
+
+/* --- Pie --- */
+
+.pie {
+  margin-top: 3.5rem;
+  padding-block: 1.75rem 2.5rem;
+  border-top: 1px solid var(--linea-fuerte);
+  display: grid;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--tinta-suave);
+}
+
+.pie-aviso {
+  max-width: 70ch;
+}
+
+.pie-aviso strong {
+  color: var(--tinta);
+}
+
+.pie-enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.pie-legal code {
+  font-size: 0.8125rem;
+}
+
+/* --- Pantallas angostas: la hoja arriba, el panel debajo --- */
+
+@media (max-width: 60rem) {
+  .cabecera {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "marca" "titulo" "bajada" "aviso";
+  }
+
+  .mesa {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hoja {
+    position: relative;
+    top: auto;
+    max-height: none;
+  }
+
+  #nota,
+  .nota-resaltada {
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 36rem) {
+  .cabecera {
+    padding-block: 1.5rem 1.25rem;
+  }
+
+  .hoja-barra,
+  .hoja-pie,
+  .estado-peticion {
+    padding-inline: 1.25rem;
+  }
+
+  .despertando {
+    margin-inline: 1.25rem;
+  }
+
+  #nota,
+  .nota-resaltada {
+    min-height: 18rem;
+    padding: 1.25rem;
+    font-size: 1.0625rem;
+  }
+
+  .error {
+    margin-inline: 1.25rem;
+  }
+
+  .celdas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

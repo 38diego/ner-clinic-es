@@ -1,0 +1,315 @@
+{
+  "fecha": "2026-11-08T19:12:14Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "cdaad27118371c307f27889279dd65c7c26c26ea",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "orden": [
+    "reglas",
+    "normalizador",
+    "control"
+  ],
+  "comparacion": {
+    "por_corrida": {
+      "reglas": {
+        "arranque_s": 5.0,
+        "p95_2000_s": 0.443,
+        "mediana_2000_s": 0.346,
+        "p95_distemist_s": 1.068,
+        "memoria_pico_mb": 449,
+        "imagen_mb": 856
+      },
+      "normalizador": {
+        "arranque_s": 7.0,
+        "p95_2000_s": 0.71,
+        "mediana_2000_s": 0.479,
+        "p95_distemist_s": 1.4,
+        "memoria_pico_mb": 1137,
+        "imagen_mb": 2021
+      },
+      "control": {
+        "arranque_s": 4.5,
+        "p95_2000_s": 0.43,
+        "mediana_2000_s": 0.347,
+        "p95_distemist_s": 1.104,
+        "memoria_pico_mb": 465,
+        "imagen_mb": 2021
+      }
+    },
+    "normalizador_menos_reglas": {
+      "arranque_s": 2.0,
+      "p95_2000_s": 0.267,
+      "mediana_2000_s": 0.133,
+      "p95_distemist_s": 0.332,
+      "memoria_pico_mb": 688,
+      "imagen_mb": 1165
+    },
+    "normalizador_menos_control": {
+      "arranque_s": 2.5,
+      "p95_2000_s": 0.28,
+      "mediana_2000_s": 0.132,
+      "p95_distemist_s": 0.296,
+      "memoria_pico_mb": 672,
+      "imagen_mb": 0
+    }
+  },
+  "corridas": {
+    "reglas": {
+      "fecha": "2026-11-08T19:04:46Z",
+      "imagen": {
+        "nombre": "ner-clinic-es",
+        "id": "sha256:f80b154aae0833aebfa2b138201c5bce2c85c989627c2b66bd80f6461f83be94",
+        "tamano_mb": 856
+      },
+      "docker_run": {
+        "cpus": "2",
+        "memoria": "4g",
+        "entorno": {
+          "TOPE_IP_DIA": "100000",
+          "TOPE_GLOBAL_DIA": "100000",
+          "MAX_CARACTERES": "10000"
+        }
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) Ultra 7 255U",
+        "maquina": "x86_64"
+      },
+      "notas": "DisTEMIST test (250 casos clínicos públicos); ningún texto en este archivo",
+      "tiempo": "`cliente`: petición HTTP completa desde el host; `servidor`: `meta.segundos` de la API (solo `analizar()`)",
+      "arranque_en_frio_s": 5.0,
+      "distemist_test": {
+        "cliente": {
+          "notas": 250,
+          "caracteres_mediana": 2137.5,
+          "caracteres_max": 6329,
+          "mediana_s": 0.536,
+          "p95_s": 1.073,
+          "max_s": 1.991,
+          "ms_por_1000_caracteres": 223.4
+        },
+        "servidor": {
+          "notas": 250,
+          "caracteres_mediana": 2137.5,
+          "caracteres_max": 6329,
+          "mediana_s": 0.532,
+          "p95_s": 1.068,
+          "max_s": 1.986,
+          "ms_por_1000_caracteres": 221.4
+        }
+      },
+      "notas_2000_caracteres": {
+        "cliente": {
+          "notas": 138,
+          "caracteres_mediana": 1996.0,
+          "caracteres_max": 1999,
+          "mediana_s": 0.351,
+          "p95_s": 0.449,
+          "max_s": 1.007,
+          "ms_por_1000_caracteres": 184.9
+        },
+        "servidor": {
+          "notas": 138,
+          "caracteres_mediana": 1996.0,
+          "caracteres_max": 1999,
+          "mediana_s": 0.346,
+          "p95_s": 0.443,
+          "max_s": 1.002,
+          "ms_por_1000_caracteres": 182.6
+        }
+      },
+      "nota_5000_caracteres": {
+        "caracteres": 4994,
+        "repeticiones": 3,
+        "cliente_s": [
+          1.515,
+          1.527,
+          1.519
+        ],
+        "servidor_s": [
+          1.51,
+          1.522,
+          1.514
+        ]
+      },
+      "memoria_pico_mb": {
+        "cgroup_memory_peak": 449,
+        "docker_stats_max": 430
+      }
+    },
+    "normalizador": {
+      "fecha": "2026-11-08T19:09:00Z",
+      "imagen": {
+        "nombre": "ner-clinic-es-sapbert",
+        "id": "sha256:d99211f8dbb9f6572cd17a6ecad2868ded98cd9d3033e63a0f360f7998ca9e5f",
+        "tamano_mb": 2021
+      },
+      "docker_run": {
+        "cpus": "2",
+        "memoria": "4g",
+        "entorno": {
+          "TOPE_IP_DIA": "100000",
+          "TOPE_GLOBAL_DIA": "100000",
+          "MAX_CARACTERES": "10000",
+          "NER_NORMALIZADOR": "sapbert"
+        }
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) Ultra 7 255U",
+        "maquina": "x86_64"
+      },
+      "notas": "DisTEMIST test (250 casos clínicos públicos); ningún texto en este archivo",
+      "tiempo": "`cliente`: petición HTTP completa desde el host; `servidor`: `meta.segundos` de la API (solo `analizar()`)",
+      "arranque_en_frio_s": 7.0,
+      "distemist_test": {
+        "cliente": {
+          "notas": 250,
+          "caracteres_mediana": 2137.5,
+          "caracteres_max": 6329,
+          "mediana_s": 0.665,
+          "p95_s": 1.405,
+          "max_s": 2.289,
+          "ms_por_1000_caracteres": 291.6
+        },
+        "servidor": {
+          "notas": 250,
+          "caracteres_mediana": 2137.5,
+          "caracteres_max": 6329,
+          "mediana_s": 0.663,
+          "p95_s": 1.4,
+          "max_s": 2.285,
+          "ms_por_1000_caracteres": 289.8
+        }
+      },
+      "notas_2000_caracteres": {
+        "cliente": {
+          "notas": 138,
+          "caracteres_mediana": 1996.0,
+          "caracteres_max": 1999,
+          "mediana_s": 0.483,
+          "p95_s": 0.715,
+          "max_s": 1.17,
+          "ms_por_1000_caracteres": 260.7
+        },
+        "servidor": {
+          "notas": 138,
+          "caracteres_mediana": 1996.0,
+          "caracteres_max": 1999,
+          "mediana_s": 0.479,
+          "p95_s": 0.71,
+          "max_s": 1.166,
+          "ms_por_1000_caracteres": 258.9
+        }
+      },
+      "nota_5000_caracteres": {
+        "caracteres": 4994,
+        "repeticiones": 3,
+        "cliente_s": [
+          1.646,
+          1.623,
+          1.619
+        ],
+        "servidor_s": [
+          1.641,
+          1.619,
+          1.614
+        ]
+      },
+      "memoria_pico_mb": {
+        "cgroup_memory_peak": 1137,
+        "docker_stats_max": 1133
+      }
+    },
+    "control": {
+      "fecha": "2026-11-08T19:12:14Z",
+      "imagen": {
+        "nombre": "ner-clinic-es-sapbert",
+        "id": "sha256:d99211f8dbb9f6572cd17a6ecad2868ded98cd9d3033e63a0f360f7998ca9e5f",
+        "tamano_mb": 2021
+      },
+      "docker_run": {
+        "cpus": "2",
+        "memoria": "4g",
+        "entorno": {
+          "TOPE_IP_DIA": "100000",
+          "TOPE_GLOBAL_DIA": "100000",
+          "MAX_CARACTERES": "10000"
+        }
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) Ultra 7 255U",
+        "maquina": "x86_64"
+      },
+      "notas": "DisTEMIST test (250 casos clínicos públicos); ningún texto en este archivo",
+      "tiempo": "`cliente`: petición HTTP completa desde el host; `servidor`: `meta.segundos` de la API (solo `analizar()`)",
+      "arranque_en_frio_s": 4.5,
+      "distemist_test": {
+        "cliente": {
+          "notas": 250,
+          "caracteres_mediana": 2137.5,
+          "caracteres_max": 6329,
+          "mediana_s": 0.532,
+          "p95_s": 1.107,
+          "max_s": 2.279,
+          "ms_por_1000_caracteres": 224.3
+        },
+        "servidor": {
+          "notas": 250,
+          "caracteres_mediana": 2137.5,
+          "caracteres_max": 6329,
+          "mediana_s": 0.528,
+          "p95_s": 1.104,
+          "max_s": 2.276,
+          "ms_por_1000_caracteres": 222.3
+        }
+      },
+      "notas_2000_caracteres": {
+        "cliente": {
+          "notas": 138,
+          "caracteres_mediana": 1996.0,
+          "caracteres_max": 1999,
+          "mediana_s": 0.352,
+          "p95_s": 0.435,
+          "max_s": 0.951,
+          "ms_por_1000_caracteres": 185.5
+        },
+        "servidor": {
+          "notas": 138,
+          "caracteres_mediana": 1996.0,
+          "caracteres_max": 1999,
+          "mediana_s": 0.347,
+          "p95_s": 0.43,
+          "max_s": 0.946,
+          "ms_por_1000_caracteres": 183.3
+        }
+      },
+      "nota_5000_caracteres": {
+        "caracteres": 4994,
+        "repeticiones": 3,
+        "cliente_s": [
+          1.572,
+          1.641,
+          1.56
+        ],
+        "servidor_s": [
+          1.567,
+          1.636,
+          1.555
+        ]
+      },
+      "memoria_pico_mb": {
+        "cgroup_memory_peak": 465,
+        "docker_stats_max": 425
+      }
+    }
+  }
+}

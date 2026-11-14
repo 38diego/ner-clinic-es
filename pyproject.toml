@@ -1,0 +1,61 @@
+[project]
+name = "ner-clinic"
+version = "0.1.0"
+description = "Extracción de comorbilidades de notas clínicas en español, con contexto, CIE-10 e índice de Charlson"
+readme = "README.md"
+authors = [{ name = "Diego Galindo" }]
+requires-python = ">=3.12"
+dependencies = [
+    "rapidfuzz>=3.9",
+    "torch>=2.5",
+    "transformers>=5.0",  # validar en #7 frente a la 4.x que usó la tesis
+]
+
+# La API va aparte: `ner_clinic` no depende de FastAPI (`pip install ner-clinic[api]`)
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "google-cloud-firestore>=2.19",
+]
+
+[dependency-groups]
+dev = [
+    "ner-clinic[api]",
+    "httpx>=0.28",
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+    "ruff>=0.8",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ner_clinic", "src/ner_clinic_api"]
+
+# torch solo para CPU: evita descargar CUDA en local y en CI
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not modelo and not firestore' --cov=ner_clinic --cov=ner_clinic_api --cov=evaluacion --cov-report=term-missing"
+pythonpath = ["."]
+markers = [
+    "modelo: usa el modelo NER real (descarga de Hugging Face); correr con `pytest -m modelo`",
+    "firestore: usa el emulador de Firestore (`FIRESTORE_EMULATOR_HOST`); correr con `pytest -m firestore`",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]

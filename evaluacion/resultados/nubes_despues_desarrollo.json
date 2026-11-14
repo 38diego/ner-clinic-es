@@ -1,0 +1,560 @@
+{
+  "corpus": {
+    "nombre": "NUBes",
+    "commit": "91c81c1f5eee2b5b9d377cc78c2442e8e8b198a1",
+    "sha256_zip": "cd3cea101057660560cb423afa7152c6d2996953524e141c96af97fcd4a7983e",
+    "licencia": "CC BY-SA 3.0 ES",
+    "particion": "desarrollo",
+    "muestras": [
+      "SAMPLE-002",
+      "SAMPLE-004",
+      "SAMPLE-006",
+      "SAMPLE-008",
+      "SAMPLE-010"
+    ],
+    "limite": null,
+    "frases": 14865,
+    "frases_con_negacion": 3859,
+    "frases_con_incertidumbre": 1150,
+    "regiones": {
+      "negacion": 4976,
+      "incertidumbre": 1363
+    }
+  },
+  "fecha": "2026-11-02T23:20:45Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "9ad2002ab3f0a0ce58cdace428d426249780b8b7",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "metodo": {
+    "unidad": "mención de entidad del pipeline",
+    "analisis": "frase por frase, con la caché del modelo llenada por lotes",
+    "cobertura": "al menos la mitad de la mención dentro de la región; manda la más corta",
+    "negmormarker": "la palabra misma cuenta como región de negación",
+    "negada": "P/R/F1 sobre las menciones esperadas negada o afirmada"
+  },
+  "menciones_evaluadas": 6424,
+  "frases_con_menciones": 4887,
+  "matriz": {
+    "negada": {
+      "confirmada": 90,
+      "negada": 515,
+      "familiar": 0
+    },
+    "incierta": {
+      "confirmada": 565,
+      "negada": 106,
+      "familiar": 0
+    },
+    "afirmada": {
+      "confirmada": 5089,
+      "negada": 55,
+      "familiar": 4
+    }
+  },
+  "negada": {
+    "precision": 0.9035,
+    "recall": 0.8512,
+    "f1": 0.8766,
+    "ic95": {
+      "precision": [
+        0.8801,
+        0.925
+      ],
+      "recall": [
+        0.8227,
+        0.8808
+      ],
+      "f1": [
+        0.8566,
+        0.8947
+      ]
+    },
+    "vp": 515,
+    "fp": 55,
+    "fn": 90
+  },
+  "negada_por_muestra": {
+    "SAMPLE-002": {
+      "precision": 0.9474,
+      "recall": 0.8852,
+      "f1": 0.9153,
+      "vp": 108,
+      "fp": 6,
+      "fn": 14
+    },
+    "SAMPLE-004": {
+      "precision": 0.9187,
+      "recall": 0.8828,
+      "f1": 0.9004,
+      "vp": 113,
+      "fp": 10,
+      "fn": 15
+    },
+    "SAMPLE-006": {
+      "precision": 0.8598,
+      "recall": 0.8598,
+      "f1": 0.8598,
+      "vp": 92,
+      "fp": 15,
+      "fn": 15
+    },
+    "SAMPLE-008": {
+      "precision": 0.875,
+      "recall": 0.7656,
+      "f1": 0.8167,
+      "vp": 98,
+      "fp": 14,
+      "fn": 30
+    },
+    "SAMPLE-010": {
+      "precision": 0.9123,
+      "recall": 0.8667,
+      "f1": 0.8889,
+      "vp": 104,
+      "fp": 10,
+      "fn": 16
+    }
+  },
+  "salio_familiar": 4,
+  "por_texto": {
+    "menciones_que_cambian": 35,
+    "transiciones": {
+      "confirmada->negada": 33,
+      "negada->confirmada": 2
+    },
+    "aciertan_por_texto": 6,
+    "aciertan_por_posicion": 19,
+    "metricas_por_texto": {
+      "precision": 0.9101,
+      "recall": 0.8198,
+      "f1": 0.8626,
+      "vp": 496,
+      "fp": 49,
+      "fn": 109
+    }
+  },
+  "tiempos": {
+    "segundos_inferencia": 1.41,
+    "segundos_analisis": 3.18,
+    "lote": 256
+  },
+  "cache": {
+    "aciertos": 29725,
+    "fallos": 0,
+    "llamadas": 0
+  },
+  "memoria_pico_mib": 42.5,
+  "categorias": {
+    "clave_no_reconocida": "El pipeline tiene la clave, pero no en esta forma («descartó»)",
+    "clave_ausente": "Clave que el pipeline no tiene",
+    "alcance_mal_cortado": "Alcance mal cortado: la negación llega muy lejos o se queda corta",
+    "por_texto": "Clasificación por texto: la misma palabra está negada en otra parte",
+    "disparador_falso": "Disparador falso: la clave está dentro de otra palabra o de un nombre",
+    "error_gold": "Error u omisión del gold, o convención de NUBes",
+    "otra": "Otra"
+  },
+  "atribucion": "Los fragmentos vienen del corpus NUBes (Lima López S, Perez N, Cuadros M, Rigau G. NUBes: A Corpus of Negation and Uncertainty in Spanish Clinical Texts. LREC 2020, pp. 5772-5781; https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus, commit 91c81c1), con licencia CC BY-SA 3.0 ES (https://creativecommons.org/licenses/by-sa/3.0/es/). Se citan recortados, sin otros cambios.",
+  "discrepancias": [
+    {
+      "frase": "sample-004.urolo.progr:8",
+      "inicio": 114,
+      "fin": 132,
+      "mencion": "infeccion urinaria",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "negativizacion de",
+      "contexto": "analisis de orina en su Residencia habitual el día 28 de Marzo , para valorar negativizacion de la infeccion urinaria .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.sugen.progr:9",
+      "inicio": 171,
+      "fin": 206,
+      "mencion": "ulcus con un vaso central sangrante",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "cede",
+      "contexto": "lo que se realiza cirugía urgente , identificándose el ulcus con un vaso central sangrante , que cede mediante sutura .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.traum.chico:6",
+      "inicio": 91,
+      "fin": 97,
+      "mencion": "quiste",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "desaparicion del",
+      "contexto": "Al ingreso , el paciente refiere traumatismo reciente en dicho dedo , con desaparicion del quiste .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.neuro.progr:92",
+      "inicio": 197,
+      "fin": 264,
+      "mencion": "lesión estructural parenquimatosa cerebral en relación a un infarto",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "no",
+      "contexto": "gen , la presencia de una lesión estructural parenquimatosa cerebral en relación a un infarto establecido que justifique",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.homho.progr:21",
+      "inicio": 395,
+      "fin": 411,
+      "mencion": "isquemia crónica",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "cede",
+      "contexto": "s ( calor a ratos ) en relación a disestesia por su isquemia crónica , que no precisa analgesia de rescate y que cede es",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.neuro.progr:33",
+      "inicio": 138,
+      "fin": 146,
+      "mencion": "arritmia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "reversión de",
+      "contexto": "de los días subsiguientes se produjo la reversión de la arritmia encontrándose el paciente en el momento del alta en rit",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.neuro.progr:92",
+      "inicio": 27,
+      "fin": 44,
+      "mencion": "flutter auricular",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "revirtio",
+      "contexto": "En urgencias presentaba un flutter auricular , desconocido hasta entonces y que revirtio espontanemente en el curso de l",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.urolo.diate:18",
+      "inicio": 52,
+      "fin": 77,
+      "mencion": "litiasis renal o ureteral",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "negativa",
+      "contexto": "RADIOLOGIA - RX Abdomen simple y oblicuo : negativa litiasis renal o ureteral .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.neuro.preil:28",
+      "inicio": 200,
+      "fin": 208,
+      "mencion": "disfagia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "sin",
+      "contexto": "línica focal neurológica acompañante de tipo diplopia , disfagia , disartria , trastorno motor o sensitivo asociado así",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.homho.preil:11",
+      "inicio": 149,
+      "fin": 179,
+      "mencion": "sindrome intersicial bilateral",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "suspendiendo",
+      "contexto": "r cardiología y ajustado dicho tratamiento ( suspendiendo además la Amiodarona por el sindrome intersicial bilateral ) .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.otorh.preil:42",
+      "inicio": 0,
+      "fin": 10,
+      "mencion": "Ex-fumador",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "Ex-fumador",
+      "contexto": "Ex-fumador desde hace 1 año",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.intme.preil:50",
+      "inicio": 37,
+      "fin": 59,
+      "mencion": "infeccion respiratoira",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "No",
+      "contexto": "No refiere días previos , clínica de infeccion respiratoira , mareo , no fiebre termometrada .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.traum.diate:37",
+      "inicio": 88,
+      "fin": 96,
+      "mencion": "fractura",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "imposible",
+      "contexto": "ual , explorar la bipedestación y la marcha debido a la fractura que ha sufrido la paciente , lo que probablemente afect",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.otorh.chico:28",
+      "inicio": 538,
+      "fin": 571,
+      "mencion": "edema de paladar y de aritenoides",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "desaparecido",
+      "contexto": "oy al mediodia de nuevo ha desaparecido el edema de paladar y de aritenoides , periste la molestia al tragar.En tto con",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.cardi.preil:23",
+      "inicio": 60,
+      "fin": 71,
+      "mencion": "hipotensión",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "suspende",
+      "contexto": "Le pautaron diuréticos , seguril 1/2 comp y lo suspende por hipotensión .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.homho.preil:14",
+      "inicio": 225,
+      "fin": 246,
+      "mencion": "engrosamiento pleurla",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "otusion discal C7-D1 y TAC toráx de octubre de 2006 que no reveló patología salvo un engrosamiento pleurla apical dcho .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.sugen.progr:86",
+      "inicio": 125,
+      "fin": 133,
+      "mencion": "lesiones",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "epetición de gastroscopia en 1-2 meses para control de las úlceras antrales y descartar definitivamente otras lesiones .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.otorh.chico:6",
+      "inicio": 57,
+      "fin": 82,
+      "mencion": "amigdalitis de repetición",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "2 años , sin antecedentes MQx de interés salvo amigdalitis de repetición ( pendiente de consulta con ORL para valorar am",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.cardi.progr:20",
+      "inicio": 61,
+      "fin": 83,
+      "mencion": "hiperplasia prostatica",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "No refiere antecedentes patologicos significativos solamente hiperplasia prostatica .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.cardi.preil:43",
+      "inicio": 166,
+      "fin": 192,
+      "mencion": "traumatismo en zona costal",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "érdida de conocimiento , sin náuseas ni vómitos posterioresy traumatismo en zona costal derecha , sin disnea posterior .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.cardi.chico:17",
+      "inicio": 85,
+      "fin": 93,
+      "mencion": "arritmia",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "bilidades ni ingesta habitual de farmacos salvo un episodio de arritmia ( que no recuerda el tipo ) hace 31 años atras .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.neuro.preil:16",
+      "inicio": 125,
+      "fin": 135,
+      "mencion": "meningitis",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "cedentes de interés que ingresa procedente del Sº de Urgencias donde fue remitido por su MAP para descartar meningitis .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.sugen.progr:52",
+      "inicio": 183,
+      "fin": 205,
+      "mencion": "obstrucción intestinal",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "reinterviene descartándose dehiscencia y hallando obstrucción intestinal y pequeña colección a nivel del muñón rectal .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.shosu.progr:4",
+      "inicio": 104,
+      "fin": 175,
+      "mencion": "infarto probablemente de corta evolución en territorio de ACM izquierda",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "te en el que se aprecia infarto probablemente de corta evolución en territorio de ACM izquierda y un infarto lacunar cró",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.cardi.progr:135",
+      "inicio": 73,
+      "fin": 86,
+      "mencion": "broncoespasmo",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "o se inició tratamiento con bisoprolol que no tolera por intenso broncoespasmo que es lo que origina el ingreso actual .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.cardi.progr:114",
+      "inicio": 33,
+      "fin": 50,
+      "mencion": "episodio sincopal",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "Actualmente no anticoagulado por episodio sincopal en febrero , se reevaluara atc , el pac se encuentra permanentemente",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.traum.preil:82",
+      "inicio": 44,
+      "fin": 63,
+      "mencion": "en territorio L5-S1",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "Parestesias en pie izquierdo no continuadas en territorio L5-S1 Con antecedentes de accidente laboral .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.homho.chico:29",
+      "inicio": 175,
+      "fin": 190,
+      "mencion": "abceso hepático",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "para completar 3 semanas de tratamiento con Tazozel 4gr/8h/ev mediante cadd por abceso hepático con cultivos negativos .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.shosu.phyex:35",
+      "inicio": 50,
+      "fin": 71,
+      "mencion": "eventracion abdominal",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "Abdomen : Blando y depresible , sin peritonismo , eventracion abdominal con palpacion de asas intestinales .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.traum.preil:50",
+      "inicio": 45,
+      "fin": 80,
+      "mencion": "psoriasis no lumbalgia Aftas orales",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "Además episodios de dolor en las muñecas. no psoriasis no lumbalgia Aftas orales ocasionales , no dolorosas .",
+      "categoria": null,
+      "nota": ""
+    }
+  ]
+}

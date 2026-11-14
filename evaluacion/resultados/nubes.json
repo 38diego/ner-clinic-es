@@ -1,0 +1,605 @@
+{
+  "corpus": {
+    "nombre": "NUBes",
+    "commit": "91c81c1f5eee2b5b9d377cc78c2442e8e8b198a1",
+    "sha256_zip": "cd3cea101057660560cb423afa7152c6d2996953524e141c96af97fcd4a7983e",
+    "licencia": "CC BY-SA 3.0 ES",
+    "muestras": [
+      "SAMPLE-001",
+      "SAMPLE-002",
+      "SAMPLE-003",
+      "SAMPLE-004",
+      "SAMPLE-005",
+      "SAMPLE-006",
+      "SAMPLE-007",
+      "SAMPLE-008",
+      "SAMPLE-009",
+      "SAMPLE-010"
+    ],
+    "limite": null,
+    "frases": 29682,
+    "frases_con_negacion": 7552,
+    "frases_con_incertidumbre": 2218,
+    "regiones": {
+      "incertidumbre": 2601,
+      "negacion": 9634
+    }
+  },
+  "fecha": "2026-11-02T01:52:52Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "023127e82c1966453d070839fdbbda009b75cfd3",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "metodo": {
+    "unidad": "mención de entidad del pipeline",
+    "analisis": "frase por frase, con la caché del modelo llenada por lotes",
+    "cobertura": "al menos la mitad de la mención dentro de la región; manda la más corta",
+    "negmormarker": "la palabra misma cuenta como región de negación",
+    "negada": "P/R/F1 sobre las menciones esperadas negada o afirmada"
+  },
+  "menciones_evaluadas": 12378,
+  "frases_con_menciones": 9474,
+  "matriz": {
+    "negada": {
+      "confirmada": 282,
+      "negada": 871,
+      "familiar": 2
+    },
+    "incierta": {
+      "confirmada": 1086,
+      "negada": 199,
+      "familiar": 3
+    },
+    "afirmada": {
+      "confirmada": 9766,
+      "negada": 155,
+      "familiar": 14
+    }
+  },
+  "negada": {
+    "precision": 0.8489,
+    "recall": 0.7541,
+    "f1": 0.7987,
+    "ic95": {
+      "precision": [
+        0.8256,
+        0.87
+      ],
+      "recall": [
+        0.7287,
+        0.78
+      ],
+      "f1": [
+        0.7788,
+        0.8173
+      ]
+    },
+    "vp": 871,
+    "fp": 155,
+    "fn": 284
+  },
+  "negada_por_muestra": {
+    "SAMPLE-001": {
+      "precision": 0.8587,
+      "recall": 0.8404,
+      "f1": 0.8495,
+      "vp": 79,
+      "fp": 13,
+      "fn": 15
+    },
+    "SAMPLE-002": {
+      "precision": 0.8818,
+      "recall": 0.7951,
+      "f1": 0.8362,
+      "vp": 97,
+      "fp": 13,
+      "fn": 25
+    },
+    "SAMPLE-003": {
+      "precision": 0.8058,
+      "recall": 0.7217,
+      "f1": 0.7615,
+      "vp": 83,
+      "fp": 20,
+      "fn": 32
+    },
+    "SAMPLE-004": {
+      "precision": 0.8482,
+      "recall": 0.7422,
+      "f1": 0.7917,
+      "vp": 95,
+      "fp": 17,
+      "fn": 33
+    },
+    "SAMPLE-005": {
+      "precision": 0.8372,
+      "recall": 0.7742,
+      "f1": 0.8045,
+      "vp": 72,
+      "fp": 14,
+      "fn": 21
+    },
+    "SAMPLE-006": {
+      "precision": 0.79,
+      "recall": 0.7383,
+      "f1": 0.7633,
+      "vp": 79,
+      "fp": 21,
+      "fn": 28
+    },
+    "SAMPLE-007": {
+      "precision": 0.8482,
+      "recall": 0.7308,
+      "f1": 0.7851,
+      "vp": 95,
+      "fp": 17,
+      "fn": 35
+    },
+    "SAMPLE-008": {
+      "precision": 0.8515,
+      "recall": 0.6719,
+      "f1": 0.7511,
+      "vp": 86,
+      "fp": 15,
+      "fn": 42
+    },
+    "SAMPLE-009": {
+      "precision": 0.875,
+      "recall": 0.7712,
+      "f1": 0.8198,
+      "vp": 91,
+      "fp": 13,
+      "fn": 27
+    },
+    "SAMPLE-010": {
+      "precision": 0.8868,
+      "recall": 0.7833,
+      "f1": 0.8319,
+      "vp": 94,
+      "fp": 12,
+      "fn": 26
+    }
+  },
+  "salio_familiar": 19,
+  "por_texto": {
+    "menciones_que_cambian": 23,
+    "transiciones": {
+      "confirmada->negada": 9,
+      "confirmada->familiar": 1,
+      "negada->confirmada": 13
+    },
+    "aciertan_por_texto": 2,
+    "aciertan_por_posicion": 18,
+    "metricas_por_posicion": {
+      "precision": 0.8547,
+      "recall": 0.7636,
+      "f1": 0.8066,
+      "vp": 882,
+      "fp": 150,
+      "fn": 273
+    }
+  },
+  "tiempos": {
+    "segundos_inferencia": 5.43,
+    "segundos_analisis": 24.38,
+    "lote": 256
+  },
+  "cache": {
+    "aciertos": 59355,
+    "fallos": 0,
+    "llamadas": 0
+  },
+  "memoria_pico_mib": 55.1,
+  "categorias": {
+    "clave_no_reconocida": "El pipeline tiene la clave, pero no en esta forma («descartó»)",
+    "clave_ausente": "Clave que el pipeline no tiene",
+    "alcance_mal_cortado": "Alcance mal cortado: la negación llega muy lejos o se queda corta",
+    "por_texto": "Clasificación por texto: la misma palabra está negada en otra parte",
+    "disparador_falso": "Disparador falso: la clave está dentro de otra palabra o de un nombre",
+    "error_gold": "Error u omisión del gold, o convención de NUBes",
+    "otra": "Otra"
+  },
+  "atribucion": "Los fragmentos vienen del corpus NUBes (Lima López S, Perez N, Cuadros M, Rigau G. NUBes: A Corpus of Negation and Uncertainty in Spanish Clinical Texts. LREC 2020, pp. 5772-5781; https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus, commit 91c81c1), con licencia CC BY-SA 3.0 ES (https://creativecommons.org/licenses/by-sa/3.0/es/). Se citan recortados, sin otros cambios.",
+  "discrepancias": [
+    {
+      "frase": "sample-005.shosu.progr:57",
+      "inicio": 35,
+      "fin": 42,
+      "mencion": "derrame",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "no",
+      "contexto": "En el momento del alta no presenta derrame , la rodilla esta fria sin dolor a la movilización y camina sin dificultad co",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«presenta» es barrera justo después de «no»: el bloque negado queda vacío (#61)."
+    },
+    {
+      "frase": "sample-003.intme.progr:104",
+      "inicio": 29,
+      "fin": 32,
+      "mencion": "TEP",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "Se descartó",
+      "contexto": "Se descartó la existencia de TEP .",
+      "categoria": "clave_no_reconocida",
+      "nota": "«descartó»: el pipeline solo tiene «descartado/a» y «se descarta»."
+    },
+    {
+      "frase": "sample-009.neuro.preil:32",
+      "inicio": 39,
+      "fin": 47,
+      "mencion": "diplopía",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "En ninguna de las 2 ocasiones",
+      "contexto": "En ninguna de las 2 ocasiones presentó diplopía , disartria , disfagia , alteración motora o sensitiva a ningún nivel ni",
+      "categoria": "clave_ausente",
+      "nota": "«En ninguna de las 2 ocasiones»: «ninguno/a» no está entre las claves."
+    },
+    {
+      "frase": "sample-001.traum.chico:33",
+      "inicio": 126,
+      "fin": 135,
+      "mencion": "fracturas",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "descartan",
+      "contexto": "vical , torácico , abdominal y pélvico ) que descartan fracturas , ha estado en observación hasta entonces , y le han tr",
+      "categoria": "clave_no_reconocida",
+      "nota": "«descartan»: forma de «descartar» que el pipeline no tiene."
+    },
+    {
+      "frase": "sample-003.urolo.progr:18",
+      "inicio": 68,
+      "fin": 88,
+      "mencion": "diverticulitis aguda",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "descartando",
+      "contexto": "Valorada por el servicio de Cirugia General , descartando cuadro de diverticulitis aguda .",
+      "categoria": "clave_no_reconocida",
+      "nota": "«descartando»: forma de «descartar» que el pipeline no tiene."
+    },
+    {
+      "frase": "sample-007.cardi.progr:4",
+      "inicio": 205,
+      "fin": 231,
+      "mencion": "trastorno de la conduccion",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "nunca",
+      "contexto": "pre con un ritmo normal y nunca se pudo constatar en estos episodios alguna bradiarritmia o trastorno de la conduccion .",
+      "categoria": "clave_ausente",
+      "nota": "«nunca» no está entre las claves."
+    },
+    {
+      "frase": "sample-001.intme.progr:85",
+      "inicio": 49,
+      "fin": 52,
+      "mencion": "TEP",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "descartó",
+      "contexto": "Se realizó AngioTAC que descartó la presencia de TEP .",
+      "categoria": "clave_no_reconocida",
+      "nota": "«descartó»: forma de «descartar» que el pipeline no tiene."
+    },
+    {
+      "frase": "sample-009.neuro.progr:131",
+      "inicio": 183,
+      "fin": 239,
+      "mencion": "lesiones hemorrágicas en relación al traumatismo craneal",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "han descartado",
+      "contexto": "rtado , desde el punto de vista neurológico , la presencia de lesiones hemorrágicas en relación al traumatismo craneal .",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«descartado» dispara, pero la coma de «, desde el punto de vista ,» corta el bloque."
+    },
+    {
+      "frase": "sample-008.intme.preil:50",
+      "inicio": 37,
+      "fin": 59,
+      "mencion": "infeccion respiratoira",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "No",
+      "contexto": "No refiere días previos , clínica de infeccion respiratoira , mareo , no fiebre termometrada .",
+      "categoria": "alcance_mal_cortado",
+      "nota": "Enumeración: la coma corta la negación antes de llegar a la mención (#62)."
+    },
+    {
+      "frase": "sample-010.sugen.progr:113",
+      "inicio": 31,
+      "fin": 45,
+      "mencion": "complicaciones",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "descarta",
+      "contexto": "Se realiza TAC AP que descarta complicaciones intraabdominales .",
+      "categoria": "clave_no_reconocida",
+      "nota": "«descarta» sin «se»: el pipeline solo tiene «se descarta»."
+    },
+    {
+      "frase": "sample-007.cardi.progr:4",
+      "inicio": 189,
+      "fin": 202,
+      "mencion": "bradiarritmia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "nunca",
+      "contexto": "pre con un ritmo normal y nunca se pudo constatar en estos episodios alguna bradiarritmia o trastorno de la conduccion .",
+      "categoria": "clave_ausente",
+      "nota": "«nunca» no está entre las claves."
+    },
+    {
+      "frase": "sample-004.neuro.preil:93",
+      "inicio": 197,
+      "fin": 206,
+      "mencion": "disartria",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "sin",
+      "contexto": "el paciente habla , sin cefalea , diplopia , fotofobia , disartria , disfagia ni otra clinica neurológica acompañante .",
+      "categoria": "alcance_mal_cortado",
+      "nota": "Enumeración tras «sin»: la coma corta la negación en el primer elemento (#62)."
+    },
+    {
+      "frase": "sample-007.neuro.progr:90",
+      "inicio": 222,
+      "fin": 233,
+      "mencion": "traumatismo",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "han descartado",
+      "contexto": "han descartado la presencia de lesiones estructurales intracraneales o del estuche óseo en relacion con el traumatismo .",
+      "categoria": "error_gold",
+      "nota": "El gold extiende el alcance de «han descartado» hasta «el traumatismo», que sí ocurrió."
+    },
+    {
+      "frase": "sample-004.otorh.progr:19",
+      "inicio": 12,
+      "fin": 20,
+      "mencion": "disfagia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "No",
+      "contexto": "No presenta disfagia constantes OK .",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«presenta» es barrera justo después de «No»: el bloque negado queda vacío (#61)."
+    },
+    {
+      "frase": "sample-010.neuro.progr:50",
+      "inicio": 102,
+      "fin": 111,
+      "mencion": "neoplasia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "descartó",
+      "contexto": "Para ello , se amplió el estudio mediante un TAC toraco-abdómino-pélvico que descartó la presencia de neoplasia oculta .",
+      "categoria": "clave_no_reconocida",
+      "nota": "«descartó»: forma de «descartar» que el pipeline no tiene."
+    },
+    {
+      "frase": "sample-003.intcu.preil:74",
+      "inicio": 156,
+      "fin": 167,
+      "mencion": "Fx 2 costal",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "sin alteraciones de patologia aguda ) TAC toracico : Fx 2 costal derecha , Fx costal izquierda con minimo neumotorax co",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«sin» sigue negando después de «)» y «:», hasta la siguiente coma."
+    },
+    {
+      "frase": "sample-002.urolo.progr:44",
+      "inicio": 279,
+      "fin": 305,
+      "mencion": "hemorragia post quirurgica",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "uscular - Clasificación TNM : pT1 G-3 Presento hemorragia post quirurgica que obligo a reingreso colocando sonda vesical",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«no se observa» sigue negando después de «-» y «:» y alcanza otra oración."
+    },
+    {
+      "frase": "sample-006.traum.preil:56",
+      "inicio": 80,
+      "fin": 152,
+      "mencion": "xerostomía ni xeroftalmia No aftas orales No fotosensibilidad No Raynaud",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "n varias horas de autobús mejorando después. no xerostomía ni xeroftalmia No aftas orales No fotosensibilidad No Raynaud",
+      "categoria": "otra",
+      "nota": "El pipeline fusiona cuatro enfermedades negadas en una mención; ninguna región gold cubre la mitad, así que el cruce la toma como afirmada. Artefacto de la fusión."
+    },
+    {
+      "frase": "sample-001.traum.progr:39",
+      "inicio": 35,
+      "fin": 60,
+      "mencion": "poliartritis seronegativa",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "M. Interna : paciente que presenta poliartritis seronegativa ( FR negativo ) que ingresa de forma programada para artrop",
+      "categoria": "disparador_falso",
+      "nota": "«seronegativa» contiene «negativa»: el patrón hacia atrás niega toda la frase."
+    },
+    {
+      "frase": "sample-006.cardi.progr:135",
+      "inicio": 73,
+      "fin": 86,
+      "mencion": "broncoespasmo",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "o se inició tratamiento con bisoprolol que no tolera por intenso broncoespasmo que es lo que origina el ingreso actual .",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«no tolera» sigue negando la causa («por intenso broncoespasmo»)."
+    },
+    {
+      "frase": "sample-006.cardi.progr:58",
+      "inicio": 101,
+      "fin": 118,
+      "mencion": "flutter auricular",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "ica : Paciente no cardiopata conocido sin sintomas cardiacos que ingresa por flutter auricular de inicio indeterminado .",
+      "categoria": "alcance_mal_cortado",
+      "nota": "La negación de «sin síntomas» llega hasta el motivo de ingreso: no corta en «que»."
+    },
+    {
+      "frase": "sample-002.traum.preil:46",
+      "inicio": 46,
+      "fin": 57,
+      "mencion": "traumatismo",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "No refiere dolor inguinal ni de EID previo al traumatismo .",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«No refiere dolor ... ni ... previo al traumatismo»: el alcance incluye el traumatismo."
+    },
+    {
+      "frase": "sample-001.urolo.progr:21",
+      "inicio": 94,
+      "fin": 116,
+      "mencion": "úlceras de los talones",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "tado NEGATIVOS para SARM Al momento presente las úlceras de los talones están pr ´ scticamente curadas , persistiendo la",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«NEGATIVOS para» sigue negando la oración siguiente, que no tiene punto."
+    },
+    {
+      "frase": "sample-004.homho.progr:53",
+      "inicio": 96,
+      "fin": 104,
+      "mencion": "disfagia",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "o con Lactulosa ( duphalac ) Al ingreso en HaD presenta disfagia que se resuelve de forma progresiva sin que precise tra",
+      "categoria": "alcance_mal_cortado",
+      "nota": "El patrón hacia atrás de «negativos» niega toda la oración larga, sin comas."
+    },
+    {
+      "frase": "sample-002.traum.diate:31",
+      "inicio": 377,
+      "fin": 397,
+      "mencion": "hematoma subcapsular",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "rior de región interpolar se identifica otra área de contusión o laceración que asocia un pequeño hematoma subcapsular .",
+      "categoria": "alcance_mal_cortado",
+      "nota": "«no alcanza» sigue negando después de «;»."
+    },
+    {
+      "frase": "sample-010.homho.chico:32",
+      "inicio": 170,
+      "fin": 195,
+      "mencion": "Espondilodiscitis por SCN",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "ndovenosa durante un mes con Daptomicina 700/24h/ev , por Espondilodiscitis por SCN ( Stafilococo Coagulasa Negativo ) .",
+      "categoria": "disparador_falso",
+      "nota": "«Coagulasa Negativo» es parte del nombre del germen; el patrón hacia atrás niega la enfermedad."
+    },
+    {
+      "frase": "sample-005.ginec.surhi:31",
+      "inicio": 45,
+      "fin": 64,
+      "mencion": "atrofia endometrial",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "Histeroscopia : sin hallazgos significativos atrofia endometrial",
+      "categoria": "alcance_mal_cortado",
+      "nota": "Falta puntuación entre «sin hallazgos significativos» y «atrofia endometrial»."
+    },
+    {
+      "frase": "sample-005.traum.progr:10",
+      "inicio": 288,
+      "fin": 313,
+      "mencion": "artritis en dicho tobillo",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "ie izquierdo observándose signos de importante artritis en dicho tobillo ; se habia iniciado tratamiento con augmentine",
+      "categoria": "alcance_mal_cortado",
+      "nota": "El patrón hacia atrás de «negativos» niega toda la oración (el «;» no corta)."
+    },
+    {
+      "frase": "sample-010.intme.progr:13",
+      "inicio": 93,
+      "fin": 102,
+      "mencion": "infección",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "caso de persistir episodios de fiebre sin evidencia de infección y con estudio de liquido pleural anodino nos plantearem",
+      "categoria": "error_gold",
+      "nota": "Condicional («en caso de persistir... sin evidencia de infección»): las guías de NUBes no anotan negación en condicionales."
+    },
+    {
+      "frase": "sample-003.intcu.preil:3",
+      "inicio": 90,
+      "fin": 132,
+      "mencion": "traumatismo por caida de unas 10 escaleras",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "eres Acude a servicio de urgencias por traumatismo por caida de unas 10 escaleras.Paciente anticoagulado con sintrom por",
+      "categoria": "alcance_mal_cortado",
+      "nota": "Falta el punto entre «sin antecedentes» y «Acude...»: la negación llega al motivo."
+    }
+  ]
+}

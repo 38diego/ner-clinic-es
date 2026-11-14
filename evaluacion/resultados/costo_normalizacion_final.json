@@ -1,0 +1,152 @@
+{
+  "fecha": "2026-11-08T04:06:18Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "38347598c526ef5e72249ffbb53aa5e4a077c913",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "docker_run": {
+    "cpus": "2",
+    "memoria": "4g"
+  },
+  "notas": "DisTEMIST test de más de 2.000 caracteres, recortadas a 2.000; sin texto aquí",
+  "indice": {
+    "filas": 101626,
+    "catalogo": "138cc25f4a41f525d6a38149150f3a3836c89464718d39aad15ea20a726617f0",
+    "bytes": 314434722
+  },
+  "indice_final": {
+    "filas": 104289,
+    "catalogo": "138cc25f4a41f525d6a38149150f3a3836c89464718d39aad15ea20a726617f0",
+    "bytes": 322643874
+  },
+  "base": {
+    "carga_s": 2.5,
+    "entidades": 1084,
+    "pipeline": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.348,
+      "p95_s": 0.443,
+      "max_s": 1.155,
+      "ms_por_1000_caracteres": 185.5
+    },
+    "total": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.348,
+      "p95_s": 0.443,
+      "max_s": 1.155,
+      "ms_por_1000_caracteres": 185.5
+    },
+    "memoria_pico_mib": 363,
+    "imagen": {
+      "nombre": "ner-clinic-es",
+      "id": "sha256:8f28f1e17950d852ac49f502993378484e9acc227a3c8bab1996e61318cbee71",
+      "tamano_mb": 856
+    }
+  },
+  "candidata": {
+    "carga_s": 5.3,
+    "entidades": 1084,
+    "pipeline": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.344,
+      "p95_s": 0.415,
+      "max_s": 0.94,
+      "ms_por_1000_caracteres": 180.7
+    },
+    "total": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.486,
+      "p95_s": 0.795,
+      "max_s": 1.156,
+      "ms_por_1000_caracteres": 257.5
+    },
+    "memoria_pico_mib": 1037,
+    "sin_segunda_etapa": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.486,
+      "p95_s": 0.795,
+      "max_s": 1.155,
+      "ms_por_1000_caracteres": 257.3
+    },
+    "segunda_etapa": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.0,
+      "p95_s": 0.0,
+      "max_s": 0.001,
+      "ms_por_1000_caracteres": 0.1
+    },
+    "imagen": {
+      "nombre": "ner-clinic-es-normalizacion",
+      "id": "sha256:f11256c47a5b351cefc3305e184c43a56d104a1c0ccaf023b0b7a31da5850f48",
+      "tamano_mb": 2020
+    }
+  },
+  "final": {
+    "carga_s": 5.3,
+    "entidades": 1084,
+    "pipeline": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.345,
+      "p95_s": 0.419,
+      "max_s": 0.982,
+      "ms_por_1000_caracteres": 181.5
+    },
+    "total": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.486,
+      "p95_s": 0.864,
+      "max_s": 1.156,
+      "ms_por_1000_caracteres": 260.4
+    },
+    "memoria_pico_mib": 1045,
+    "sin_segunda_etapa": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.485,
+      "p95_s": 0.861,
+      "max_s": 1.154,
+      "ms_por_1000_caracteres": 259.8
+    },
+    "segunda_etapa": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.001,
+      "p95_s": 0.002,
+      "max_s": 0.003,
+      "ms_por_1000_caracteres": 0.6
+    },
+    "imagen": {
+      "nombre": "ner-clinic-es-normalizacion-final",
+      "id": "sha256:5753cf0ab0fb5d3656739e774efa80edd48b9078c6e8940ada70003c97cf032f",
+      "tamano_mb": 2027
+    }
+  }
+}

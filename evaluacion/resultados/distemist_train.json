@@ -1,0 +1,128 @@
+{
+  "particion": "train",
+  "fecha": "2026-10-30T03:28:36Z",
+  "limite": null,
+  "documentos": 750,
+  "menciones_gold": 8065,
+  "bootstrap": {
+    "replicas": 1000,
+    "semilla": 0,
+    "nivel": 0.95
+  },
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "30d984864f8cf390a9d5fbc145fa53c895240858",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "variantes": {
+    "crudo": {
+      "estricto": {
+        "precision": 0.8601,
+        "recall": 0.8686,
+        "f1": 0.8643,
+        "ic95": {
+          "precision": [
+            0.8487,
+            0.8714
+          ],
+          "recall": [
+            0.8579,
+            0.8788
+          ],
+          "f1": [
+            0.854,
+            0.8744
+          ]
+        },
+        "vp": 7005,
+        "fp": 1139,
+        "fn": 1060
+      },
+      "laxo": {
+        "precision": 0.9377,
+        "recall": 0.9469,
+        "f1": 0.9423,
+        "ic95": {
+          "precision": [
+            0.9314,
+            0.9442
+          ],
+          "recall": [
+            0.9403,
+            0.9531
+          ],
+          "f1": [
+            0.9376,
+            0.9469
+          ]
+        },
+        "vp": 7637,
+        "fp": 507,
+        "fn": 428
+      }
+    },
+    "pipeline": {
+      "estricto": {
+        "precision": 0.8389,
+        "recall": 0.7593,
+        "f1": 0.7971,
+        "ic95": {
+          "precision": [
+            0.8284,
+            0.8492
+          ],
+          "recall": [
+            0.7466,
+            0.7706
+          ],
+          "f1": [
+            0.7867,
+            0.8072
+          ]
+        },
+        "vp": 6124,
+        "fp": 1176,
+        "fn": 1941
+      },
+      "laxo": {
+        "precision": 0.9542,
+        "recall": 0.8637,
+        "f1": 0.9067,
+        "ic95": {
+          "precision": [
+            0.9484,
+            0.96
+          ],
+          "recall": [
+            0.8538,
+            0.873
+          ],
+          "f1": [
+            0.9003,
+            0.9126
+          ]
+        },
+        "vp": 6966,
+        "fp": 334,
+        "fn": 1099
+      }
+    }
+  },
+  "tiempos": null,
+  "segundos_variantes": 596.11,
+  "cache": {
+    "aciertos": 1285,
+    "fallos": 1285,
+    "llamadas": 750
+  },
+  "memoria_pico_mib": 1043.7
+}

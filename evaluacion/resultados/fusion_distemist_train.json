@@ -1,0 +1,248 @@
+{
+  "particion": "train",
+  "fecha": "2026-11-08T19:40:32Z",
+  "limite": null,
+  "documentos": 750,
+  "menciones_gold": 8065,
+  "bootstrap": {
+    "replicas": 1000,
+    "semilla": 0,
+    "nivel": 0.95
+  },
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "c0fd035eb45e50dc45237f78b49a82a3b2a3ba01",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "variantes": {
+    "pipeline": {
+      "estricto": {
+        "precision": 0.8403,
+        "recall": 0.7792,
+        "f1": 0.8086,
+        "ic95": {
+          "precision": [
+            0.8299,
+            0.8503
+          ],
+          "recall": [
+            0.7672,
+            0.79
+          ],
+          "f1": [
+            0.7984,
+            0.8186
+          ]
+        },
+        "vp": 6284,
+        "fp": 1194,
+        "fn": 1781
+      },
+      "laxo": {
+        "precision": 0.9537,
+        "recall": 0.8843,
+        "f1": 0.9177,
+        "ic95": {
+          "precision": [
+            0.9477,
+            0.9595
+          ],
+          "recall": [
+            0.8757,
+            0.8925
+          ],
+          "f1": [
+            0.9117,
+            0.9229
+          ]
+        },
+        "vp": 7132,
+        "fp": 346,
+        "fn": 933
+      }
+    },
+    "fusion_barreras": {
+      "estricto": {
+        "precision": 0.8648,
+        "recall": 0.8303,
+        "f1": 0.8472,
+        "ic95": {
+          "precision": [
+            0.8544,
+            0.8747
+          ],
+          "recall": [
+            0.8184,
+            0.8414
+          ],
+          "f1": [
+            0.8374,
+            0.8568
+          ]
+        },
+        "vp": 6696,
+        "fp": 1047,
+        "fn": 1369
+      },
+      "laxo": {
+        "precision": 0.9496,
+        "recall": 0.9117,
+        "f1": 0.9303,
+        "ic95": {
+          "precision": [
+            0.9435,
+            0.9555
+          ],
+          "recall": [
+            0.9031,
+            0.9197
+          ],
+          "f1": [
+            0.9247,
+            0.9354
+          ]
+        },
+        "vp": 7353,
+        "fp": 390,
+        "fn": 712
+      }
+    },
+    "sin_fusion": {
+      "estricto": {
+        "precision": 0.8664,
+        "recall": 0.8529,
+        "f1": 0.8596,
+        "ic95": {
+          "precision": [
+            0.8558,
+            0.8775
+          ],
+          "recall": [
+            0.8419,
+            0.8637
+          ],
+          "f1": [
+            0.8502,
+            0.8693
+          ]
+        },
+        "vp": 6879,
+        "fp": 1061,
+        "fn": 1186
+      },
+      "laxo": {
+        "precision": 0.9402,
+        "recall": 0.9256,
+        "f1": 0.9328,
+        "ic95": {
+          "precision": [
+            0.9337,
+            0.9466
+          ],
+          "recall": [
+            0.9172,
+            0.9335
+          ],
+          "f1": [
+            0.9271,
+            0.9381
+          ]
+        },
+        "vp": 7465,
+        "fp": 475,
+        "fn": 600
+      }
+    }
+  },
+  "contra_pipeline": {
+    "fusion_barreras": {
+      "estricto": {
+        "diferencia_f1": 0.0386,
+        "ic95": {
+          "precision": [
+            0.0201,
+            0.0291
+          ],
+          "recall": [
+            0.0446,
+            0.058
+          ],
+          "f1": [
+            0.0331,
+            0.0443
+          ]
+        }
+      },
+      "laxo": {
+        "diferencia_f1": 0.0126,
+        "ic95": {
+          "precision": [
+            -0.0058,
+            -0.0026
+          ],
+          "recall": [
+            0.0241,
+            0.031
+          ],
+          "f1": [
+            0.0107,
+            0.0146
+          ]
+        }
+      }
+    },
+    "sin_fusion": {
+      "estricto": {
+        "diferencia_f1": 0.051,
+        "ic95": {
+          "precision": [
+            0.0199,
+            0.0322
+          ],
+          "recall": [
+            0.0657,
+            0.0819
+          ],
+          "f1": [
+            0.044,
+            0.0579
+          ]
+        }
+      },
+      "laxo": {
+        "diferencia_f1": 0.0151,
+        "ic95": {
+          "precision": [
+            -0.0166,
+            -0.0108
+          ],
+          "recall": [
+            0.0373,
+            0.0454
+          ],
+          "f1": [
+            0.0124,
+            0.0177
+          ]
+        }
+      }
+    }
+  },
+  "tiempos": null,
+  "segundos_variantes": 12.75,
+  "cache": {
+    "aciertos": 3855,
+    "fallos": 0,
+    "llamadas": 0
+  },
+  "memoria_pico_mib": 238.2
+}

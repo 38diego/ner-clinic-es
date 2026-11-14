@@ -1,0 +1,1737 @@
+{
+  "fecha": "2026-11-09T02:01:50Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "6d59ff89fc0a89c155874a297cfb1dfe43f63156",
+    "cambios_sin_commitear": true,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "limite": null,
+  "variantes": [
+    "original",
+    "minusculas",
+    "minusculas_sin_tildes",
+    "errores_5",
+    "errores_10"
+  ],
+  "distemist": null,
+  "sintetico": {
+    "notas": 100,
+    "ruta": "evaluacion/sintetico/notas.jsonl",
+    "sha256": "a9d7045ec22468041a72cd9e43a8243fbea72eb02839026b2461f57d593f73b1",
+    "semilla_desarrollo": 0,
+    "semillas": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "variantes": {
+      "original": {
+        "notas_con_indice": 100,
+        "indice_exacto": 98,
+        "indice_a_1": 98,
+        "categorias": {
+          "encontradas": 127,
+          "esperadas": 131,
+          "recall": 0.9695,
+          "sobrantes": 2
+        },
+        "errores": [
+          {
+            "nota": "sin007",
+            "indice": [
+              4,
+              2
+            ],
+            "faltan": [
+              "renal_cronica"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin012",
+            "indice": [
+              7,
+              7
+            ],
+            "faltan": [
+              "tumor_maligno"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin036",
+            "indice": [
+              6,
+              6
+            ],
+            "faltan": [
+              "tumor_maligno"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin038",
+            "indice": [
+              1,
+              3
+            ],
+            "faltan": [],
+            "sobran": [
+              "hemiplejia"
+            ]
+          },
+          {
+            "nota": "sin048",
+            "indice": [
+              3,
+              3
+            ],
+            "faltan": [
+              "hepatica_leve"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin089",
+            "indice": [
+              2,
+              2
+            ],
+            "faltan": [],
+            "sobran": [
+              "diabetes"
+            ]
+          }
+        ],
+        "segundos": 0.18
+      },
+      "minusculas": {
+        "notas_con_indice": 100,
+        "indice_exacto": 95,
+        "indice_a_1": 96,
+        "categorias": {
+          "encontradas": 126,
+          "esperadas": 131,
+          "recall": 0.9618,
+          "sobrantes": 3
+        },
+        "errores": [
+          {
+            "nota": "sin007",
+            "indice": [
+              4,
+              2
+            ],
+            "faltan": [
+              "renal_cronica"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin012",
+            "indice": [
+              7,
+              7
+            ],
+            "faltan": [
+              "tumor_maligno"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin018",
+            "indice": [
+              4,
+              3
+            ],
+            "faltan": [
+              "infarto_miocardio"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin036",
+            "indice": [
+              6,
+              6
+            ],
+            "faltan": [
+              "tumor_maligno"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin038",
+            "indice": [
+              1,
+              3
+            ],
+            "faltan": [],
+            "sobran": [
+              "hemiplejia"
+            ]
+          },
+          {
+            "nota": "sin064",
+            "indice": [
+              7,
+              1
+            ],
+            "faltan": [
+              "vih_sida"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin089",
+            "indice": [
+              2,
+              2
+            ],
+            "faltan": [],
+            "sobran": [
+              "diabetes"
+            ]
+          },
+          {
+            "nota": "sin098",
+            "indice": [
+              2,
+              4
+            ],
+            "faltan": [],
+            "sobran": [
+              "hemiplejia"
+            ]
+          }
+        ],
+        "segundos": 0.15
+      },
+      "minusculas_sin_tildes": {
+        "notas_con_indice": 100,
+        "indice_exacto": 96,
+        "indice_a_1": 97,
+        "categorias": {
+          "encontradas": 127,
+          "esperadas": 131,
+          "recall": 0.9695,
+          "sobrantes": 3
+        },
+        "errores": [
+          {
+            "nota": "sin007",
+            "indice": [
+              4,
+              2
+            ],
+            "faltan": [
+              "renal_cronica"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin012",
+            "indice": [
+              7,
+              7
+            ],
+            "faltan": [
+              "tumor_maligno"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin018",
+            "indice": [
+              4,
+              3
+            ],
+            "faltan": [
+              "infarto_miocardio"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin036",
+            "indice": [
+              6,
+              6
+            ],
+            "faltan": [
+              "tumor_maligno"
+            ],
+            "sobran": []
+          },
+          {
+            "nota": "sin038",
+            "indice": [
+              1,
+              3
+            ],
+            "faltan": [],
+            "sobran": [
+              "hemiplejia"
+            ]
+          },
+          {
+            "nota": "sin089",
+            "indice": [
+              2,
+              2
+            ],
+            "faltan": [],
+            "sobran": [
+              "diabetes"
+            ]
+          },
+          {
+            "nota": "sin098",
+            "indice": [
+              2,
+              4
+            ],
+            "faltan": [],
+            "sobran": [
+              "hemiplejia"
+            ]
+          }
+        ],
+        "segundos": 0.19
+      },
+      "errores_5": {
+        "semilla_0": {
+          "notas_con_indice": 100,
+          "indice_exacto": 97,
+          "indice_a_1": 98,
+          "categorias": {
+            "encontradas": 126,
+            "esperadas": 131,
+            "recall": 0.9618,
+            "sobrantes": 2
+          },
+          "errores": [
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin052",
+              "indice": [
+                1,
+                0
+              ],
+              "faltan": [
+                "vascular_periferica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            }
+          ],
+          "segundos": 0.19
+        },
+        "semilla_1": {
+          "notas_con_indice": 100,
+          "indice_exacto": 94,
+          "indice_a_1": 97,
+          "categorias": {
+            "encontradas": 125,
+            "esperadas": 131,
+            "recall": 0.9542,
+            "sobrantes": 4
+          },
+          "errores": [
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin034",
+              "indice": [
+                0,
+                1
+              ],
+              "faltan": [],
+              "sobran": [
+                "pulmonar_cronica"
+              ]
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin037",
+              "indice": [
+                1,
+                0
+              ],
+              "faltan": [
+                "reumatologica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin075",
+              "indice": [
+                3,
+                2
+              ],
+              "faltan": [
+                "pulmonar_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            }
+          ],
+          "segundos": 0.21
+        },
+        "semilla_2": {
+          "notas_con_indice": 100,
+          "indice_exacto": 96,
+          "indice_a_1": 96,
+          "categorias": {
+            "encontradas": 126,
+            "esperadas": 131,
+            "recall": 0.9618,
+            "sobrantes": 3
+          },
+          "errores": [
+            {
+              "nota": "sin006",
+              "indice": [
+                6,
+                0
+              ],
+              "faltan": [
+                "vih_sida"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            }
+          ],
+          "segundos": 0.17
+        },
+        "semilla_3": {
+          "notas_con_indice": 100,
+          "indice_exacto": 95,
+          "indice_a_1": 97,
+          "categorias": {
+            "encontradas": 126,
+            "esperadas": 131,
+            "recall": 0.9618,
+            "sobrantes": 4
+          },
+          "errores": [
+            {
+              "nota": "sin001",
+              "indice": [
+                2,
+                1
+              ],
+              "faltan": [
+                "pulmonar_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin099",
+              "indice": [
+                6,
+                7
+              ],
+              "faltan": [],
+              "sobran": [
+                "hepatica_leve"
+              ]
+            }
+          ],
+          "segundos": 0.17
+        },
+        "semilla_4": {
+          "notas_con_indice": 100,
+          "indice_exacto": 95,
+          "indice_a_1": 96,
+          "categorias": {
+            "encontradas": 126,
+            "esperadas": 131,
+            "recall": 0.9618,
+            "sobrantes": 4
+          },
+          "errores": [
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin050",
+              "indice": [
+                0,
+                1
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin064",
+              "indice": [
+                7,
+                1
+              ],
+              "faltan": [
+                "vih_sida"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            }
+          ],
+          "segundos": 0.22
+        },
+        "semilla_5": {
+          "notas_con_indice": 100,
+          "indice_exacto": 97,
+          "indice_a_1": 97,
+          "categorias": {
+            "encontradas": 127,
+            "esperadas": 131,
+            "recall": 0.9695,
+            "sobrantes": 3
+          },
+          "errores": [
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            }
+          ],
+          "segundos": 0.2
+        }
+      },
+      "errores_10": {
+        "semilla_0": {
+          "notas_con_indice": 100,
+          "indice_exacto": 93,
+          "indice_a_1": 95,
+          "categorias": {
+            "encontradas": 124,
+            "esperadas": 131,
+            "recall": 0.9466,
+            "sobrantes": 4
+          },
+          "errores": [
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin029",
+              "indice": [
+                6,
+                0
+              ],
+              "faltan": [
+                "vih_sida"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin043",
+              "indice": [
+                2,
+                1
+              ],
+              "faltan": [
+                "diabetes_complicada"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin044",
+              "indice": [
+                6,
+                2
+              ],
+              "faltan": [
+                "tumor_metastasico"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin099",
+              "indice": [
+                6,
+                7
+              ],
+              "faltan": [],
+              "sobran": [
+                "hepatica_leve"
+              ]
+            }
+          ],
+          "segundos": 0.21
+        },
+        "semilla_1": {
+          "notas_con_indice": 100,
+          "indice_exacto": 93,
+          "indice_a_1": 97,
+          "categorias": {
+            "encontradas": 123,
+            "esperadas": 131,
+            "recall": 0.9389,
+            "sobrantes": 4
+          },
+          "errores": [
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin016",
+              "indice": [
+                1,
+                0
+              ],
+              "faltan": [
+                "reumatologica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin037",
+              "indice": [
+                1,
+                0
+              ],
+              "faltan": [
+                "reumatologica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin042",
+              "indice": [
+                1,
+                0
+              ],
+              "faltan": [
+                "vascular_periferica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin075",
+              "indice": [
+                3,
+                2
+              ],
+              "faltan": [
+                "pulmonar_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                10
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia",
+                "tumor_metastasico"
+              ]
+            }
+          ],
+          "segundos": 0.19
+        },
+        "semilla_2": {
+          "notas_con_indice": 100,
+          "indice_exacto": 93,
+          "indice_a_1": 96,
+          "categorias": {
+            "encontradas": 125,
+            "esperadas": 131,
+            "recall": 0.9542,
+            "sobrantes": 4
+          },
+          "errores": [
+            {
+              "nota": "sin006",
+              "indice": [
+                6,
+                0
+              ],
+              "faltan": [
+                "vih_sida"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin016",
+              "indice": [
+                1,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "hepatica_leve"
+              ]
+            },
+            {
+              "nota": "sin018",
+              "indice": [
+                4,
+                3
+              ],
+              "faltan": [
+                "infarto_miocardio"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin052",
+              "indice": [
+                1,
+                0
+              ],
+              "faltan": [
+                "vascular_periferica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            }
+          ],
+          "segundos": 0.24
+        },
+        "semilla_3": {
+          "notas_con_indice": 100,
+          "indice_exacto": 92,
+          "indice_a_1": 97,
+          "categorias": {
+            "encontradas": 123,
+            "esperadas": 131,
+            "recall": 0.9389,
+            "sobrantes": 4
+          },
+          "errores": [
+            {
+              "nota": "sin001",
+              "indice": [
+                2,
+                1
+              ],
+              "faltan": [
+                "pulmonar_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin019",
+              "indice": [
+                3,
+                2
+              ],
+              "faltan": [
+                "vascular_periferica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin052",
+              "indice": [
+                1,
+                0
+              ],
+              "faltan": [
+                "vascular_periferica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin070",
+              "indice": [
+                0,
+                1
+              ],
+              "faltan": [],
+              "sobran": [
+                "reumatologica"
+              ]
+            },
+            {
+              "nota": "sin077",
+              "indice": [
+                3,
+                2
+              ],
+              "faltan": [
+                "insuficiencia_cardiaca"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            }
+          ],
+          "segundos": 0.17
+        },
+        "semilla_4": {
+          "notas_con_indice": 100,
+          "indice_exacto": 92,
+          "indice_a_1": 94,
+          "categorias": {
+            "encontradas": 126,
+            "esperadas": 131,
+            "recall": 0.9618,
+            "sobrantes": 6
+          },
+          "errores": [
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                2
+              ],
+              "faltan": [
+                "renal_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin016",
+              "indice": [
+                1,
+                8
+              ],
+              "faltan": [],
+              "sobran": [
+                "hepatica_leve",
+                "vih_sida"
+              ]
+            },
+            {
+              "nota": "sin029",
+              "indice": [
+                6,
+                0
+              ],
+              "faltan": [
+                "vih_sida"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin064",
+              "indice": [
+                7,
+                1
+              ],
+              "faltan": [
+                "vih_sida"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin077",
+              "indice": [
+                3,
+                2
+              ],
+              "faltan": [
+                "pulmonar_cronica"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin099",
+              "indice": [
+                6,
+                7
+              ],
+              "faltan": [],
+              "sobran": [
+                "hepatica_leve"
+              ]
+            }
+          ],
+          "segundos": 0.15
+        },
+        "semilla_5": {
+          "notas_con_indice": 100,
+          "indice_exacto": 95,
+          "indice_a_1": 97,
+          "categorias": {
+            "encontradas": 126,
+            "esperadas": 131,
+            "recall": 0.9618,
+            "sobrantes": 4
+          },
+          "errores": [
+            {
+              "nota": "sin007",
+              "indice": [
+                4,
+                3
+              ],
+              "faltan": [
+                "diabetes_complicada"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin012",
+              "indice": [
+                7,
+                7
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin016",
+              "indice": [
+                1,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "hepatica_leve"
+              ]
+            },
+            {
+              "nota": "sin036",
+              "indice": [
+                6,
+                6
+              ],
+              "faltan": [
+                "tumor_maligno"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin038",
+              "indice": [
+                1,
+                3
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            },
+            {
+              "nota": "sin048",
+              "indice": [
+                3,
+                3
+              ],
+              "faltan": [
+                "hepatica_leve"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin071",
+              "indice": [
+                6,
+                0
+              ],
+              "faltan": [
+                "vih_sida"
+              ],
+              "sobran": []
+            },
+            {
+              "nota": "sin089",
+              "indice": [
+                2,
+                2
+              ],
+              "faltan": [],
+              "sobran": [
+                "diabetes"
+              ]
+            },
+            {
+              "nota": "sin098",
+              "indice": [
+                2,
+                4
+              ],
+              "faltan": [],
+              "sobran": [
+                "hemiplejia"
+              ]
+            }
+          ],
+          "segundos": 0.15
+        }
+      }
+    }
+  },
+  "cache": {
+    "aciertos": 1500,
+    "fallos": 0,
+    "llamadas": 0
+  }
+}

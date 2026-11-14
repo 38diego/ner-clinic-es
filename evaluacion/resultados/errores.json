@@ -1,0 +1,1871 @@
+{
+  "atribucion": "Los fragmentos de contexto vienen del corpus DisTEMIST (Miranda-Escalada A, Gascó L, Lima-López S, et al. Overview of DisTEMIST at BioASQ: Automatic detection and normalization of diseases from clinical texts. CEUR Workshop Proceedings 3180, 2022; https://doi.org/10.5281/zenodo.7614764), con licencia CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Se citan sin cambios, recortados.",
+  "particion": "test",
+  "variante": "pipeline",
+  "modo": "estricto",
+  "semilla": 46,
+  "poblacion": {
+    "FP": 667,
+    "FN": 905
+  },
+  "categorias": {
+    "limite_span": "Límite del span: sobra o falta texto",
+    "sintoma_no_anotado": "Síntoma o hallazgo que el gold no anota",
+    "sigla": "Sigla",
+    "error_gold": "Error o inconsistencia del gold",
+    "ruido": "Ruido real (no es enfermedad)",
+    "no_detectada": "Enfermedad no detectada",
+    "fusion_indebida": "Fusión indebida",
+    "perdida_deduplicacion": "Mención perdida en la deduplicación",
+    "otra": "Otra"
+  },
+  "conteo": {
+    "limite_span": {
+      "FP": 21,
+      "FN": 20
+    },
+    "sintoma_no_anotado": {
+      "FP": 8,
+      "FN": 0
+    },
+    "sigla": {
+      "FP": 0,
+      "FN": 2
+    },
+    "error_gold": {
+      "FP": 2,
+      "FN": 1
+    },
+    "ruido": {
+      "FP": 3,
+      "FN": 0
+    },
+    "no_detectada": {
+      "FP": 0,
+      "FN": 11
+    },
+    "fusion_indebida": {
+      "FP": 16,
+      "FN": 12
+    },
+    "otra": {
+      "FP": 0,
+      "FN": 4
+    }
+  },
+  "fp_acierto_laxo": 39,
+  "revisar": [
+    "FN-17",
+    "FN-34",
+    "FN-44",
+    "FN-50",
+    "FP-03",
+    "FP-05",
+    "FP-11",
+    "FP-26",
+    "FP-31",
+    "FP-47"
+  ],
+  "errores": [
+    {
+      "id": "FP-01",
+      "tipo": "FP",
+      "documento": "es-S0210-48062007001000004-1",
+      "inicio": 1244,
+      "fin": 1293,
+      "texto": "carcinoma embrionario de testículo derecho T3N2M0",
+      "gold_solapado": [
+        {
+          "inicio": 1244,
+          "fin": 1278,
+          "texto": "carcinoma embrionario de testículo"
+        }
+      ],
+      "contexto": "lcanza albugínea. Diagnosticado de carcinoma embrionario de testículo derecho T3N2M0, estadio II con riesgo intermedio p",
+      "categoria": "fusion_indebida",
+      "nota": "El modelo da 'carcinoma embrionario de testículo' y una 'M' suelta; la fusión las une sobre 'derecho T3N2'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-02",
+      "tipo": "FP",
+      "documento": "es-S1130-01082008000200010-1",
+      "inicio": 3175,
+      "fin": 3191,
+      "texto": "trombosis portal",
+      "gold_solapado": [
+        {
+          "inicio": 3175,
+          "fin": 3200,
+          "texto": "trombosis portal primaria"
+        }
+      ],
+      "contexto": "odos los cambios hepáticos fuesen secundarios a una trombosis portal primaria se realizó un estudio de hipercoagulabilid",
+      "categoria": "limite_span",
+      "nota": "Falta 'primaria'; el modelo crudo da el mismo span.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-03",
+      "tipo": "FP",
+      "documento": "es-S0004-06142008000400013-1",
+      "inicio": 983,
+      "fin": 1044,
+      "texto": "adenopatías regionales ni implantes metastásicos peritoneales",
+      "gold_solapado": [
+        {
+          "inicio": 983,
+          "fin": 1005,
+          "texto": "adenopatías regionales"
+        },
+        {
+          "inicio": 1009,
+          "fin": 1044,
+          "texto": "implantes metastásicos peritoneales"
+        }
+      ],
+      "contexto": "contraste. No se observaron adenopatías regionales ni implantes metastásicos peritoneales. Con la sospecha diagnóstica",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa bien las dos menciones negadas; la fusión las une sobre ' ni '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-04",
+      "tipo": "FP",
+      "documento": "es-S1139-76322015000300013-1",
+      "inicio": 788,
+      "fin": 801,
+      "texto": "y del sistema",
+      "gold_solapado": [
+        {
+          "inicio": 733,
+          "fin": 818,
+          "texto": "efectos secundarios cardiovasculares, anticolinérgicos y del sistema nervioso central"
+        }
+      ],
+      "contexto": "ectos secundarios cardiovasculares, anticolinérgicos y del sistema nervioso central. Durante las primeras 12 horas, la p",
+      "categoria": "limite_span",
+      "nota": "Trozo de una mención gold larga ('efectos secundarios ... sistema nervioso central'); viene del modelo.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-05",
+      "tipo": "FP",
+      "documento": "es-S1138-123X2004000100006-2",
+      "inicio": 405,
+      "fin": 425,
+      "texto": "incompetencia labial",
+      "gold_solapado": [],
+      "contexto": "ertical. En la valoración miofuncional se observó incompetencia labial. Dado el carácter desfavorable del caso, se optó",
+      "categoria": "sintoma_no_anotado",
+      "nota": "Hallazgo de exploración miofuncional que el gold no anota.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-06",
+      "tipo": "FP",
+      "documento": "es-S0365-66912005001100010-2",
+      "inicio": 891,
+      "fin": 934,
+      "texto": "Degeneración elastótica actínica del corión",
+      "gold_solapado": [],
+      "contexto": "al, observándose escaso pleomorfismo. Degeneración elastótica actínica del corión y escaso infiltrado inflamatorio cróni",
+      "categoria": "sintoma_no_anotado",
+      "nota": "Hallazgo histológico que el gold no anota.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-07",
+      "tipo": "FP",
+      "documento": "es-S1888-75462015000400006-1",
+      "inicio": 1771,
+      "fin": 1791,
+      "texto": "edema óseo en cadera",
+      "gold_solapado": [
+        {
+          "inicio": 1744,
+          "fin": 1791,
+          "texto": "alteración subcondral, con edema óseo en cadera"
+        },
+        {
+          "inicio": 1785,
+          "fin": 1844,
+          "texto": "cadera derecha, con irregularidad cortical y leve sinovitis"
+        }
+      ],
+      "contexto": "que se visualiza leve alteración subcondral, con edema óseo en cadera derecha, con irregularidad cortical y leve sinovi",
+      "categoria": "error_gold",
+      "nota": "El gold anota dos spans solapados y raros ('...con edema óseo en cadera' y 'cadera derecha, con...'); el span predicho es razonable.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-08",
+      "tipo": "FP",
+      "documento": "es-S1134-80462009000500006-1",
+      "inicio": 2738,
+      "fin": 2783,
+      "texto": "estenosis mitral severa con fuga perivalvular",
+      "gold_solapado": [
+        {
+          "inicio": 2738,
+          "fin": 2761,
+          "texto": "estenosis mitral severa"
+        },
+        {
+          "inicio": 2766,
+          "fin": 2783,
+          "texto": "fuga perivalvular"
+        }
+      ],
+      "contexto": "ron una dilatación ventricular y una estenosis mitral severa con fuga perivalvular y elevado gradiente de presiones. El",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'estenosis mitral severa' y 'fuga perivalvular' (las dos en el gold); la fusión las une sobre ' con '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-09",
+      "tipo": "FP",
+      "documento": "es-S0212-16112010000600024-1",
+      "inicio": 2206,
+      "fin": 2221,
+      "texto": "hipoproteinemia",
+      "gold_solapado": [
+        {
+          "inicio": 2206,
+          "fin": 2229,
+          "texto": "hipoproteinemia severas"
+        }
+      ],
+      "contexto": "ción calórico-proteica grave, con hipoalbuminemia e hipoproteinemia severas (albúmina 1.4 g/dL y proteina 3.7 g/dL), dec",
+      "categoria": "limite_span",
+      "nota": "Falta 'severas'; mismo span en el crudo.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-10",
+      "tipo": "FP",
+      "documento": "es-S1137-66272016000300010-1",
+      "inicio": 1693,
+      "fin": 1784,
+      "texto": "proceso obstructivo de tracto digestivo superior frente a un trastorno motor (gastroparesia",
+      "gold_solapado": [
+        {
+          "inicio": 1693,
+          "fin": 1741,
+          "texto": "proceso obstructivo de tracto digestivo superior"
+        },
+        {
+          "inicio": 1754,
+          "fin": 1769,
+          "texto": "trastorno motor"
+        },
+        {
+          "inicio": 1771,
+          "fin": 1784,
+          "texto": "gastroparesia"
+        }
+      ],
+      "contexto": "de un posible proceso obstructivo de tracto digestivo superior frente a un trastorno motor (gastroparesia) se decide rea",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da las tres menciones del gold; la fusión las une sobre ' frente a un ' y ' ('.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-11",
+      "tipo": "FP",
+      "documento": "es-S1135-76062005000100002-1",
+      "inicio": 2133,
+      "fin": 2158,
+      "texto": "HSD frontotemporoparietal",
+      "gold_solapado": [
+        {
+          "inicio": 2109,
+          "fin": 2166,
+          "texto": "cavidad craneal aparece HSD frontotemporoparietal derecho"
+        },
+        {
+          "inicio": 2133,
+          "fin": 2136,
+          "texto": "HSD"
+        }
+      ],
+      "contexto": "l anillo mitral. En la cavidad craneal aparece HSD frontotemporoparietal derecho constituido por sangre coagulada oscura",
+      "categoria": "limite_span",
+      "nota": "Sobra 'frontotemporoparietal'; el gold anota 'HSD' y un span largo con 'derecho'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-12",
+      "tipo": "FP",
+      "documento": "es-S0004-06142008000300012-1",
+      "inicio": 2394,
+      "fin": 2410,
+      "texto": "edema periportal",
+      "gold_solapado": [],
+      "contexto": "con retardo e la llegada de contraste a las mismas, edema periportal, bazo y páncreas atigrado y abundante líquido libre",
+      "categoria": "sintoma_no_anotado",
+      "nota": "Hallazgo de imagen que el gold no anota (sí anota 'hepatomegalia' al lado).",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-13",
+      "tipo": "FP",
+      "documento": "es-S0004-06142008000300012-1",
+      "inicio": 2256,
+      "fin": 2290,
+      "texto": "congestión hepática: hepatomegalia",
+      "gold_solapado": [
+        {
+          "inicio": 2256,
+          "fin": 2275,
+          "texto": "congestión hepática"
+        },
+        {
+          "inicio": 2277,
+          "fin": 2290,
+          "texto": "hepatomegalia"
+        }
+      ],
+      "contexto": "permeables. Existen imágenes sugestivas de congestión hepática: hepatomegalia, aumento de calibre de vena porta y suprah",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'congestión hepática' y 'hepatomegalia'; la fusión las une sobre ': '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-14",
+      "tipo": "FP",
+      "documento": "es-S0210-48062006000700012-1",
+      "inicio": 1045,
+      "fin": 1053,
+      "texto": "orina en",
+      "gold_solapado": [],
+      "contexto": "l y transperineal, en las que se evidencia presencia de orina en vejiga y un absceso multiloculado prostático. Sin contr",
+      "categoria": "ruido",
+      "nota": "'orina en' (vejiga) no es una enfermedad; viene del modelo.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-15",
+      "tipo": "FP",
+      "documento": "es-S0376-78922011000500012-1",
+      "inicio": 1026,
+      "fin": 1091,
+      "texto": "necrosis plantar izquierda con amplia escara en zona muda plantar",
+      "gold_solapado": [
+        {
+          "inicio": 1026,
+          "fin": 1042,
+          "texto": "necrosis plantar"
+        },
+        {
+          "inicio": 1064,
+          "fin": 1091,
+          "texto": "escara en zona muda plantar"
+        }
+      ],
+      "contexto": "e mayor relevancia existía necrosis plantar izquierda con amplia escara en zona muda plantar que fue desbridada en sala",
+      "categoria": "limite_span",
+      "nota": "El gold separa 'necrosis plantar' y 'escara en zona muda plantar'; el modelo da un solo span.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-16",
+      "tipo": "FP",
+      "documento": "es-S1887-85712016000100005-1",
+      "inicio": 2428,
+      "fin": 2447,
+      "texto": "lesiones vasculares",
+      "gold_solapado": [
+        {
+          "inicio": 2428,
+          "fin": 2486,
+          "texto": "lesiones vasculares con signos de sangrado activo arterial"
+        }
+      ],
+      "contexto": "del ligamento anular del carpo. No se observaron lesiones vasculares con signos de sangrado activo arterial. Para el ci",
+      "categoria": "limite_span",
+      "nota": "Falta 'con signos de sangrado activo arterial' (mención negada).",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-17",
+      "tipo": "FP",
+      "documento": "es-S0210-48062004000200011-1",
+      "inicio": 2070,
+      "fin": 2105,
+      "texto": "linfoma difuso B de células grandes",
+      "gold_solapado": [
+        {
+          "inicio": 2042,
+          "fin": 2105,
+          "texto": "testículo está afectado por linfoma difuso B de células grandes"
+        }
+      ],
+      "contexto": "ópicamente el testículo está afectado por linfoma difuso B de células grandes, con alto índice de proliferación (minb1 >",
+      "categoria": "limite_span",
+      "nota": "El gold empieza en 'testículo está afectado por'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-18",
+      "tipo": "FP",
+      "documento": "es-S0211-69952012000700028-1",
+      "inicio": 3040,
+      "fin": 3074,
+      "texto": "nefropatía de cambios mínimos (NCM",
+      "gold_solapado": [
+        {
+          "inicio": 3040,
+          "fin": 3069,
+          "texto": "nefropatía de cambios mínimos"
+        },
+        {
+          "inicio": 3071,
+          "fin": 3074,
+          "texto": "NCM"
+        }
+      ],
+      "contexto": "ían lesiones». El diagnóstico final fue de nefropatía de cambios mínimos (NCM). Con los hallazgos de la biopsia se incre",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'nefropatía de cambios mínimos' y 'NCM'; la fusión los une y deja '(NCM' sin cerrar.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-19",
+      "tipo": "FP",
+      "documento": "es-S1135-76062013000200010-1",
+      "inicio": 2777,
+      "fin": 2877,
+      "texto": "shock hemorrágico secundario a una rotura espontánea hepática, provocada por un hematoma subcapsular",
+      "gold_solapado": [
+        {
+          "inicio": 2777,
+          "fin": 2794,
+          "texto": "shock hemorrágico"
+        },
+        {
+          "inicio": 2777,
+          "fin": 2838,
+          "texto": "shock hemorrágico secundario a una rotura espontánea hepática"
+        },
+        {
+          "inicio": 2812,
+          "fin": 2838,
+          "texto": "rotura espontánea hepática"
+        },
+        {
+          "inicio": 2857,
+          "fin": 2877,
+          "texto": "hematoma subcapsular"
+        }
+      ],
+      "contexto": "muerte un shock hemorrágico secundario a una rotura espontánea hepática, provocada por un hematoma subcapsular en el con",
+      "categoria": "limite_span",
+      "nota": "El gold anota spans anidados; el modelo da uno más largo que llega a 'hematoma subcapsular'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-20",
+      "tipo": "FP",
+      "documento": "es-S0376-78922008000400008-1",
+      "inicio": 1245,
+      "fin": 1313,
+      "texto": "rash exantemático instalado en dirección céfalo-caudal máculopapular",
+      "gold_solapado": [
+        {
+          "inicio": 1245,
+          "fin": 1262,
+          "texto": "rash exantemático"
+        }
+      ],
+      "contexto": "ua con placa blanquecina, rash exantemático instalado en dirección céfalo-caudal máculopapular, no pruriginoso, con sign",
+      "categoria": "limite_span",
+      "nota": "Sobra 'instalado en dirección céfalo-caudal máculopapular'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-21",
+      "tipo": "FP",
+      "documento": "es-S1134-80462015000200005-1",
+      "inicio": 1097,
+      "fin": 1127,
+      "texto": "avulsión ósea del borde iliaco",
+      "gold_solapado": [
+        {
+          "inicio": 1097,
+          "fin": 1140,
+          "texto": "avulsión ósea del borde iliaco superomedial"
+        }
+      ],
+      "contexto": "articulación sacroiliaca derecha con pequeña avulsión ósea del borde iliaco superomedial, y disminución del grosor de lo",
+      "categoria": "limite_span",
+      "nota": "Falta 'superomedial'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-22",
+      "tipo": "FP",
+      "documento": "es-S0376-78922015000400012-1",
+      "inicio": 557,
+      "fin": 565,
+      "texto": "luxación",
+      "gold_solapado": [
+        {
+          "inicio": 557,
+          "fin": 610,
+          "texto": "luxación a través del trazo de fractura del semilunar"
+        }
+      ],
+      "contexto": "tiloides radial, una fractura del hueso semilunar y una luxación a través del trazo de fractura del semilunar. El fragme",
+      "categoria": "limite_span",
+      "nota": "Falta 'a través del trazo de fractura del semilunar'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-23",
+      "tipo": "FP",
+      "documento": "es-S0210-48062009000600012-1",
+      "inicio": 3549,
+      "fin": 3592,
+      "texto": "Neumocisti carinii secundario al Fludarabin",
+      "gold_solapado": [],
+      "contexto": "b), como tratamiento profiláctico del Neumocisti carinii secundario al Fludarabin, siguió tratamiento con Seprin (Trimet",
+      "categoria": "ruido",
+      "nota": "Profilaxis de Pneumocystis: nombra un microorganismo, no una enfermedad presente.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-24",
+      "tipo": "FP",
+      "documento": "es-S1130-01082008000200010-1",
+      "inicio": 1551,
+      "fin": 1576,
+      "texto": "derrame pleural izquierdo",
+      "gold_solapado": [
+        {
+          "inicio": 1551,
+          "fin": 1566,
+          "texto": "derrame pleural"
+        }
+      ],
+      "contexto": "A su vez se objetivó esplenomegalia, ascitis y derrame pleural izquierdo de escasa cuantía. Por otro lado, existía una t",
+      "categoria": "limite_span",
+      "nota": "Sobra la lateralidad 'izquierdo'; el gold no la incluye aquí.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-25",
+      "tipo": "FP",
+      "documento": "es-S1130-05582013000400005-1",
+      "inicio": 1762,
+      "fin": 1831,
+      "texto": "melanoma mucoso epitelioide infiltrante con áreas de melanoma in situ",
+      "gold_solapado": [
+        {
+          "inicio": 1762,
+          "fin": 1801,
+          "texto": "melanoma mucoso epitelioide infiltrante"
+        },
+        {
+          "inicio": 1815,
+          "fin": 1831,
+          "texto": "melanoma in situ"
+        }
+      ],
+      "contexto": "studio diferido informa: melanoma mucoso epitelioide infiltrante con áreas de melanoma in situ. Resección incompleta en",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa las dos menciones del gold; la fusión las une sobre ' con áreas de '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-26",
+      "tipo": "FP",
+      "documento": "es-S1130-01082006000900014-1",
+      "inicio": 139,
+      "fin": 183,
+      "texto": "ulcus duodenal con hemorragia digestiva alta",
+      "gold_solapado": [
+        {
+          "inicio": 139,
+          "fin": 153,
+          "texto": "ulcus duodenal"
+        },
+        {
+          "inicio": 158,
+          "fin": 183,
+          "texto": "hemorragia digestiva alta"
+        }
+      ],
+      "contexto": ", destacar trombosis venosa profunda, ulcus duodenal con hemorragia digestiva alta y cardiopatía isquémica en tratamient",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'ulcus duodenal' y 'hemorragia digestiva alta'; la fusión las une sobre ' con '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-27",
+      "tipo": "FP",
+      "documento": "es-S0212-16112011000300031-1",
+      "inicio": 1502,
+      "fin": 1559,
+      "texto": "estómago de retención ni alteraciones hidroelectrolíticas",
+      "gold_solapado": [
+        {
+          "inicio": 1502,
+          "fin": 1523,
+          "texto": "estómago de retención"
+        },
+        {
+          "inicio": 1527,
+          "fin": 1559,
+          "texto": "alteraciones hidroelectrolíticas"
+        }
+      ],
+      "contexto": "evolución la paciente presentó estómago de retención ni alteraciones hidroelectrolíticas. En enero de 2010, con 42,6 kg,",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa las dos menciones negadas; la fusión las une sobre ' ni '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-28",
+      "tipo": "FP",
+      "documento": "es-S1130-05582010000200004-1",
+      "inicio": 140,
+      "fin": 146,
+      "texto": "T2N0M0",
+      "gold_solapado": [
+        {
+          "inicio": 144,
+          "fin": 146,
+          "texto": "M0"
+        }
+      ],
+      "contexto": "la cara lateral derecha de la lengua con estadio clínico T2N0M0. La biopsia se informó como carcinoma epidermoide. La m",
+      "categoria": "error_gold",
+      "nota": "El gold anota 'M0' (sin metástasis) como enfermedad; la expansión completa la 'M' del modelo a 'T2N0M0'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-29",
+      "tipo": "FP",
+      "documento": "es-S1130-05582008000600006-1",
+      "inicio": 1801,
+      "fin": 1819,
+      "texto": "defecto mandibular",
+      "gold_solapado": [],
+      "contexto": "eguidamente se adapta la parte ósea del colgajo al defecto mandibular con ostosíntesis usando la placa de reconstrucción",
+      "categoria": "sintoma_no_anotado",
+      "nota": "Defecto quirúrgico de la mandíbula, que el gold no anota.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-30",
+      "tipo": "FP",
+      "documento": "es-S0210-48062007000300014-1",
+      "inicio": 1958,
+      "fin": 1968,
+      "texto": "varicocele",
+      "gold_solapado": [
+        {
+          "inicio": 1923,
+          "fin": 1968,
+          "texto": "Testículo izquierdo de 4,68 cc con varicocele"
+        }
+      ],
+      "contexto": "trasonido escrotal: Testículo izquierdo de 4,68 cc con varicocele, testículo derecho 10,92 cc, ambos epidídimos normales",
+      "categoria": "limite_span",
+      "nota": "El gold usa el span largo 'Testículo izquierdo de 4,68 cc con varicocele'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-31",
+      "tipo": "FP",
+      "documento": "es-S1130-05582008000400004-1",
+      "inicio": 955,
+      "fin": 977,
+      "texto": "paratiroides agrandada",
+      "gold_solapado": [],
+      "contexto": "ó a hemitiroidectomía derecha con excisión de la paratiroides agrandada y la glándula ipsilateral; se normalizó inmediat",
+      "categoria": "sintoma_no_anotado",
+      "nota": "Hallazgo ('paratiroides agrandada') que el gold no anota.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-32",
+      "tipo": "FP",
+      "documento": "es-S1135-76062013000100008-1",
+      "inicio": 1445,
+      "fin": 1453,
+      "texto": "estómago",
+      "gold_solapado": [],
+      "contexto": "a aérea. El estudio histopatológico diagnosticó, en el estómago, congestión en los vasos de la lámina propia y autólisi",
+      "categoria": "ruido",
+      "nota": "'estómago' solo es un órgano.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-33",
+      "tipo": "FP",
+      "documento": "es-S1699-65852007000300003-1",
+      "inicio": 2838,
+      "fin": 2866,
+      "texto": "pérdida ósea periimplantaria",
+      "gold_solapado": [],
+      "contexto": "a evolución es favorable sin haber presentado pérdida ósea periimplantaria y con mantenimiento de la estética y funciona",
+      "categoria": "sintoma_no_anotado",
+      "nota": "Complicación negada que el gold no anota.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-34",
+      "tipo": "FP",
+      "documento": "es-S0211-57352013000300011-1",
+      "inicio": 2777,
+      "fin": 2795,
+      "texto": "\"Abuso de alcohol\"",
+      "gold_solapado": [
+        {
+          "inicio": 2778,
+          "fin": 2794,
+          "texto": "Abuso de alcohol"
+        }
+      ],
+      "contexto": "síntomas psicóticos congruentes y no congruentes\"; \"Abuso de alcohol\". En febrero de 2012 ingresa en UME para iniciar un",
+      "categoria": "limite_span",
+      "nota": "La expansión de palabras mete las comillas en el span; el crudo acierta ('Abuso de alcohol').",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-35",
+      "tipo": "FP",
+      "documento": "es-S1130-01082009000400015-1",
+      "inicio": 496,
+      "fin": 514,
+      "texto": "formación quística",
+      "gold_solapado": [
+        {
+          "inicio": 496,
+          "fin": 609,
+          "texto": "formación quística de paredes finas y morfología tubular ocupando desde hipocondrio izquierdo hasta vacío derecho"
+        }
+      ],
+      "contexto": "s vías biliares intra- y extrahepáticas y una gran formación quística de paredes finas y morfología tubular ocupando des",
+      "categoria": "limite_span",
+      "nota": "El gold incluye la descripción completa de la formación quística.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-36",
+      "tipo": "FP",
+      "documento": "es-S0365-66912005001100009-2",
+      "inicio": 394,
+      "fin": 443,
+      "texto": "atalamia con hipertonía (desprendimiento coroideo",
+      "gold_solapado": [
+        {
+          "inicio": 394,
+          "fin": 417,
+          "texto": "atalamia con hipertonía"
+        },
+        {
+          "inicio": 419,
+          "fin": 443,
+          "texto": "desprendimiento coroideo"
+        }
+      ],
+      "contexto": "descartar otras posibles causas de atalamia con hipertonía (desprendimiento coroideo, desprendimiento ciliocoroideo anul",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'atalamia', 'hipertonía' y 'desprendimiento coroideo'; la fusión los une sobre ' (' y deja el paréntesis abierto.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-37",
+      "tipo": "FP",
+      "documento": "es-S0376-78922016000200012-1",
+      "inicio": 3522,
+      "fin": 3589,
+      "texto": "enfermedad que afectó a los músculos psoas iliaco y cuadrado lumbar",
+      "gold_solapado": [
+        {
+          "inicio": 3499,
+          "fin": 3589,
+          "texto": "progresión local de la enfermedad que afectó a los músculos psoas iliaco y cuadrado lumbar"
+        }
+      ],
+      "contexto": "os progresión local de la enfermedad que afectó a los músculos psoas iliaco y cuadrado lumbar, y diseminación linfática",
+      "categoria": "limite_span",
+      "nota": "Falta 'progresión local de la'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-38",
+      "tipo": "FP",
+      "documento": "es-S1134-80462005000300004-1",
+      "inicio": 1838,
+      "fin": 1883,
+      "texto": "úlcera duodenal que agravó la hernia de hiato",
+      "gold_solapado": [
+        {
+          "inicio": 1838,
+          "fin": 1853,
+          "texto": "úlcera duodenal"
+        },
+        {
+          "inicio": 1868,
+          "fin": 1883,
+          "texto": "hernia de hiato"
+        }
+      ],
+      "contexto": "el dolor, el paciente desarrolló una úlcera duodenal que agravó la hernia de hiato preexistente y un cuadro de ansiedad",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'úlcera duodenal' y 'hernia de hiato'; la fusión las une sobre ' que agravó la '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-39",
+      "tipo": "FP",
+      "documento": "es-S1130-01082009000900012-1",
+      "inicio": 287,
+      "fin": 330,
+      "texto": "púrpura de Schonleich-Henoch en la infancia",
+      "gold_solapado": [
+        {
+          "inicio": 287,
+          "fin": 315,
+          "texto": "púrpura de Schonleich-Henoch"
+        }
+      ],
+      "contexto": "s destaca: asma bronquial extrínseca, púrpura de Schonleich-Henoch en la infancia, enfermedad de Crohn ileal diagnostica",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo marca 'la infancia' aparte y la fusión lo pega a 'púrpura de Schonleich-Henoch'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-40",
+      "tipo": "FP",
+      "documento": "es-S0365-66912008000700010-1",
+      "inicio": 112,
+      "fin": 159,
+      "texto": "proptosis unilateral con edema blando palpebral",
+      "gold_solapado": [
+        {
+          "inicio": 112,
+          "fin": 121,
+          "texto": "proptosis"
+        }
+      ],
+      "contexto": "(OD). En la exploración presentaba proptosis unilateral con edema blando palpebral, ingurgitación conjuntivo-escleral p",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'proptosis unilateral' y 'edema blando palpebral'; la fusión las une sobre ' con '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-41",
+      "tipo": "FP",
+      "documento": "es-S0212-16112010000600024-1",
+      "inicio": 2682,
+      "fin": 2692,
+      "texto": "caquéctico",
+      "gold_solapado": [],
+      "contexto": "paciente con alto riesgo de sufrir SR, dado su estado caquéctico y los antecedentes personales previamente descritos (p",
+      "categoria": "sintoma_no_anotado",
+      "nota": "Estado ('caquéctico') que el gold no anota.",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-42",
+      "tipo": "FP",
+      "documento": "es-S0211-57352013000300011-1",
+      "inicio": 1466,
+      "fin": 1495,
+      "texto": "Hemorragia Subaracnoidea (HSA",
+      "gold_solapado": [
+        {
+          "inicio": 1466,
+          "fin": 1490,
+          "texto": "Hemorragia Subaracnoidea"
+        },
+        {
+          "inicio": 1492,
+          "fin": 1495,
+          "texto": "HSA"
+        }
+      ],
+      "contexto": "veja negra\" de la familia. En 2009 sufre una Hemorragia Subaracnoidea (HSA). El TAC revela afectación izquierda temporop",
+      "categoria": "fusion_indebida",
+      "nota": "La fusión une 'Hemorragia Subaracnoidea' y la 'H' de la sigla; queda '(HSA' sin cerrar.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-43",
+      "tipo": "FP",
+      "documento": "es-S1139-76322016000300015-1",
+      "inicio": 424,
+      "fin": 443,
+      "texto": "desgarro en la base",
+      "gold_solapado": [
+        {
+          "inicio": 367,
+          "fin": 443,
+          "texto": "cordón umbilical, que tiene aspecto mucoso, y un pequeño desgarro en la base"
+        }
+      ],
+      "contexto": "umbilical, que tiene aspecto mucoso, y un pequeño desgarro en la base del mismo, sin signos de infección local. El resto",
+      "categoria": "limite_span",
+      "nota": "El gold usa un span largo desde 'cordón umbilical'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-44",
+      "tipo": "FP",
+      "documento": "es-S1130-01082005001200011-1",
+      "inicio": 2267,
+      "fin": 2277,
+      "texto": "mioclonias",
+      "gold_solapado": [],
+      "contexto": "seriamente comprometida, debido a la presencia de las mioclonias precisando ayuda para caminar haciéndolo apoyado en ot",
+      "categoria": "sintoma_no_anotado",
+      "nota": "Síntoma neurológico que el gold no anota en esta línea (el documento no tiene gold aquí).",
+      "acierto_laxo": false
+    },
+    {
+      "id": "FP-45",
+      "tipo": "FP",
+      "documento": "es-S1698-69462006000100003-1",
+      "inicio": 1207,
+      "fin": 1225,
+      "texto": "lesiones papulares",
+      "gold_solapado": [
+        {
+          "inicio": 1182,
+          "fin": 1225,
+          "texto": "mucosa está tapizada por lesiones papulares"
+        }
+      ],
+      "contexto": "ndo y lengua fisurada. La mucosa está tapizada por lesiones papulares asintomáticas, redondeadas de bordes definidos, si",
+      "categoria": "limite_span",
+      "nota": "El gold empieza en 'mucosa está tapizada por'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-46",
+      "tipo": "FP",
+      "documento": "es-S0376-78922016000200012-1",
+      "inicio": 2967,
+      "fin": 3035,
+      "texto": "pieza tumoral resecada como sarcoma de la vaina neural de bajo grado",
+      "gold_solapado": [
+        {
+          "inicio": 2995,
+          "fin": 3035,
+          "texto": "sarcoma de la vaina neural de bajo grado"
+        }
+      ],
+      "contexto": "tológico informó sobre la pieza tumoral resecada como sarcoma de la vaina neural de bajo grado, con resección incompleta",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'pieza tumoral' y el sarcoma; la fusión las une sobre ' resecada como '.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-47",
+      "tipo": "FP",
+      "documento": "es-S1130-05582008000400004-5",
+      "inicio": 178,
+      "fin": 203,
+      "texto": "tumores maxilares (de los",
+      "gold_solapado": [
+        {
+          "inicio": 178,
+          "fin": 195,
+          "texto": "tumores maxilares"
+        }
+      ],
+      "contexto": "ncontró hipocalcemia, hiperparatiroidismo, dos tumores maxilares (de los cuadrantes segundo y cuarto) y varios quistes r",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo marca 'de los' aparte y la fusión lo pega a 'tumores maxilares ('.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-48",
+      "tipo": "FP",
+      "documento": "es-S1130-01082008000300010-1",
+      "inicio": 2224,
+      "fin": 2246,
+      "texto": "lesiones endoluminales",
+      "gold_solapado": [
+        {
+          "inicio": 2224,
+          "fin": 2232,
+          "texto": "lesiones"
+        }
+      ],
+      "contexto": "y biopsia transbronquial (BTB): sin objetivarse lesiones endoluminales, ni alteración de la mucosa. Microbiología de BA",
+      "categoria": "limite_span",
+      "nota": "El gold solo anota 'lesiones'; sobra 'endoluminales'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-49",
+      "tipo": "FP",
+      "documento": "es-S0212-71992005001100007-1",
+      "inicio": 2719,
+      "fin": 2791,
+      "texto": "mieloma múltiple en su variante leucemia de células plasmáticas primaria",
+      "gold_solapado": [
+        {
+          "inicio": 2719,
+          "fin": 2735,
+          "texto": "mieloma múltiple"
+        },
+        {
+          "inicio": 2751,
+          "fin": 2791,
+          "texto": "leucemia de células plasmáticas primaria"
+        }
+      ],
+      "contexto": "uadro compatible con un mieloma múltiple en su variante leucemia de células plasmáticas primaria. Tratamiento: Dado la e",
+      "categoria": "limite_span",
+      "nota": "El gold separa 'mieloma múltiple' y la leucemia; el modelo da un solo span.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FP-50",
+      "tipo": "FP",
+      "documento": "es-S1130-01082007001100010-1",
+      "inicio": 683,
+      "fin": 702,
+      "texto": "shunt espleno-renal",
+      "gold_solapado": [
+        {
+          "inicio": 656,
+          "fin": 702,
+          "texto": "circulación colateral y un shunt espleno-renal"
+        }
+      ],
+      "contexto": "stencia de una marcada circulación colateral y un shunt espleno-renal asociado. La paciente mantuvo cifras de amonio per",
+      "categoria": "limite_span",
+      "nota": "El gold incluye 'circulación colateral y un'.",
+      "acierto_laxo": true
+    },
+    {
+      "id": "FN-01",
+      "tipo": "FN",
+      "documento": "es-S0365-66912004001100012-1",
+      "inicio": 809,
+      "fin": 833,
+      "texto": "conjuntivitis membranosa",
+      "prediccion_solapada": [
+        {
+          "inicio": 809,
+          "fin": 858,
+          "texto": "conjuntivitis membranosa con componente exudativo"
+        }
+      ],
+      "contexto": "ológico presenta hiposfagma bilateral superior, conjuntivitis membranosa con componente exudativo y queratopatía superfi",
+      "categoria": "limite_span",
+      "nota": "La predicción sigue con 'con componente exudativo' (el modelo corta 'exuda' y la expansión completa la palabra)."
+    },
+    {
+      "id": "FN-02",
+      "tipo": "FN",
+      "documento": "es-S0365-66912007001000008-1",
+      "inicio": 244,
+      "fin": 276,
+      "texto": "hemorragia occipital parasagital",
+      "prediccion_solapada": [
+        {
+          "inicio": 244,
+          "fin": 284,
+          "texto": "hemorragia occipital parasagital derecha"
+        }
+      ],
+      "contexto": "erecho incipiente. En la TC se objetivó una hemorragia occipital parasagital derecha. Posteriormente se llevaron a cabo",
+      "categoria": "limite_span",
+      "nota": "La predicción incluye 'derecha'."
+    },
+    {
+      "id": "FN-03",
+      "tipo": "FN",
+      "documento": "es-S1137-66272013000100023-1",
+      "inicio": 1588,
+      "fin": 1594,
+      "texto": "lesión",
+      "prediccion_solapada": [
+        {
+          "inicio": 1588,
+          "fin": 1626,
+          "texto": "lesión heterogénea posterior a esófago"
+        }
+      ],
+      "contexto": "gestivo donde se llevó a cabo ecoendoscopia visualizando lesión heterogénea posterior a esófago sin depender de él, toma",
+      "categoria": "limite_span",
+      "nota": "La predicción sigue con 'heterogénea posterior a esófago'."
+    },
+    {
+      "id": "FN-04",
+      "tipo": "FN",
+      "documento": "es-S1137-66272013000200023-1",
+      "inicio": 650,
+      "fin": 683,
+      "texto": "carcinoma plasmocitoide de vejiga",
+      "prediccion_solapada": [
+        {
+          "inicio": 650,
+          "fin": 723,
+          "texto": "carcinoma plasmocitoide de vejiga con invasión de la capa muscular propia"
+        }
+      ],
+      "contexto": "co mediante RTU vesical con diagnóstico de carcinoma plasmocitoide de vejiga con invasión de la capa muscular propia y p",
+      "categoria": "limite_span",
+      "nota": "La predicción sigue con 'con invasión de la capa muscular propia'."
+    },
+    {
+      "id": "FN-05",
+      "tipo": "FN",
+      "documento": "es-S0211-69952013000200019-2",
+      "inicio": 721,
+      "fin": 746,
+      "texto": "proceso vaginal permeable",
+      "prediccion_solapada": [],
+      "contexto": "paso de contraste a testículos a través de un proceso vaginal permeable. Se decide reposo peritoneal y transferencia a",
+      "categoria": "no_detectada",
+      "nota": "Anomalía anatómica que el modelo no marca."
+    },
+    {
+      "id": "FN-06",
+      "tipo": "FN",
+      "documento": "es-S1575-06202010000200004-1",
+      "inicio": 684,
+      "fin": 686,
+      "texto": "TB",
+      "prediccion_solapada": [
+        {
+          "inicio": 642,
+          "fin": 710,
+          "texto": "lesiones cerebrales por toxoplasmosis y/o TB\n- dermatitis seborreica"
+        }
+      ],
+      "contexto": "- TB pulmonar y lesiones cerebrales por toxoplasmosis y/o TB - dermatitis seborreica prácticamente constante En agosto",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'TB'; la fusión lo une con lo anterior y con 'dermatitis seborreica' a través de un salto de línea."
+    },
+    {
+      "id": "FN-07",
+      "tipo": "FN",
+      "documento": "es-S0210-48062007000700014-1",
+      "inicio": 554,
+      "fin": 623,
+      "texto": "hematoma perineal dependiente de porción proximal de cuerpo cavernoso",
+      "prediccion_solapada": [
+        {
+          "inicio": 554,
+          "fin": 571,
+          "texto": "hematoma perineal"
+        }
+      ],
+      "contexto": "tación diagnóstica hacia hematoma perineal dependiente de porción proximal de cuerpo cavernoso izquierdo. En la Resonanc",
+      "categoria": "limite_span",
+      "nota": "La predicción se queda en 'hematoma perineal'."
+    },
+    {
+      "id": "FN-08",
+      "tipo": "FN",
+      "documento": "es-S1130-01082009000500013-1",
+      "inicio": 462,
+      "fin": 469,
+      "texto": "melenas",
+      "prediccion_solapada": [
+        {
+          "inicio": 429,
+          "fin": 469,
+          "texto": "hemorragia digestiva en forma de melenas"
+        }
+      ],
+      "contexto": "sodios recidivantes de hemorragia digestiva en forma de melenas y rectorragias desde abril de 2006. No había anomalías s",
+      "categoria": "otra",
+      "nota": "Mención anidada: el gold anota 'melenas' dentro de 'hemorragia digestiva en forma de melenas y rectorragias'; la salida plana no puede dar las dos."
+    },
+    {
+      "id": "FN-09",
+      "tipo": "FN",
+      "documento": "es-S0212-71992005000400007-1",
+      "inicio": 447,
+      "fin": 459,
+      "texto": "traumatismos",
+      "prediccion_solapada": [
+        {
+          "inicio": 415,
+          "fin": 459,
+          "texto": "hematomas cutáneos ante mínimos traumatismos"
+        }
+      ],
+      "contexto": "parición de múltiples hematomas cutáneos ante mínimos traumatismos. Exploración física: En la exploración física destaca",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'traumatismos' aparte; la fusión lo une a 'hematomas cutáneos ante mínimos'."
+    },
+    {
+      "id": "FN-10",
+      "tipo": "FN",
+      "documento": "es-S1130-05582003000600004-2",
+      "inicio": 1757,
+      "fin": 1760,
+      "texto": "LCG",
+      "prediccion_solapada": [],
+      "contexto": "otocolo descrito anteriormente para el tratamiento de las LCG. La anestesia regional se realizó mediante un bloqueo del",
+      "categoria": "sigla",
+      "nota": "El crudo da 'LCG'; el filtro de longitud del pipeline la descarta (filtro_ninguno la recupera)."
+    },
+    {
+      "id": "FN-11",
+      "tipo": "FN",
+      "documento": "es-S1135-76062005000100002-1",
+      "inicio": 685,
+      "fin": 695,
+      "texto": "anisocoria",
+      "prediccion_solapada": [
+        {
+          "inicio": 685,
+          "fin": 725,
+          "texto": "anisocoria con pupila derecha midriática"
+        }
+      ],
+      "contexto": "enta un deterioro progresivo del nivel de conciencia y anisocoria con pupila derecha midriática, por lo que es trasladad",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'anisocoria' y 'pupila derecha midriática'; la fusión las une sobre ' con '."
+    },
+    {
+      "id": "FN-12",
+      "tipo": "FN",
+      "documento": "es-S1134-80462015000500005-1",
+      "inicio": 616,
+      "fin": 636,
+      "texto": "notalgia parestésica",
+      "prediccion_solapada": [],
+      "contexto": "gmentada, siendo compatible con el diagnóstico de notalgia parestésica. En la exploración se objetivaba una zona de hipe",
+      "categoria": "no_detectada",
+      "nota": "Enfermedad poco frecuente que el modelo no marca."
+    },
+    {
+      "id": "FN-13",
+      "tipo": "FN",
+      "documento": "es-S1134-80462015000200005-1",
+      "inicio": 1097,
+      "fin": 1140,
+      "texto": "avulsión ósea del borde iliaco superomedial",
+      "prediccion_solapada": [
+        {
+          "inicio": 1097,
+          "fin": 1127,
+          "texto": "avulsión ósea del borde iliaco"
+        }
+      ],
+      "contexto": "ación sacroiliaca derecha con pequeña avulsión ósea del borde iliaco superomedial, y disminución del grosor de los espac",
+      "categoria": "limite_span",
+      "nota": "La predicción no incluye 'superomedial'."
+    },
+    {
+      "id": "FN-14",
+      "tipo": "FN",
+      "documento": "es-S1134-80462005000100007-1",
+      "inicio": 2716,
+      "fin": 2738,
+      "texto": "bloqueo motor completo",
+      "prediccion_solapada": [],
+      "contexto": "de planta debido a que el paciente presentaba un bloqueo motor completo (Bromage grado 3) con nivel sensitivo en T10, qu",
+      "categoria": "no_detectada",
+      "nota": "Efecto adverso de la anestesia que el modelo no marca."
+    },
+    {
+      "id": "FN-15",
+      "tipo": "FN",
+      "documento": "es-S0365-66912006000100008-1",
+      "inicio": 705,
+      "fin": 715,
+      "texto": "exoftalmos",
+      "prediccion_solapada": [
+        {
+          "inicio": 692,
+          "fin": 715,
+          "texto": "proptosis ni exoftalmos"
+        }
+      ],
+      "contexto": "s externos, sin hallazgos patológicos. No proptosis ni exoftalmos. Pupilas isocóricas y normorreactivas. En el estudio c",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'proptosis' y 'exoftalmos'; la fusión las une sobre ' ni '."
+    },
+    {
+      "id": "FN-16",
+      "tipo": "FN",
+      "documento": "es-S0004-06142008000400013-1",
+      "inicio": 983,
+      "fin": 1005,
+      "texto": "adenopatías regionales",
+      "prediccion_solapada": [
+        {
+          "inicio": 983,
+          "fin": 1044,
+          "texto": "adenopatías regionales ni implantes metastásicos peritoneales"
+        }
+      ],
+      "contexto": "intensa captación de contraste. No se observaron adenopatías regionales ni implantes metastásicos peritoneales. Con la",
+      "categoria": "fusion_indebida",
+      "nota": "Mismo caso que FP-03: la fusión une dos menciones negadas sobre ' ni '."
+    },
+    {
+      "id": "FN-17",
+      "tipo": "FN",
+      "documento": "es-S1137-66272011000300024-1",
+      "inicio": 74,
+      "fin": 82,
+      "texto": "diabetes",
+      "prediccion_solapada": [
+        {
+          "inicio": 74,
+          "fin": 116,
+          "texto": "diabetes secundaria a agenesia pancreática"
+        }
+      ],
+      "contexto": "ciente de 25 años, natural de Ucrania, diagnosticada de diabetes secundaria a agenesia pancreática desde hace 5 años, in",
+      "categoria": "limite_span",
+      "nota": "La predicción es 'diabetes secundaria a agenesia pancreática'; el gold separa las dos."
+    },
+    {
+      "id": "FN-18",
+      "tipo": "FN",
+      "documento": "es-S0213-12852006000600002-1",
+      "inicio": 3107,
+      "fin": 3152,
+      "texto": "Linfoma difuso histiocítico a células grandes",
+      "prediccion_solapada": [
+        {
+          "inicio": 3107,
+          "fin": 3153,
+          "texto": "Linfoma difuso histiocítico a células grandes\""
+        }
+      ],
+      "contexto": "epiteliales CD56, CD57, CD50 y CD15. Linfoma difuso histiocítico a células grandes\". El equipo oncológico inició el prim",
+      "categoria": "limite_span",
+      "nota": "La expansión de palabras mete las comillas de cierre en el span; el crudo acierta."
+    },
+    {
+      "id": "FN-19",
+      "tipo": "FN",
+      "documento": "es-S1139-76322009000700016-1",
+      "inicio": 1886,
+      "fin": 1894,
+      "texto": "litiasis",
+      "prediccion_solapada": [
+        {
+          "inicio": 1856,
+          "fin": 1894,
+          "texto": "poco distendida con imagen de litiasis"
+        }
+      ],
+      "contexto": "fía abdominal: vía biliar poco distendida con imagen de litiasis de 15 mm. Páncreas no valorable por interposición de ga",
+      "categoria": "limite_span",
+      "nota": "La predicción es 'poco distendida con imagen de litiasis'."
+    },
+    {
+      "id": "FN-20",
+      "tipo": "FN",
+      "documento": "es-S0210-48062007001000004-1",
+      "inicio": 1172,
+      "fin": 1205,
+      "texto": "epidídimo con implantes en cordón",
+      "prediccion_solapada": [
+        {
+          "inicio": 1172,
+          "fin": 1225,
+          "texto": "epidídimo con implantes en cordón y alcanza albugínea"
+        }
+      ],
+      "contexto": "ionario de 7 cm que sustituye parénquima y epidídimo con implantes en cordón y alcanza albugínea. Diagnosticado de carci",
+      "categoria": "limite_span",
+      "nota": "La predicción sigue con 'y alcanza albugínea'."
+    },
+    {
+      "id": "FN-21",
+      "tipo": "FN",
+      "documento": "es-S0365-66912007001200009-1",
+      "inicio": 980,
+      "fin": 984,
+      "texto": "AMIR",
+      "prediccion_solapada": [],
+      "contexto": "atoriales y en el ojo izquierdo edema macular difuso y la AMIR, pero no se observaron membranas neovasculares. En este o",
+      "categoria": "sigla",
+      "nota": "El crudo da 'AMIR'; el filtro de longitud del pipeline la descarta (filtro_ninguno la recupera)."
+    },
+    {
+      "id": "FN-22",
+      "tipo": "FN",
+      "documento": "es-S1130-01082009000200016-1",
+      "inicio": 1075,
+      "fin": 1095,
+      "texto": "hiperplasia linfoide",
+      "prediccion_solapada": [],
+      "contexto": "u interior (bario). Al microscopio se observó una hiperplasia linfoide de la submucosa con fibrosis de la mucosa y submu",
+      "categoria": "no_detectada",
+      "nota": "Hallazgo histológico anotado que el modelo no marca."
+    },
+    {
+      "id": "FN-23",
+      "tipo": "FN",
+      "documento": "es-S0211-69952009000600023-1",
+      "inicio": 2558,
+      "fin": 2598,
+      "texto": "atrofia total de nervio óptico izquierdo",
+      "prediccion_solapada": [
+        {
+          "inicio": 2558,
+          "fin": 2588,
+          "texto": "atrofia total de nervio óptico"
+        }
+      ],
+      "contexto": "a casi total del nervio óptico derecho con dilatación y tortuosidad venosa y atrofia total de nervio óptico izquierdo.",
+      "categoria": "limite_span",
+      "nota": "La predicción no incluye 'izquierdo'."
+    },
+    {
+      "id": "FN-24",
+      "tipo": "FN",
+      "documento": "es-S0365-66912007001000008-1",
+      "inicio": 2455,
+      "fin": 2484,
+      "texto": "defecto hemianópsico homónimo",
+      "prediccion_solapada": [],
+      "contexto": "mphrey, prueba de umbral 24-2) demostrándose defecto hemianópsico homónimo izquierdo altamente congruente en ambos ojos,",
+      "categoria": "no_detectada",
+      "nota": "Defecto campimétrico anotado que el modelo no marca."
+    },
+    {
+      "id": "FN-25",
+      "tipo": "FN",
+      "documento": "es-S1130-01082008000200010-1",
+      "inicio": 3175,
+      "fin": 3200,
+      "texto": "trombosis portal primaria",
+      "prediccion_solapada": [
+        {
+          "inicio": 3175,
+          "fin": 3191,
+          "texto": "trombosis portal"
+        }
+      ],
+      "contexto": "los cambios hepáticos fuesen secundarios a una trombosis portal primaria se realizó un estudio de hipercoagulabilidad.",
+      "categoria": "limite_span",
+      "nota": "La predicción no incluye 'primaria' (pareja de FP-02)."
+    },
+    {
+      "id": "FN-26",
+      "tipo": "FN",
+      "documento": "es-S1137-66272009000500016-1",
+      "inicio": 2241,
+      "fin": 2245,
+      "texto": "coma",
+      "prediccion_solapada": [],
+      "contexto": "4 horas después intensa agitación psicomotriz, seguido de coma con GCS 7. Se procede a intubación orotraqueal y se reali",
+      "categoria": "otra",
+      "nota": "El crudo da 'coma'; el filtro de longitud del pipeline lo descarta (filtro_ninguno lo recupera)."
+    },
+    {
+      "id": "FN-27",
+      "tipo": "FN",
+      "documento": "es-S1130-14732006000400005-1",
+      "inicio": 1029,
+      "fin": 1045,
+      "texto": "restos tumorales",
+      "prediccion_solapada": [],
+      "contexto": "er día de postoperatorio se confirma la ausencia de restos tumorales. Posteriormente se somete a tratamiento coadyuvante",
+      "categoria": "no_detectada",
+      "nota": "Mención negada ('ausencia de restos tumorales') que el modelo no marca."
+    },
+    {
+      "id": "FN-28",
+      "tipo": "FN",
+      "documento": "es-S1130-01082009000400012-1",
+      "inicio": 45,
+      "fin": 72,
+      "texto": "neumonía en lóbulo inferior",
+      "prediccion_solapada": [
+        {
+          "inicio": 45,
+          "fin": 80,
+          "texto": "neumonía en lóbulo inferior derecho"
+        }
+      ],
+      "contexto": "Paciente de 80 años de edad, que ingresa por neumonía en lóbulo inferior derecho, con derrame pleural. Presentó brusco e",
+      "categoria": "limite_span",
+      "nota": "La predicción incluye 'derecho'."
+    },
+    {
+      "id": "FN-29",
+      "tipo": "FN",
+      "documento": "es-S1130-05582014000300006-1",
+      "inicio": 303,
+      "fin": 305,
+      "texto": "M0",
+      "prediccion_solapada": [
+        {
+          "inicio": 270,
+          "fin": 305,
+          "texto": "carcinoma adenoide quístico pT2N0M0"
+        }
+      ],
+      "contexto": "ía definitiva demostró un carcinoma adenoide quístico pT2N0M0, con un patrón histológico variable en su mayor parte tubu",
+      "categoria": "error_gold",
+      "nota": "El gold anota 'M0' (sin metástasis) como enfermedad; además la fusión pega la 'M' del modelo al carcinoma."
+    },
+    {
+      "id": "FN-30",
+      "tipo": "FN",
+      "documento": "es-S1130-01082009000500013-1",
+      "inicio": 429,
+      "fin": 484,
+      "texto": "hemorragia digestiva en forma de melenas y rectorragias",
+      "prediccion_solapada": [
+        {
+          "inicio": 472,
+          "fin": 484,
+          "texto": "rectorragias"
+        },
+        {
+          "inicio": 429,
+          "fin": 469,
+          "texto": "hemorragia digestiva en forma de melenas"
+        }
+      ],
+      "contexto": "rosos episodios recidivantes de hemorragia digestiva en forma de melenas y rectorragias desde abril de 2006. No había an",
+      "categoria": "otra",
+      "nota": "Mención anidada (pareja de FN-08): la predicción se queda en 'hemorragia digestiva en forma de melenas'."
+    },
+    {
+      "id": "FN-31",
+      "tipo": "FN",
+      "documento": "es-S1698-44472004000400011-1",
+      "inicio": 1535,
+      "fin": 1604,
+      "texto": "odontoma compuesto con áreas de células ameloblásticas proliferativas",
+      "prediccion_solapada": [
+        {
+          "inicio": 1535,
+          "fin": 1553,
+          "texto": "odontoma compuesto"
+        }
+      ],
+      "contexto": "is histológico reveló un odontoma compuesto con áreas de células ameloblásticas proliferativas. Microscópicamente, se po",
+      "categoria": "limite_span",
+      "nota": "La predicción se queda en 'odontoma compuesto'."
+    },
+    {
+      "id": "FN-32",
+      "tipo": "FN",
+      "documento": "es-S0211-57352013000300011-1",
+      "inicio": 4499,
+      "fin": 4523,
+      "texto": "Sintomatología psicótica",
+      "prediccion_solapada": [
+        {
+          "inicio": 4499,
+          "fin": 4532,
+          "texto": "Sintomatología psicótica positiva"
+        }
+      ],
+      "contexto": "e adherencia al tratamiento\". Alta en diciembre de 2012. Sintomatología psicótica positiva residual e insight parcial.",
+      "categoria": "limite_span",
+      "nota": "La predicción incluye 'positiva' (el crudo cortó 'tomatología' y la expansión la completa)."
+    },
+    {
+      "id": "FN-33",
+      "tipo": "FN",
+      "documento": "es-S1135-76062005000100002-1",
+      "inicio": 1068,
+      "fin": 1071,
+      "texto": "HSA",
+      "prediccion_solapada": [
+        {
+          "inicio": 1042,
+          "fin": 1071,
+          "texto": "hemorragia subaracnoidea (HSA"
+        }
+      ],
+      "contexto": "upracallosa y transtentorial; y hemorragia subaracnoidea (HSA) en hemisferio derecho. Tras su valoración neuroquirúrgica",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'HSA)' aparte; la fusión la une a 'hemorragia subaracnoidea ('."
+    },
+    {
+      "id": "FN-34",
+      "tipo": "FN",
+      "documento": "es-S1130-01082008000800009-1",
+      "inicio": 1412,
+      "fin": 1490,
+      "texto": "segmento de intestino delgado con una disección de su pared por gas intramural",
+      "prediccion_solapada": [],
+      "contexto": "encia, que reveló un segmento de intestino delgado con una disección de su pared por gas intramural, presencia de gas en",
+      "categoria": "no_detectada",
+      "nota": "Hallazgo de imagen largo que el modelo no marca."
+    },
+    {
+      "id": "FN-35",
+      "tipo": "FN",
+      "documento": "es-S0211-69952012000500025-1",
+      "inicio": 982,
+      "fin": 1017,
+      "texto": "arteria humeral ectásica y elongada",
+      "prediccion_solapada": [
+        {
+          "inicio": 982,
+          "fin": 1006,
+          "texto": "arteria humeral ectásica"
+        }
+      ],
+      "contexto": "ial (angio-TAC) en la que se apreciaba la arteria humeral ectásica y elongada, y en la región radial un aneurisma o pseu",
+      "categoria": "limite_span",
+      "nota": "La predicción no incluye 'y elongada' (el crudo cortó 'ectás')."
+    },
+    {
+      "id": "FN-36",
+      "tipo": "FN",
+      "documento": "es-S0004-06142008000400013-1",
+      "inicio": 1009,
+      "fin": 1044,
+      "texto": "implantes metastásicos peritoneales",
+      "prediccion_solapada": [
+        {
+          "inicio": 983,
+          "fin": 1044,
+          "texto": "adenopatías regionales ni implantes metastásicos peritoneales"
+        }
+      ],
+      "contexto": "o se observaron adenopatías regionales ni implantes metastásicos peritoneales. Con la sospecha diagnóstica de carcinoma",
+      "categoria": "fusion_indebida",
+      "nota": "Mismo caso que FP-03: la fusión une dos menciones negadas sobre ' ni '."
+    },
+    {
+      "id": "FN-37",
+      "tipo": "FN",
+      "documento": "es-S0376-78922007000300006-3",
+      "inicio": 144,
+      "fin": 177,
+      "texto": "punción con una espina de pescado",
+      "prediccion_solapada": [],
+      "contexto": "l dedo índice de 2 días de evolución, tras punción con una espina de pescado. A la exploración se objetivan los cuatro s",
+      "categoria": "no_detectada",
+      "nota": "Mecanismo de lesión ('punción con una espina de pescado') que el modelo no marca."
+    },
+    {
+      "id": "FN-38",
+      "tipo": "FN",
+      "documento": "es-S0210-48062005000400012-1",
+      "inicio": 1264,
+      "fin": 1281,
+      "texto": "carcinoma in situ",
+      "prediccion_solapada": [
+        {
+          "inicio": 1101,
+          "fin": 1281,
+          "texto": "carcinoma mixto, papilar de células transicionales grado II-III infiltrante de músculo liso con áreas de adenocarcinoma mucoide infiltrante asociado a lesiones de carcinoma in situ"
+        }
+      ],
+      "contexto": "rcinoma mucoide infiltrante asociado a lesiones de carcinoma in situ y cistitis glandular quística (estadio pT2-pT3 G-II",
+      "categoria": "otra",
+      "nota": "Mención anidada dentro de otra mención gold larga; la fusión da el span largo, que sí acierta."
+    },
+    {
+      "id": "FN-39",
+      "tipo": "FN",
+      "documento": "es-S1135-76062013000200010-1",
+      "inicio": 335,
+      "fin": 404,
+      "texto": "cesárea, durante la cual se produjo una hemorragia intensa por atonía",
+      "prediccion_solapada": [
+        {
+          "inicio": 375,
+          "fin": 404,
+          "texto": "hemorragia intensa por atonía"
+        }
+      ],
+      "contexto": "glandinas, se le realiza cesárea, durante la cual se produjo una hemorragia intensa por atonía, ante lo que se decide pr",
+      "categoria": "limite_span",
+      "nota": "El gold empieza en 'cesárea, durante la cual'; la predicción es 'hemorragia intensa por atonía'."
+    },
+    {
+      "id": "FN-40",
+      "tipo": "FN",
+      "documento": "es-S1887-85712016000100005-1",
+      "inicio": 1687,
+      "fin": 1729,
+      "texto": "síndrome compartimental agudo en antebrazo",
+      "prediccion_solapada": [
+        {
+          "inicio": 1687,
+          "fin": 1737,
+          "texto": "síndrome compartimental agudo en antebrazo derecho"
+        }
+      ],
+      "contexto": "2mm Hg. Se determina el diagnóstico de síndrome compartimental agudo en antebrazo derecho y se propone tratamiento quirú",
+      "categoria": "limite_span",
+      "nota": "La predicción incluye 'derecho'."
+    },
+    {
+      "id": "FN-41",
+      "tipo": "FN",
+      "documento": "es-S0365-66912007000700011-1",
+      "inicio": 677,
+      "fin": 683,
+      "texto": "gripal",
+      "prediccion_solapada": [],
+      "contexto": "de aspecto anaranjado y redondeadas. Dado el antecedente gripal y el cuadro clínico del paciente, se pautó tratamiento c",
+      "categoria": "no_detectada",
+      "nota": "Antecedente ('gripal', adjetivo) que el modelo no marca."
+    },
+    {
+      "id": "FN-42",
+      "tipo": "FN",
+      "documento": "es-S0211-69952009000600023-1",
+      "inicio": 178,
+      "fin": 182,
+      "texto": "HPTS",
+      "prediccion_solapada": [
+        {
+          "inicio": 146,
+          "fin": 182,
+          "texto": "hiperparatiroidismo secundario (HPTS"
+        }
+      ],
+      "contexto": "la hemodiálisis presenta hiperparatiroidismo secundario (HPTS) severo con PTH i >1.000 pg/ml, con dolor óseo, astenia,",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'HPTS)' aparte; la fusión lo une a 'hiperparatiroidismo secundario ('."
+    },
+    {
+      "id": "FN-43",
+      "tipo": "FN",
+      "documento": "es-S1130-01082009000400012-1",
+      "inicio": 737,
+      "fin": 750,
+      "texto": "zona ulcerada",
+      "prediccion_solapada": [],
+      "contexto": "ros en su parte inferior. Las biopsias tomadas de la zona ulcerada, mostraron mucosa de tipo gástrico superficial, con l",
+      "categoria": "no_detectada",
+      "nota": "Mención repetida ('zona ulcerada') que el modelo no marca."
+    },
+    {
+      "id": "FN-44",
+      "tipo": "FN",
+      "documento": "S0004-06142006000100014-1",
+      "inicio": 398,
+      "fin": 411,
+      "texto": "estreñimiento",
+      "prediccion_solapada": [],
+      "contexto": "6 meses (peso actual 42 kilos), anemia hipocrómica y estreñimiento. En la exploración física se objetivó una gran tumora",
+      "categoria": "no_detectada",
+      "nota": "Síntoma anotado ('estreñimiento') que el modelo no marca."
+    },
+    {
+      "id": "FN-45",
+      "tipo": "FN",
+      "documento": "es-S1130-63432015000100008-1",
+      "inicio": 1039,
+      "fin": 1057,
+      "texto": "infección urinaria",
+      "prediccion_solapada": [
+        {
+          "inicio": 1039,
+          "fin": 1074,
+          "texto": "infección urinaria y/o hiponatremia"
+        }
+      ],
+      "contexto": "l diagnóstico de síndrome confusional secundario a infección urinaria y/o hiponatremia. Se diagnosticó de hiponatremia,",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'infección urinaria' y 'hiponatremia'; la fusión las une sobre ' y/o '."
+    },
+    {
+      "id": "FN-46",
+      "tipo": "FN",
+      "documento": "es-S0211-69952011000100019-1",
+      "inicio": 66,
+      "fin": 87,
+      "texto": "enfermedad de McArdle",
+      "prediccion_solapada": [
+        {
+          "inicio": 45,
+          "fin": 87,
+          "texto": "glucogenosis tipo V (enfermedad de McArdle"
+        }
+      ],
+      "contexto": "de edad con antecedentes de glucogenosis tipo V (enfermedad de McArdle), malformación de Chiari, insuficiencia renal cró",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'enfermedad de McArdle'; la fusión lo une a 'glucogenosis tipo V ('."
+    },
+    {
+      "id": "FN-47",
+      "tipo": "FN",
+      "documento": "es-S1888-75462015000400006-1",
+      "inicio": 2299,
+      "fin": 2320,
+      "texto": "lesiones en el labrum",
+      "prediccion_solapada": [
+        {
+          "inicio": 2277,
+          "fin": 2320,
+          "texto": "necrosis avascular ni lesiones en el labrum"
+        }
+      ],
+      "contexto": "osuperior. No se visualiza necrosis avascular ni lesiones en el labrum. También se visualiza una lesión quística yuxtaar",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo da 'lesiones en el labrum'; la fusión lo une a 'necrosis avascular' sobre ' ni '."
+    },
+    {
+      "id": "FN-48",
+      "tipo": "FN",
+      "documento": "es-S0376-78922008000400008-1",
+      "inicio": 4134,
+      "fin": 4162,
+      "texto": "Necrolisis Epidérmica Tóxica",
+      "prediccion_solapada": [
+        {
+          "inicio": 4100,
+          "fin": 4162,
+          "texto": "Eritema multiforme del tipo de la Necrolisis Epidérmica Tóxica"
+        }
+      ],
+      "contexto": "a severa de Eritema multiforme del tipo de la Necrolisis Epidérmica Tóxica secundaria probablemente a fármacos (Anticonv",
+      "categoria": "fusion_indebida",
+      "nota": "El crudo separa 'Eritema multiforme' y 'Necrolisis Epidérmica Tóxica'; la fusión las une."
+    },
+    {
+      "id": "FN-49",
+      "tipo": "FN",
+      "documento": "es-S1130-01082009000400015-1",
+      "inicio": 84,
+      "fin": 98,
+      "texto": "ulcus gástrico",
+      "prediccion_solapada": [
+        {
+          "inicio": 84,
+          "fin": 106,
+          "texto": "ulcus gástrico péptico"
+        }
+      ],
+      "contexto": "antecedente de gastrectomía parcial hace 30 años por ulcus gástrico péptico con reconstrucción de tipo Billroth II que i",
+      "categoria": "limite_span",
+      "nota": "La predicción incluye 'péptico'."
+    },
+    {
+      "id": "FN-50",
+      "tipo": "FN",
+      "documento": "es-S1130-14732006000200011-1",
+      "inicio": 989,
+      "fin": 1049,
+      "texto": "lesión osteolítica de márgenes escleróticos a nivel parietal",
+      "prediccion_solapada": [
+        {
+          "inicio": 989,
+          "fin": 1059,
+          "texto": "lesión osteolítica de márgenes escleróticos a nivel parietal izquierdo"
+        }
+      ],
+      "contexto": "y TAC de cráneo mostraron una lesión osteolítica de márgenes escleróticos a nivel parietal izquierdo con erosión de la t",
+      "categoria": "limite_span",
+      "nota": "La predicción incluye 'izquierdo'."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  # Para correr el job `docker` a mano (pestaña Actions o `gh workflow run CI`)
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Instalar dependencias
+        run: uv sync --locked
+
+      - name: Lint
+        run: |
+          uv run ruff check
+          uv run ruff format --check
+
+      # Sin el marcador `modelo`: no descarga el modelo de Hugging Face
+      - name: Tests
+        run: uv run pytest --cov-fail-under=85
+
+  # FR3/FR6: la imagen se construye (sin push) y se prueba de punta a punta con el modelo
+  # real. La caché de buildx en GitHub Actions guarda las capas de torch y del modelo, así
+  # que solo se reconstruye lo que cambió.
+  # En pausa desde 2026-11-06 para no gastar minutos de Actions mientras no se despliega:
+  # solo corre a mano. Para volver a correrlo en cada PR, quitar el `if`.
+  docker:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Construir la imagen
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: ner-clinic-es:ci
+          target: base  # sin SapBERT ni índice: en CI no está data/
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Tamaño de la imagen
+        run: docker image ls ner-clinic-es:ci
+
+      # Mismos recursos que Cloud Run y el contador en memoria (el valor por defecto).
+      - name: Smoke test
+        run: |
+          docker run -d --name ner --cpus=2 --memory=4g -p 8080:8080 ner-clinic-es:ci
+          for i in $(seq 1 150); do
+            if curl -sf http://127.0.0.1:8080/api/salud | grep -q '"modelo_cargado":true'; then
+              echo "Modelo cargado en unos $((i * 2)) s"
+              break
+            fi
+            sleep 2
+          done
+          curl -sf http://127.0.0.1:8080/api/salud | grep -q '"modelo_cargado":true'
+          # Nota sintética: nada de datos reales.
+          codigo=$(curl -s -o respuesta.json -w '%{http_code}' \
+            -H 'Content-Type: application/json' \
+            -d '{"texto": "Paciente con HTA y diabetes mellitus tipo 2. Niega EPOC."}' \
+            http://127.0.0.1:8080/api/analizar)
+          echo "Código: $codigo"
+          test "$codigo" = 200
+          python3 -c "import json; print('segundos:', json.load(open('respuesta.json'))['meta']['segundos'])"
+
+      - name: Logs del contenedor
+        if: always()
+        run: docker logs ner || true

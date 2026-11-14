@@ -1,0 +1,560 @@
+{
+  "corpus": {
+    "nombre": "NUBes",
+    "commit": "91c81c1f5eee2b5b9d377cc78c2442e8e8b198a1",
+    "sha256_zip": "cd3cea101057660560cb423afa7152c6d2996953524e141c96af97fcd4a7983e",
+    "licencia": "CC BY-SA 3.0 ES",
+    "particion": "desarrollo",
+    "muestras": [
+      "SAMPLE-002",
+      "SAMPLE-004",
+      "SAMPLE-006",
+      "SAMPLE-008",
+      "SAMPLE-010"
+    ],
+    "limite": null,
+    "frases": 14865,
+    "frases_con_negacion": 3859,
+    "frases_con_incertidumbre": 1150,
+    "regiones": {
+      "negacion": 4976,
+      "incertidumbre": 1363
+    }
+  },
+  "fecha": "2026-11-02T02:19:30Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "272d12f6ce9cbfd53be434e0d301e65545389e8b",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "metodo": {
+    "unidad": "mención de entidad del pipeline",
+    "analisis": "frase por frase, con la caché del modelo llenada por lotes",
+    "cobertura": "al menos la mitad de la mención dentro de la región; manda la más corta",
+    "negmormarker": "la palabra misma cuenta como región de negación",
+    "negada": "P/R/F1 sobre las menciones esperadas negada o afirmada"
+  },
+  "menciones_evaluadas": 6424,
+  "frases_con_menciones": 4887,
+  "matriz": {
+    "negada": {
+      "confirmada": 154,
+      "negada": 451,
+      "familiar": 0
+    },
+    "incierta": {
+      "confirmada": 568,
+      "negada": 103,
+      "familiar": 0
+    },
+    "afirmada": {
+      "confirmada": 5066,
+      "negada": 78,
+      "familiar": 4
+    }
+  },
+  "negada": {
+    "precision": 0.8526,
+    "recall": 0.7455,
+    "f1": 0.7954,
+    "ic95": {
+      "precision": [
+        0.8211,
+        0.8819
+      ],
+      "recall": [
+        0.7102,
+        0.7831
+      ],
+      "f1": [
+        0.7699,
+        0.8202
+      ]
+    },
+    "vp": 451,
+    "fp": 78,
+    "fn": 154
+  },
+  "negada_por_muestra": {
+    "SAMPLE-002": {
+      "precision": 0.8818,
+      "recall": 0.7951,
+      "f1": 0.8362,
+      "vp": 97,
+      "fp": 13,
+      "fn": 25
+    },
+    "SAMPLE-004": {
+      "precision": 0.8482,
+      "recall": 0.7422,
+      "f1": 0.7917,
+      "vp": 95,
+      "fp": 17,
+      "fn": 33
+    },
+    "SAMPLE-006": {
+      "precision": 0.79,
+      "recall": 0.7383,
+      "f1": 0.7633,
+      "vp": 79,
+      "fp": 21,
+      "fn": 28
+    },
+    "SAMPLE-008": {
+      "precision": 0.8515,
+      "recall": 0.6719,
+      "f1": 0.7511,
+      "vp": 86,
+      "fp": 15,
+      "fn": 42
+    },
+    "SAMPLE-010": {
+      "precision": 0.8868,
+      "recall": 0.7833,
+      "f1": 0.8319,
+      "vp": 94,
+      "fp": 12,
+      "fn": 26
+    }
+  },
+  "salio_familiar": 4,
+  "por_texto": {
+    "menciones_que_cambian": 15,
+    "transiciones": {
+      "confirmada->negada": 4,
+      "negada->confirmada": 11
+    },
+    "aciertan_por_texto": 0,
+    "aciertan_por_posicion": 11,
+    "metricas_por_posicion": {
+      "precision": 0.8569,
+      "recall": 0.762,
+      "f1": 0.8066,
+      "vp": 461,
+      "fp": 77,
+      "fn": 144
+    }
+  },
+  "tiempos": {
+    "segundos_inferencia": 2.75,
+    "segundos_analisis": 12.76,
+    "lote": 256
+  },
+  "cache": {
+    "aciertos": 29725,
+    "fallos": 0,
+    "llamadas": 0
+  },
+  "memoria_pico_mib": 42.1,
+  "categorias": {
+    "clave_no_reconocida": "El pipeline tiene la clave, pero no en esta forma («descartó»)",
+    "clave_ausente": "Clave que el pipeline no tiene",
+    "alcance_mal_cortado": "Alcance mal cortado: la negación llega muy lejos o se queda corta",
+    "por_texto": "Clasificación por texto: la misma palabra está negada en otra parte",
+    "disparador_falso": "Disparador falso: la clave está dentro de otra palabra o de un nombre",
+    "error_gold": "Error u omisión del gold, o convención de NUBes",
+    "otra": "Otra"
+  },
+  "atribucion": "Los fragmentos vienen del corpus NUBes (Lima López S, Perez N, Cuadros M, Rigau G. NUBes: A Corpus of Negation and Uncertainty in Spanish Clinical Texts. LREC 2020, pp. 5772-5781; https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus, commit 91c81c1), con licencia CC BY-SA 3.0 ES (https://creativecommons.org/licenses/by-sa/3.0/es/). Se citan recortados, sin otros cambios.",
+  "discrepancias": [
+    {
+      "frase": "sample-004.urolo.progr:8",
+      "inicio": 114,
+      "fin": 132,
+      "mencion": "infeccion urinaria",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "negativizacion de",
+      "contexto": "analisis de orina en su Residencia habitual el día 28 de Marzo , para valorar negativizacion de la infeccion urinaria .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.supla.phyex:22",
+      "inicio": 232,
+      "fin": 244,
+      "mencion": "de foliculos",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "Pérdida de",
+      "contexto": "ta mano.Superficies blanquecinas con perdida de sensibilidad en cara dorsal de antebrazo.Pérdida de foliculos pilosos .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.sugen.progr:42",
+      "inicio": 60,
+      "fin": 103,
+      "mencion": "pancreatitis sin apreciarse litiasis en VBP",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "sin",
+      "contexto": "En las pruebas realizadas se objetiva buena evolución de la pancreatitis sin apreciarse litiasis en VBP .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.intme.chico:7",
+      "inicio": 343,
+      "fin": 359,
+      "mencion": "hematuria franca",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "cedió",
+      "contexto": "a , no sindrome miccional pero el dia 15/11/16 tuvo hematuria franca que cedió decidiendo su MAP esperar , esta tarde ma",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.neuro.preil:93",
+      "inicio": 174,
+      "fin": 182,
+      "mencion": "diplopia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "sin",
+      "contexto": "arece aumentar cuando el paciente habla , sin cefalea , diplopia , fotofobia , disartria , disfagia ni otra clinica neur",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.neuro.progr:110",
+      "inicio": 225,
+      "fin": 300,
+      "mencion": "lesiones intraparenquimatosas o del estuche oseo en relación al traumatismo",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "han descartado",
+      "contexto": "descartado en el craneal , la presencia de lesiones intraparenquimatosas o del estuche oseo en relación al traumatismo .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.homho.preil:42",
+      "inicio": 3,
+      "fin": 72,
+      "mencion": "adenopatías retroperitoneales , mesentéricas , pélvicas ni inguinales",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "No",
+      "contexto": "No adenopatías retroperitoneales , mesentéricas , pélvicas ni inguinales de tamaño patológico .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.traum.preil:73",
+      "inicio": 20,
+      "fin": 41,
+      "mencion": "traumatismo ni herida",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "No",
+      "contexto": "No lo relaciona con traumatismo ni herida .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.intme.progr:37",
+      "inicio": 363,
+      "fin": 379,
+      "mencion": "trombosis venosa",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "retirar",
+      "contexto": "erecho ) que es preciso retirar por la aparición de trombosis venosa en dicha extremidad ; se canaliza en UCI vía subcla",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.neuro.preil:17",
+      "inicio": 307,
+      "fin": 315,
+      "mencion": "diplopía",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "sin",
+      "contexto": "subjetiva de inestabilidad de la marcha sin disartria , diplopía , disfagia alteración motora o sensitiva ni ninguna otr",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.neuro.progr:92",
+      "inicio": 264,
+      "fin": 292,
+      "mencion": "hematoma en ganglios basales",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "desaparición del",
+      "contexto": "s seriados en los que se ha apreciado la desaparición del pequeño hematoma en ganglios basales que presentó al ingreso .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.traum.diate:10",
+      "inicio": 0,
+      "fin": 53,
+      "mencion": "Meniscopatía externa sin evidencia de rotura meniscal",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "sin",
+      "contexto": "Meniscopatía externa sin evidencia de rotura meniscal .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-008.homho.chico:7",
+      "inicio": 194,
+      "fin": 207,
+      "mencion": "neo de pulmón",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "desestimar",
+      "contexto": "leu ( Dr. Ortiz ) para cuidados paliativos oncologicos tras desestimar continuar con QT por evolución de neo de pulmón .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.otorh.progr:19",
+      "inicio": 12,
+      "fin": 20,
+      "mencion": "disfagia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "No",
+      "contexto": "No presenta disfagia constantes OK .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.homho.preil:217",
+      "inicio": 315,
+      "fin": 328,
+      "mencion": "hidronefrosis",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_posicion": "confirmada",
+      "clave_gold": "descartándose",
+      "contexto": "er Koseri , sensible a Ciprofloxacino : ECO Abdominal , descartándose retención urinaria y/o componente de hidronefrosis",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.cardi.preil:43",
+      "inicio": 166,
+      "fin": 192,
+      "mencion": "traumatismo en zona costal",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "érdida de conocimiento , sin náuseas ni vómitos posterioresy traumatismo en zona costal derecha , sin disnea posterior .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.urolo.progr:44",
+      "inicio": 279,
+      "fin": 305,
+      "mencion": "hemorragia post quirurgica",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "uscular - Clasificación TNM : pT1 G-3 Presento hemorragia post quirurgica que obligo a reingreso colocando sonda vesical",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.shosu.preil:70",
+      "inicio": 117,
+      "fin": 138,
+      "mencion": "fibrilacion auricular",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "a cortical e iniciado tratamiento anticoagulante , dada la sospecha de origen cardioembólico ( fibrilacion auricular ) .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.sugen.progr:106",
+      "inicio": 20,
+      "fin": 69,
+      "mencion": "infección de orina persistente por Gramm negativo",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "Anticoagulado y con infección de orina persistente por Gramm negativo multirresistente .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.homho.progr:135",
+      "inicio": 109,
+      "fin": 131,
+      "mencion": "Infección respiratoria",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "buena ventilacion y sin edemas en extremidades - Infección respiratoria que ha sido tratada con Ertapemen ev + inhalador",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.homho.progr:101",
+      "inicio": 66,
+      "fin": 97,
+      "mencion": "insuficiencia venosa periférica",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "idos sobreañadidos Abdomen : anodino EEII : insuficiencia venosa periférica , no edemas , no palpo cordón varicoso , Hom",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.traum.preil:82",
+      "inicio": 44,
+      "fin": 63,
+      "mencion": "en territorio L5-S1",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "Parestesias en pie izquierdo no continuadas en territorio L5-S1 Con antecedentes de accidente laboral .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.neuro.progr:88",
+      "inicio": 173,
+      "fin": 195,
+      "mencion": "trastorno del lenguaje",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "ocido que ingresa por un episodio transitorio de trastorno del lenguaje , aislado , sin ningún otro síntoma neurológico",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.shosu.progr:89",
+      "inicio": 103,
+      "fin": 110,
+      "mencion": "Ascitis",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "plásica avanzada ( no confirmada histologicamente ) : - Ascitis a tension , se realiza drenaje de más 15 litros liquido",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-002.traum.preil:79",
+      "inicio": 67,
+      "fin": 94,
+      "mencion": "patología de arco posterior",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "También se han realizado infiltraciones facetarias sin mejoría por patología de arco posterior .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.intme.progr:13",
+      "inicio": 93,
+      "fin": 102,
+      "mencion": "infección",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "caso de persistir episodios de fiebre sin evidencia de infección y con estudio de liquido pleural anodino nos plantearem",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.cardi.progr:114",
+      "inicio": 33,
+      "fin": 50,
+      "mencion": "episodio sincopal",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "Actualmente no anticoagulado por episodio sincopal en febrero , se reevaluara atc , el pac se encuentra permanentemente",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-006.homho.preil:95",
+      "inicio": 166,
+      "fin": 207,
+      "mencion": "meningiosis ; plexopatía braquial derecha",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "monares bilaterales y alta sospecha de meningiosis ; plexopatía braquial derecha y polineuropatía probablemente paraneop",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-010.homho.chico:32",
+      "inicio": 170,
+      "fin": 195,
+      "mencion": "Espondilodiscitis por SCN",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "ndovenosa durante un mes con Daptomicina 700/24h/ev , por Espondilodiscitis por SCN ( Stafilococo Coagulasa Negativo ) .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-004.cardi.chico:17",
+      "inicio": 85,
+      "fin": 93,
+      "mencion": "arritmia",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_posicion": "negada",
+      "clave_gold": null,
+      "contexto": "bilidades ni ingesta habitual de farmacos salvo un episodio de arritmia ( que no recuerda el tipo ) hace 31 años atras .",
+      "categoria": null,
+      "nota": ""
+    }
+  ]
+}

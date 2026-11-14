@@ -1,0 +1,591 @@
+{
+  "corpus": {
+    "nombre": "NUBes",
+    "commit": "91c81c1f5eee2b5b9d377cc78c2442e8e8b198a1",
+    "sha256_zip": "cd3cea101057660560cb423afa7152c6d2996953524e141c96af97fcd4a7983e",
+    "licencia": "CC BY-SA 3.0 ES",
+    "particion": "reservada",
+    "muestras": [
+      "SAMPLE-001",
+      "SAMPLE-003",
+      "SAMPLE-005",
+      "SAMPLE-007",
+      "SAMPLE-009"
+    ],
+    "limite": null,
+    "frases": 14817,
+    "frases_con_negacion": 3693,
+    "frases_con_incertidumbre": 1068,
+    "regiones": {
+      "incertidumbre": 1238,
+      "negacion": 4658
+    }
+  },
+  "fecha": "2026-11-03T00:47:03Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "990ca2ba6b28bb6e073ad312aa9ce2921a82b46d",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "metodo": {
+    "unidad": "mención de entidad del pipeline",
+    "analisis": "frase por frase, con la caché del modelo llenada por lotes",
+    "cobertura": "al menos la mitad de la mención dentro de la región; manda la más corta",
+    "negmormarker": "la palabra misma cuenta como región de negación",
+    "negada": "P/R/F1 sobre las menciones esperadas negada o afirmada",
+    "posible": "P/R/F1 sobre todas las menciones; lo esperado es incierta"
+  },
+  "menciones_evaluadas": 5954,
+  "frases_con_menciones": 4587,
+  "matriz": {
+    "negada": {
+      "confirmada": 84,
+      "negada": 463,
+      "posible": 1,
+      "familiar": 2
+    },
+    "incierta": {
+      "confirmada": 91,
+      "negada": 26,
+      "posible": 497,
+      "familiar": 3
+    },
+    "afirmada": {
+      "confirmada": 4683,
+      "negada": 52,
+      "posible": 43,
+      "familiar": 9
+    }
+  },
+  "negada": {
+    "precision": 0.899,
+    "recall": 0.8418,
+    "f1": 0.8695,
+    "ic95": {
+      "precision": [
+        0.8732,
+        0.9243
+      ],
+      "recall": [
+        0.8103,
+        0.8745
+      ],
+      "f1": [
+        0.8465,
+        0.8923
+      ]
+    },
+    "vp": 463,
+    "fp": 52,
+    "fn": 87
+  },
+  "negada_por_muestra": {
+    "SAMPLE-001": {
+      "precision": 0.9053,
+      "recall": 0.9149,
+      "f1": 0.9101,
+      "vp": 86,
+      "fp": 9,
+      "fn": 8
+    },
+    "SAMPLE-003": {
+      "precision": 0.8774,
+      "recall": 0.8087,
+      "f1": 0.8416,
+      "vp": 93,
+      "fp": 13,
+      "fn": 22
+    },
+    "SAMPLE-005": {
+      "precision": 0.8526,
+      "recall": 0.871,
+      "f1": 0.8617,
+      "vp": 81,
+      "fp": 14,
+      "fn": 12
+    },
+    "SAMPLE-007": {
+      "precision": 0.9217,
+      "recall": 0.8154,
+      "f1": 0.8653,
+      "vp": 106,
+      "fp": 9,
+      "fn": 24
+    },
+    "SAMPLE-009": {
+      "precision": 0.9327,
+      "recall": 0.822,
+      "f1": 0.8739,
+      "vp": 97,
+      "fp": 7,
+      "fn": 21
+    }
+  },
+  "posible": {
+    "precision": 0.9187,
+    "recall": 0.8055,
+    "f1": 0.8584,
+    "ic95": {
+      "precision": [
+        0.8962,
+        0.9407
+      ],
+      "recall": [
+        0.7721,
+        0.8359
+      ],
+      "f1": [
+        0.8346,
+        0.879
+      ]
+    },
+    "vp": 497,
+    "fp": 44,
+    "fn": 120
+  },
+  "salio_posible": 541,
+  "salio_familiar": 14,
+  "por_texto": {
+    "menciones_que_cambian": 89,
+    "transiciones": {
+      "confirmada->posible": 59,
+      "confirmada->negada": 17,
+      "negada->posible": 1,
+      "negada->confirmada": 6,
+      "posible->confirmada": 5,
+      "familiar->confirmada": 1
+    },
+    "aciertan_por_texto": 18,
+    "aciertan_por_posicion": 29,
+    "metricas_por_texto": {
+      "precision": 0.8968,
+      "recall": 0.8218,
+      "f1": 0.8577,
+      "vp": 452,
+      "fp": 52,
+      "fn": 98
+    }
+  },
+  "tiempos": {
+    "segundos_inferencia": 15.46,
+    "segundos_analisis": 4.39,
+    "lote": 256
+  },
+  "cache": {
+    "aciertos": 29633,
+    "fallos": 0,
+    "llamadas": 0
+  },
+  "memoria_pico_mib": 43.2,
+  "categorias": {
+    "clave_no_reconocida": "El pipeline tiene la clave, pero no en esta forma («descartó»)",
+    "clave_ausente": "Clave que el pipeline no tiene",
+    "alcance_mal_cortado": "Alcance mal cortado: la negación llega muy lejos o se queda corta",
+    "por_texto": "Clasificación por texto: la misma palabra está negada en otra parte",
+    "disparador_falso": "Disparador falso: la clave está dentro de otra palabra o de un nombre",
+    "error_gold": "Error u omisión del gold, o convención de NUBes",
+    "otra": "Otra"
+  },
+  "atribucion": "Los fragmentos vienen del corpus NUBes (Lima López S, Perez N, Cuadros M, Rigau G. NUBes: A Corpus of Negation and Uncertainty in Spanish Clinical Texts. LREC 2020, pp. 5772-5781; https://github.com/Vicomtech/NUBes-negation-uncertainty-biomedical-corpus, commit 91c81c1), con licencia CC BY-SA 3.0 ES (https://creativecommons.org/licenses/by-sa/3.0/es/). Se citan recortados, sin otros cambios.",
+  "discrepancias": [
+    {
+      "frase": "sample-005.cardi.progr:21",
+      "inicio": 44,
+      "fin": 53,
+      "mencion": "exfumador",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "exfumador",
+      "contexto": "Se trata de un paciente con antecedentes de exfumador , EPOC , HTA , DLP , con un aneurisma abdominal que se controla ec",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-003.neuro.preil:50",
+      "inicio": 69,
+      "fin": 87,
+      "mencion": "ex-politoxicomania",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "ex-politoxicomania",
+      "contexto": "ntecedentes reseñados , a destacar psiquiatricos y ex-politoxicomania , que ingresa por alteración del comportamiento co",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-007.shosu.progr:53",
+      "inicio": 94,
+      "fin": 112,
+      "mencion": "embolismo cardiaco",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "se desestima",
+      "contexto": "aricion , se desestima tratamiento profilactico de embolismo cardiaco conocida dados los antecedentes de hematuria macro",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-001.intcu.progr:99",
+      "inicio": 0,
+      "fin": 77,
+      "mencion": "Microlitiasis biliares sin signos de colecistitis ni dilatación de vía biliar",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "sin",
+      "contexto": "Microlitiasis biliares sin signos de colecistitis ni dilatación de vía biliar .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-003.neuro.progr:91",
+      "inicio": 255,
+      "fin": 267,
+      "mencion": "traumatismos",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "han descartado",
+      "contexto": "la neuroimagen , la presencia de lesiones intracraneales o del estuche óseo en relacion con los traumatismos sufridos .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-005.traum.diate:26",
+      "inicio": 57,
+      "fin": 63,
+      "mencion": "uremia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "No",
+      "contexto": "No toma farmacos salvo un antiHTA , ni presenta anemia , uremia ni otras situaciones que pudieran contribuir/ser causant",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-009.supla.chico:26",
+      "inicio": 55,
+      "fin": 76,
+      "mencion": "quiste sebáceo facial",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "extirpar",
+      "contexto": "Paciente que ingresa de forma programada para extirpar quiste sebáceo facial .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-001.intcu.diate:2",
+      "inicio": 74,
+      "fin": 104,
+      "mencion": "TVP a nivel femoral o poplíteo",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "No",
+      "contexto": "o se identifican no obstante signos ecográficos directos o indirectos de TVP a nivel femoral o poplíteo bilateralmente .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-007.urolo.progr:32",
+      "inicio": 43,
+      "fin": 61,
+      "mencion": "infeccion urinaria",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "cediendo",
+      "contexto": "Ha sido tratada con Ceftriaxon cediendo la infeccion urinaria .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-007.neuro.preil:98",
+      "inicio": 127,
+      "fin": 143,
+      "mencion": "de inicio facial",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "cede",
+      "contexto": "hemiplejia izquierda residual y presenta una 3ª crisis de inicio facial que cede en 30 segundos con Midazolam 3 mgr iv .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-009.neuro.progr:61",
+      "inicio": 83,
+      "fin": 103,
+      "mencion": "hemorragia digestiva",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "suspendido",
+      "contexto": "nto anticoagulante con Sintrom por el episodio de hemorragia digestiva que sufrió el paciente , y encontrarse en la actu",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-009.neuro.preil:32",
+      "inicio": 62,
+      "fin": 70,
+      "mencion": "disfagia",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "En ninguna de las 2 ocasiones",
+      "contexto": "guna de las 2 ocasiones presentó diplopía , disartria , disfagia , alteración motora o sensitiva a ningún nivel ni ningu",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-009.otorh.preil:39",
+      "inicio": 0,
+      "fin": 11,
+      "mencion": "Ex-fumadora",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "Ex-fumadora",
+      "contexto": "Ex-fumadora hace 1 mes .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-003.otorh.chico:11",
+      "inicio": 21,
+      "fin": 46,
+      "mencion": "amigdalitis de repetición",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "No",
+      "contexto": "No disnea No refiere amigdalitis de repetición .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-007.intme.progr:20",
+      "inicio": 104,
+      "fin": 130,
+      "mencion": "trombosis de vena cefálica",
+      "esperado": "negada",
+      "obtenido": "confirmada",
+      "por_texto": "confirmada",
+      "clave_gold": "retirar",
+      "contexto": "ad superior izquierda que hubo que retirar por trombosis de vena cefálica ; posteriormente se canalizó subclavia derecha",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-007.shosu.preil:70",
+      "inicio": 31,
+      "fin": 53,
+      "mencion": "infección respiratoria",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "Presenta ileo no obstructivo e infección respiratoria .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-003.intme.chico:2",
+      "inicio": 171,
+      "fin": 189,
+      "mencion": "reagudización EPOC",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "8 con diagnosticos de dolor abdominal no filiado y reagudización EPOC , que acude por dolor abdominal y aumento de disne",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-005.sugen.progr:59",
+      "inicio": 143,
+      "fin": 152,
+      "mencion": "infección",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "curas de las úlceras ( su evolución es favorable ) , se toman nuevas muestras para comprobar la ausencia de infección .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-001.urolo.progr:21",
+      "inicio": 94,
+      "fin": 116,
+      "mencion": "úlceras de los talones",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "tado NEGATIVOS para SARM Al momento presente las úlceras de los talones están pr ´ scticamente curadas , persistiendo la",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-001.urolo.diate:18",
+      "inicio": 37,
+      "fin": 54,
+      "mencion": "patología vesical",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "Motivo de la exploración : descartar patología vesical .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-005.ginec.surhi:31",
+      "inicio": 45,
+      "fin": 64,
+      "mencion": "atrofia endometrial",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "Histeroscopia : sin hallazgos significativos atrofia endometrial",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-007.shosu.diate:73",
+      "inicio": 64,
+      "fin": 69,
+      "mencion": "obesa",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "ia abdominal 2/01/6 : Estudio no concluyente en paciente obesa , con mala transmisión ecográfica que no permite valorar",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-001.cardi.chico:36",
+      "inicio": 32,
+      "fin": 53,
+      "mencion": "insuf venjosa cronica",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "Ademas refiere HTA no tratada e insuf venjosa cronica en trat con favroben .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-003.urolo.diate:83",
+      "inicio": 36,
+      "fin": 56,
+      "mencion": "INFILTRACION TUMORAL",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "- TEJIDO CONECTIVO ADIPOSO LIBRE DE INFILTRACION TUMORAL .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-003.urolo.diate:66",
+      "inicio": 38,
+      "fin": 58,
+      "mencion": "INFILTRACION TUMORAL",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "2 ) Glandula suprarrenal : - LIBRE DE INFILTRACION TUMORAL .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-001.supla.phyex:11",
+      "inicio": 8,
+      "fin": 17,
+      "mencion": "caròtidas",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "No IY , caròtidas sincrònicas .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-007.traum.diate:57",
+      "inicio": 42,
+      "fin": 51,
+      "mencion": "Fracturas",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "RADIOLOGÍA - RX dorsal AP - L No objetivo Fracturas .",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-003.intme.progr:26",
+      "inicio": 55,
+      "fin": 58,
+      "mencion": "Tbc",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "No obtenemos esputo para completar estudio y descartar Tbc y planteamos la posibilidad de broncoscopia con el resultado",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-009.homho.preil:201",
+      "inicio": 93,
+      "fin": 104,
+      "mencion": "infecciónse",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "desbridadas las úlceras y obtener la confirmación de estar libre de infecciónse procederá a su ingreso para intervenció",
+      "categoria": null,
+      "nota": ""
+    },
+    {
+      "frase": "sample-007.cardi.progr:92",
+      "inicio": 87,
+      "fin": 110,
+      "mencion": "hipotensión ortostatica",
+      "esperado": "afirmada",
+      "obtenido": "negada",
+      "por_texto": "negada",
+      "clave_gold": null,
+      "contexto": "por lon que se atribuye el cuadro clinico a una hipotensión ortostatica en una paciente con medicacion hipotensora habit",
+      "categoria": null,
+      "nota": ""
+    }
+  ]
+}

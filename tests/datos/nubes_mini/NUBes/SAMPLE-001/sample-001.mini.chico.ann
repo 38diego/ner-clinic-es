@@ -1,0 +1,30 @@
+T1	NegSynMarker 0 2	No
+T2	Phrase 3 27	refiere fiebre ni disnea
+T3	DISO 11 17	fiebre
+T4	CoordItem 18 20	ni
+T5	DISO 21 27	disnea
+T6	NegMorMarker 39 46	afebril
+T7	UncertLexMarker 73 80	Posible
+T8	Phrase 81 111	neumonía , sin derrame pleural
+T9	NegSynMarker 92 95	sin
+T10	DISO 96 111	derrame pleural
+T11	NegSynMarker 132 135	sin
+T12	DISO 136 143	vómitos
+T13	UncertLexMarker 182 185	Sin
+T14	UncertLexMarker 199 208	aparentes
+T15	DISO 186 198	alteraciones
+T16	NegSynMarker 228 230	no
+T17	DISO 231 245	edema pulmonar
+T18	NegSynMarker 248 255	Tampoco
+T19	Phrase 256 272	presenta cefalea
+T20	NegSynMarker 302 311	Ha cedido
+T21	Phrase 312 322	la cefalea
+R1	Scope Arg1:T1 Arg2:T2
+R2	Scope Arg1:T7 Arg2:T8
+R3	Scope Arg1:T9 Arg2:T10
+R4	Scope Arg1:T11 Arg2:T12
+R5	DiscMarker Arg1:T13 Arg2:T14
+R6	DiscScope Arg1:T14 Arg2:T15
+R7	Scope Arg1:T16 Arg2:T17
+R8	Scope Arg1:T18 Arg2:T19
+R9	Scope Arg1:T20 Arg2:T21

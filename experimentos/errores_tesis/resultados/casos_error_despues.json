@@ -1,0 +1,23 @@
+{
+  "notas": 15,
+  "entidades_esperadas": 26,
+  "encontradas": 24,
+  "recall": 0.9231,
+  "estado_correcto": 23,
+  "precision_estado": 0.9583,
+  "registrado_correcto": "4/4",
+  "indice_correcto": "14/15",
+  "entidades_salida": 26,
+  "indice_charlson_total": 29,
+  "segundos": 0.44,
+  "perdidas": [
+    "e05: disnea",
+    "e05: cefalea"
+  ],
+  "estados_mal": [
+    "e14: TIA (esperado confirmada, salió familiar)"
+  ],
+  "otros_mal": [
+    "e14: índice esperado 1, salió 0"
+  ]
+}

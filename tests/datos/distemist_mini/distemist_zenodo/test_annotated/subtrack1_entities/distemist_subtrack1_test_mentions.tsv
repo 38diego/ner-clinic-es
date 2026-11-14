@@ -1,0 +1,7 @@
+filename	mark	label	off0	off1	span
+caso-1	T2	ENFERMEDAD	40	61	hipertensión arterial
+caso-1	T1	ENFERMEDAD	13	37	diabetes mellitus tipo 2
+caso-1	T3	ENFERMEDAD	78	88	metástasis
+caso-2	T1	ENFERMEDAD	21	25	EPOC
+caso-2	T2	ENFERMEDAD	34	38	asma
+caso-2	T3	ENFERMEDAD	44	66	insuficiencia cardiaca

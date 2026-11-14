@@ -1,0 +1,6 @@
+T1	NegLexMarker 0 5	Niega
+T2	DISO 6 20	dolor torácico
+R1	Scope Arg1:T1 Arg2:T2
+T3	UncertLexMarker 23 31	Probable
+T4	DISO 32 47	derrame pleural
+R2	Scope Arg1:T3 Arg2:T4

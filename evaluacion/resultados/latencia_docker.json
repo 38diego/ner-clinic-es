@@ -1,0 +1,82 @@
+{
+  "fecha": "2026-11-03T04:22:42Z",
+  "imagen": {
+    "nombre": "ner-clinic-es",
+    "id": "sha256:710da591b85895aefe75f758ce49bf13a6671097cfc327a7448333a5a45a64cf",
+    "tamano_mb": 855
+  },
+  "docker_run": {
+    "cpus": "2",
+    "memoria": "4g",
+    "entorno": {
+      "TOPE_IP_DIA": "100000",
+      "TOPE_GLOBAL_DIA": "100000",
+      "MAX_CARACTERES": "10000"
+    }
+  },
+  "host": {
+    "cpu": "Intel(R) Core(TM) Ultra 7 255U",
+    "maquina": "x86_64"
+  },
+  "notas": "DisTEMIST test (250 casos clínicos públicos); ningún texto en este archivo",
+  "tiempo": "`cliente`: petición HTTP completa desde el host; `servidor`: `meta.segundos` de la API (solo `analizar()`)",
+  "arranque_en_frio_s": 4.5,
+  "distemist_test": {
+    "cliente": {
+      "notas": 250,
+      "caracteres_mediana": 2137.5,
+      "caracteres_max": 6329,
+      "mediana_s": 0.549,
+      "p95_s": 1.137,
+      "max_s": 2.026,
+      "ms_por_1000_caracteres": 233.9
+    },
+    "servidor": {
+      "notas": 250,
+      "caracteres_mediana": 2137.5,
+      "caracteres_max": 6329,
+      "mediana_s": 0.545,
+      "p95_s": 1.133,
+      "max_s": 2.022,
+      "ms_por_1000_caracteres": 232.2
+    }
+  },
+  "notas_2000_caracteres": {
+    "cliente": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.359,
+      "p95_s": 0.481,
+      "max_s": 1.057,
+      "ms_por_1000_caracteres": 191.7
+    },
+    "servidor": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.355,
+      "p95_s": 0.478,
+      "max_s": 1.053,
+      "ms_por_1000_caracteres": 189.7
+    }
+  },
+  "nota_5000_caracteres": {
+    "caracteres": 4994,
+    "repeticiones": 3,
+    "cliente_s": [
+      1.648,
+      1.651,
+      1.653
+    ],
+    "servidor_s": [
+      1.644,
+      1.647,
+      1.649
+    ]
+  },
+  "memoria_pico_mb": {
+    "cgroup_memory_peak": 440,
+    "docker_stats_max": 439
+  }
+}

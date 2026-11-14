@@ -1,0 +1,836 @@
+{
+  "fecha": "2026-11-07T03:24:12Z",
+  "entorno": {
+    "modelo": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "66061cd5e18f4e74e9b41fdf9c1279932fcb8435",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "modelo": {
+    "clave": "sapbert",
+    "nombre": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "revision": "47b6bd041ba61311584bb2494edfda5c7d9b719f",
+    "licencia": "no declarada (entrenado con UMLS)",
+    "transformers": "5.21.0"
+  },
+  "indice": {
+    "modelo": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "revision": "47b6bd041ba61311584bb2494edfda5c7d9b719f",
+    "catalogo": "138cc25f4a41f525d6a38149150f3a3836c89464718d39aad15ea20a726617f0",
+    "codigos": 98288,
+    "dimension": 768,
+    "segundos_construccion": 2097.3,
+    "configuracion": "1e4b2ee1cf658c737a5f5b19a03621b609c99762f5a64bdcbe06187f065322e0",
+    "bytes": 303621631
+  },
+  "k": 20,
+  "pliegues": 5,
+  "umbral": {
+    "valor": 0.69,
+    "elegido_en": "train, validación cruzada (#132)"
+  },
+  "particiones": {
+    "validacion_cruzada": "train",
+    "reproduccion_y_perdidas": "dev",
+    "prueba": "no se lee; solo los nombres de archivo"
+  },
+  "bootstrap": {
+    "replicas": 1000,
+    "semilla": 0,
+    "nivel": 0.95,
+    "unidad": "documento"
+  },
+  "documentos": {
+    "train": 500,
+    "dev": 250
+  },
+  "verificacion_origen": {
+    "documentos_origen": 500,
+    "ids_dev": 250,
+    "ids_test": 250
+  },
+  "validacion_cruzada": {
+    "reglas_corrector": {
+      "total": {
+        "precision": 0.8679,
+        "recall": 0.7366,
+        "f1": 0.7969,
+        "ic95": {
+          "precision": [
+            0.8333,
+            0.8964
+          ],
+          "recall": [
+            0.6915,
+            0.7775
+          ],
+          "f1": [
+            0.7634,
+            0.8255
+          ]
+        },
+        "vp": 565,
+        "fp": 86,
+        "fn": 202
+      },
+      "por_pliegue": null
+    },
+    "modelo_umbral": {
+      "total": {
+        "precision": 0.8816,
+        "recall": 0.8253,
+        "f1": 0.8525,
+        "ic95": {
+          "precision": [
+            0.8503,
+            0.9086
+          ],
+          "recall": [
+            0.7943,
+            0.8577
+          ],
+          "f1": [
+            0.8279,
+            0.8752
+          ]
+        },
+        "vp": 633,
+        "fp": 85,
+        "fn": 134
+      },
+      "por_pliegue": [
+        {
+          "precision": 0.8403,
+          "recall": 0.8643,
+          "f1": 0.8521
+        },
+        {
+          "precision": 0.8993,
+          "recall": 0.8171,
+          "f1": 0.8562
+        },
+        {
+          "precision": 0.8761,
+          "recall": 0.8049,
+          "f1": 0.839
+        },
+        {
+          "precision": 0.8817,
+          "recall": 0.7885,
+          "f1": 0.8325
+        },
+        {
+          "precision": 0.9127,
+          "recall": 0.8712,
+          "f1": 0.8915
+        }
+      ]
+    },
+    "hibrido_exclusiones": {
+      "total": {
+        "precision": 0.889,
+        "recall": 0.8253,
+        "f1": 0.856,
+        "ic95": {
+          "precision": [
+            0.8581,
+            0.914
+          ],
+          "recall": [
+            0.7943,
+            0.8577
+          ],
+          "f1": [
+            0.8309,
+            0.8777
+          ]
+        },
+        "vp": 633,
+        "fp": 79,
+        "fn": 134
+      },
+      "por_pliegue": [
+        {
+          "precision": 0.8521,
+          "recall": 0.8643,
+          "f1": 0.8582
+        },
+        {
+          "precision": 0.9054,
+          "recall": 0.8171,
+          "f1": 0.859
+        },
+        {
+          "precision": 0.8919,
+          "recall": 0.8049,
+          "f1": 0.8462
+        },
+        {
+          "precision": 0.8865,
+          "recall": 0.7885,
+          "f1": 0.8346
+        },
+        {
+          "precision": 0.9127,
+          "recall": 0.8712,
+          "f1": 0.8915
+        }
+      ]
+    }
+  },
+  "comparaciones": {
+    "hibrido_menos_modelo": {
+      "precision": {
+        "diferencia": 0.0074,
+        "ic95": [
+          0.0023,
+          0.0139
+        ]
+      },
+      "recall": {
+        "diferencia": 0.0,
+        "ic95": [
+          0.0,
+          0.0
+        ]
+      },
+      "f1": {
+        "diferencia": 0.0035,
+        "ic95": [
+          0.0011,
+          0.0064
+        ]
+      }
+    },
+    "hibrido_menos_reglas": {
+      "precision": {
+        "diferencia": 0.0211,
+        "ic95": [
+          -0.0119,
+          0.0552
+        ]
+      },
+      "recall": {
+        "diferencia": 0.0887,
+        "ic95": [
+          0.0487,
+          0.1274
+        ]
+      },
+      "f1": {
+        "diferencia": 0.0591,
+        "ic95": [
+          0.0312,
+          0.0892
+        ]
+      }
+    }
+  },
+  "errores_validacion_cruzada": {
+    "perdidas": 134,
+    "causas": {
+      "excluida": 0,
+      "bajo_umbral": 23,
+      "top5": 62,
+      "topk": 26,
+      "solo_reglas": 8,
+      "fuera": 15
+    },
+    "por_categoria": {
+      "tumor_maligno": 61,
+      "tumor_metastasico": 20,
+      "cerebrovascular": 19,
+      "renal_cronica": 6,
+      "vascular_periferica": 5,
+      "hepatica_leve": 4,
+      "hepatica_severa": 4,
+      "pulmonar_cronica": 3,
+      "infarto_miocardio": 3,
+      "diabetes": 3,
+      "diabetes_complicada": 2,
+      "hemiplejia": 2,
+      "reumatologica": 1,
+      "insuficiencia_cardiaca": 1
+    },
+    "falsos_positivos": {
+      "gold_sin_categoria": 74,
+      "gold_otra_categoria": 5
+    }
+  },
+  "techo_validacion_cruzada": {
+    "1": {
+      "precision": 1.0,
+      "recall": 0.8553,
+      "f1": 0.922
+    },
+    "5": {
+      "precision": 1.0,
+      "recall": 0.9361,
+      "f1": 0.967
+    },
+    "10": {
+      "precision": 1.0,
+      "recall": 0.9478,
+      "f1": 0.9732
+    },
+    "20": {
+      "precision": 1.0,
+      "recall": 0.97,
+      "f1": 0.9848
+    }
+  },
+  "desarrollo": {
+    "hibrido_exclusiones": {
+      "precision": 0.9305,
+      "recall": 0.8438,
+      "f1": 0.885,
+      "ic95": {
+        "precision": [
+          0.8963,
+          0.9606
+        ],
+        "recall": [
+          0.8049,
+          0.8873
+        ],
+        "f1": [
+          0.8545,
+          0.9127
+        ]
+      },
+      "vp": 281,
+      "fp": 21,
+      "fn": 52
+    },
+    "techo": {
+      "1": {
+        "precision": 1.0,
+        "recall": 0.8799,
+        "f1": 0.9361
+      },
+      "5": {
+        "precision": 1.0,
+        "recall": 0.958,
+        "f1": 0.9785
+      },
+      "10": {
+        "precision": 1.0,
+        "recall": 0.985,
+        "f1": 0.9924
+      },
+      "20": {
+        "precision": 1.0,
+        "recall": 0.991,
+        "f1": 0.9955
+      }
+    },
+    "errores": {
+      "perdidas": 52,
+      "causas": {
+        "excluida": 0,
+        "bajo_umbral": 12,
+        "top5": 26,
+        "topk": 11,
+        "solo_reglas": 0,
+        "fuera": 3
+      },
+      "por_categoria": {
+        "tumor_maligno": 27,
+        "hepatica_leve": 9,
+        "hemiplejia": 4,
+        "tumor_metastasico": 3,
+        "cerebrovascular": 3,
+        "vascular_periferica": 3,
+        "renal_cronica": 1,
+        "ulcera_peptica": 1,
+        "infarto_miocardio": 1
+      },
+      "falsos_positivos": {
+        "gold_sin_categoria": 20,
+        "gold_otra_categoria": 1
+      },
+      "detalle": [
+        {
+          "documento": "S0004-06142007000300012-1",
+          "inicio": 260,
+          "fin": 279,
+          "codigo_gold": "Z99.2",
+          "gold": "renal_cronica",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0004-06142008000300011-1",
+          "inicio": 34,
+          "fin": 36,
+          "codigo_gold": "C64.9",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S0004-06142008000400013-1",
+          "inicio": 1009,
+          "fin": 1044,
+          "codigo_gold": "C78.6",
+          "gold": "tumor_metastasico",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S0004-06142009000400011-1",
+          "inicio": 768,
+          "fin": 785,
+          "codigo_gold": "C67.9",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S0004-06142009000400011-1",
+          "inicio": 778,
+          "fin": 1608,
+          "codigo_gold": "C67.9",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0210-48062005000400012-1",
+          "inicio": 163,
+          "fin": 204,
+          "codigo_gold": "I67.2",
+          "gold": "cerebrovascular",
+          "prediccion": "vascular_periferica",
+          "causa": "fuera"
+        },
+        {
+          "documento": "S0210-48062005000400012-1",
+          "inicio": 1039,
+          "fin": 1057,
+          "codigo_gold": "C67.9",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S0210-48062006000300016-1",
+          "inicio": 3513,
+          "fin": 3582,
+          "codigo_gold": "C66.1",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S0210-48062006000300016-1",
+          "inicio": 3513,
+          "fin": 3582,
+          "codigo_gold": "C66.2",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S0210-56912010000400009-1",
+          "inicio": 2090,
+          "fin": 2109,
+          "codigo_gold": "I61.4",
+          "gold": "cerebrovascular",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0211-69952012000200030-1",
+          "inicio": 331,
+          "fin": 368,
+          "codigo_gold": "I70.1",
+          "gold": "vascular_periferica",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0212-71992005001200010-1",
+          "inicio": 2520,
+          "fin": 2557,
+          "codigo_gold": "C84.99",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0212-71992005001200010-1",
+          "inicio": 3922,
+          "fin": 3959,
+          "codigo_gold": "C84.99",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0212-71992007000100006-1",
+          "inicio": 1354,
+          "fin": 1388,
+          "codigo_gold": "G83.1",
+          "gold": "hemiplejia",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0365-66912007001000008-1",
+          "inicio": 244,
+          "fin": 421,
+          "codigo_gold": "I61.1",
+          "gold": "cerebrovascular",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S0365-66912011000700004-1",
+          "inicio": 736,
+          "fin": 758,
+          "codigo_gold": "C64.1",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0365-66912011000700004-1",
+          "inicio": 736,
+          "fin": 758,
+          "codigo_gold": "C64.2",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0365-66912012000300003-1",
+          "inicio": 1467,
+          "fin": 1488,
+          "codigo_gold": "C92.3",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0376-78922016000200012-1",
+          "inicio": 403,
+          "fin": 511,
+          "codigo_gold": "C49.5",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0378-48352004000200007-1",
+          "inicio": 603,
+          "fin": 624,
+          "codigo_gold": "C70.9",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S0378-48352004000200007-1",
+          "inicio": 1530,
+          "fin": 1600,
+          "codigo_gold": "C70.0",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S0378-48352004000300007-1",
+          "inicio": 636,
+          "fin": 638,
+          "codigo_gold": "C81.90",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S0378-48352004000300007-1",
+          "inicio": 1981,
+          "fin": 1983,
+          "codigo_gold": "C81.90",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S0378-48352005000900005-1",
+          "inicio": 118,
+          "fin": 138,
+          "codigo_gold": "C50.91",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S1130-01082005000500013-1",
+          "inicio": 48,
+          "fin": 100,
+          "codigo_gold": "C43.62",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S1130-01082005000800013-1",
+          "inicio": 322,
+          "fin": 346,
+          "codigo_gold": "K76.9",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1130-01082007000100014-1",
+          "inicio": 1399,
+          "fin": 1449,
+          "codigo_gold": "K76.89",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "fuera"
+        },
+        {
+          "documento": "S1130-01082007000100014-1",
+          "inicio": 1426,
+          "fin": 2019,
+          "codigo_gold": "K76.89",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "fuera"
+        },
+        {
+          "documento": "S1130-01082007000500016-1",
+          "inicio": 1133,
+          "fin": 1186,
+          "codigo_gold": "K76.9",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S1130-01082007000500016-1",
+          "inicio": 2260,
+          "fin": 2283,
+          "codigo_gold": "C18.0",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1130-01082009000500012-1",
+          "inicio": 141,
+          "fin": 174,
+          "codigo_gold": "K76.89",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1130-01082009001000011-1",
+          "inicio": 231,
+          "fin": 336,
+          "codigo_gold": "K25.9",
+          "gold": "ulcera_peptica",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1130-05582005000300007-1",
+          "inicio": 1452,
+          "fin": 1455,
+          "codigo_gold": "B18.1",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S1130-05582005000300007-1",
+          "inicio": 1543,
+          "fin": 1546,
+          "codigo_gold": "B18.2",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S1130-05582007000600003-1",
+          "inicio": 138,
+          "fin": 239,
+          "codigo_gold": "C06.0",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S1130-05582008000500009-1",
+          "inicio": 152,
+          "fin": 296,
+          "codigo_gold": "C05.1",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S1130-05582008000500009-1",
+          "inicio": 1501,
+          "fin": 1547,
+          "codigo_gold": "C34.2",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1130-05582010000100007-1",
+          "inicio": 1479,
+          "fin": 1515,
+          "codigo_gold": "C02.9",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S1130-05582010000200004-1",
+          "inicio": 86,
+          "fin": 184,
+          "codigo_gold": "C02.0",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S1130-05582013000400005-1",
+          "inicio": 1874,
+          "fin": 1919,
+          "codigo_gold": "C77.0",
+          "gold": "tumor_metastasico",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1130-05582014000200008-1",
+          "inicio": 193,
+          "fin": 3117,
+          "codigo_gold": "C41.1",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1130-05582014000200008-1",
+          "inicio": 3108,
+          "fin": 3148,
+          "codigo_gold": "C41.9",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1135-76062010000200004-1",
+          "inicio": 749,
+          "fin": 819,
+          "codigo_gold": "I71.1",
+          "gold": "vascular_periferica",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1135-76062010000200004-1",
+          "inicio": 1476,
+          "fin": 1531,
+          "codigo_gold": "I71.9",
+          "gold": "vascular_periferica",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1135-76062014000100006-1",
+          "inicio": 834,
+          "fin": 895,
+          "codigo_gold": "I21.3",
+          "gold": "infarto_miocardio",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S1137-66272013000200022-1",
+          "inicio": 1165,
+          "fin": 1176,
+          "codigo_gold": "B18.1",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S1137-66272013000200022-1",
+          "inicio": 1165,
+          "fin": 1180,
+          "codigo_gold": "B18.2",
+          "gold": "hepatica_leve",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1698-69462006000100019-1",
+          "inicio": 1793,
+          "fin": 1812,
+          "codigo_gold": "C79.89",
+          "gold": "tumor_metastasico",
+          "prediccion": null,
+          "causa": "bajo_umbral"
+        },
+        {
+          "documento": "S1699-695X2015000200010-1",
+          "inicio": 90,
+          "fin": 206,
+          "codigo_gold": "G83.21",
+          "gold": "hemiplejia",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1699-695X2016000200009-1",
+          "inicio": 484,
+          "fin": 501,
+          "codigo_gold": "G83.9",
+          "gold": "hemiplejia",
+          "prediccion": null,
+          "causa": "topk"
+        },
+        {
+          "documento": "S1699-695X2016000200009-1",
+          "inicio": 1070,
+          "fin": 1102,
+          "codigo_gold": "G82.20",
+          "gold": "hemiplejia",
+          "prediccion": null,
+          "causa": "top5"
+        },
+        {
+          "documento": "S1699-695X2016000200013-1",
+          "inicio": 1416,
+          "fin": 1798,
+          "codigo_gold": "C62.91",
+          "gold": "tumor_maligno",
+          "prediccion": null,
+          "causa": "top5"
+        }
+      ]
+    }
+  },
+  "costo": {
+    "segundos_topk_validacion_cruzada": 3.1,
+    "vectores_codificados": 0
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "particion": "train",
+  "fecha": "2026-11-06T16:54:35Z",
+  "limite": null,
+  "documentos": 750,
+  "menciones_gold": 8065,
+  "bootstrap": {
+    "replicas": 1000,
+    "semilla": 0,
+    "nivel": 0.95
+  },
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "e30c54aed934184d79287a1bb79018d9ee3493b1",
+    "cambios_sin_commitear": true,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "variantes": {
+    "pipeline": {
+      "estricto": {
+        "precision": 0.8403,
+        "recall": 0.7792,
+        "f1": 0.8086,
+        "ic95": {
+          "precision": [
+            0.8299,
+            0.8503
+          ],
+          "recall": [
+            0.7672,
+            0.79
+          ],
+          "f1": [
+            0.7984,
+            0.8186
+          ]
+        },
+        "vp": 6284,
+        "fp": 1194,
+        "fn": 1781
+      },
+      "laxo": {
+        "precision": 0.9537,
+        "recall": 0.8843,
+        "f1": 0.9177,
+        "ic95": {
+          "precision": [
+            0.9477,
+            0.9595
+          ],
+          "recall": [
+            0.8757,
+            0.8925
+          ],
+          "f1": [
+            0.9117,
+            0.9229
+          ]
+        },
+        "vp": 7132,
+        "fp": 346,
+        "fn": 933
+      }
+    },
+    "filtro_lista_blanca": {
+      "estricto": {
+        "precision": 0.8389,
+        "recall": 0.7593,
+        "f1": 0.7971,
+        "ic95": {
+          "precision": [
+            0.8284,
+            0.8492
+          ],
+          "recall": [
+            0.7466,
+            0.7706
+          ],
+          "f1": [
+            0.7867,
+            0.8072
+          ]
+        },
+        "vp": 6124,
+        "fp": 1176,
+        "fn": 1941
+      },
+      "laxo": {
+        "precision": 0.9542,
+        "recall": 0.8637,
+        "f1": 0.9067,
+        "ic95": {
+          "precision": [
+            0.9484,
+            0.96
+          ],
+          "recall": [
+            0.8538,
+            0.873
+          ],
+          "f1": [
+            0.9003,
+            0.9126
+          ]
+        },
+        "vp": 6966,
+        "fp": 334,
+        "fn": 1099
+      }
+    },
+    "filtro_ninguno": {
+      "estricto": {
+        "precision": 0.8401,
+        "recall": 0.7792,
+        "f1": 0.8085,
+        "ic95": {
+          "precision": [
+            0.8295,
+            0.8501
+          ],
+          "recall": [
+            0.7672,
+            0.79
+          ],
+          "f1": [
+            0.7983,
+            0.8185
+          ]
+        },
+        "vp": 6284,
+        "fp": 1196,
+        "fn": 1781
+      },
+      "laxo": {
+        "precision": 0.9535,
+        "recall": 0.8843,
+        "f1": 0.9176,
+        "ic95": {
+          "precision": [
+            0.9474,
+            0.9592
+          ],
+          "recall": [
+            0.8757,
+            0.8925
+          ],
+          "f1": [
+            0.9116,
+            0.9229
+          ]
+        },
+        "vp": 7132,
+        "fp": 348,
+        "fn": 933
+      }
+    }
+  },
+  "tiempos": null,
+  "segundos_variantes": 16.43,
+  "cache": {
+    "aciertos": 3855,
+    "fallos": 0,
+    "llamadas": 0
+  },
+  "memoria_pico_mib": 236.1
+}

@@ -1,0 +1,886 @@
+{
+  "fecha": "2026-11-07T03:44:18Z",
+  "entorno": {
+    "modelo": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "bc06f0706db7f251ecd8038f3f12255ac81c064f",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "modelo": {
+    "clave": "sapbert",
+    "nombre": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "revision": "47b6bd041ba61311584bb2494edfda5c7d9b719f",
+    "licencia": "no declarada (entrenado con UMLS)",
+    "transformers": "5.21.0"
+  },
+  "indice": {
+    "modelo": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "revision": "47b6bd041ba61311584bb2494edfda5c7d9b719f",
+    "catalogo": "138cc25f4a41f525d6a38149150f3a3836c89464718d39aad15ea20a726617f0",
+    "codigos": 98288,
+    "dimension": 768,
+    "segundos_construccion": 2097.3,
+    "configuracion": "1e4b2ee1cf658c737a5f5b19a03621b609c99762f5a64bdcbe06187f065322e0",
+    "bytes": 303621631
+  },
+  "particion": "train (validación cruzada anidada); desarrollo y prueba no se leen",
+  "pliegues": 5,
+  "k_guardado": 20,
+  "rejilla": {
+    "niveles": [
+      "categoria",
+      "codigo_3",
+      "bloque",
+      "capitulo"
+    ],
+    "k": [
+      1,
+      3,
+      5,
+      10,
+      20
+    ],
+    "temperaturas": [
+      null,
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.5
+    ],
+    "umbrales": [
+      0.3,
+      0.32,
+      0.34,
+      0.36,
+      0.38,
+      0.4,
+      0.42,
+      0.44,
+      0.46,
+      0.48,
+      0.5,
+      0.52,
+      0.54,
+      0.56,
+      0.58,
+      0.6,
+      0.62,
+      0.64,
+      0.66,
+      0.68,
+      0.7,
+      0.72,
+      0.74,
+      0.76,
+      0.78,
+      0.8
+    ],
+    "soporte_minimo_por_categoria": 20
+  },
+  "bootstrap": {
+    "replicas": 1000,
+    "semilla": 0,
+    "nivel": 0.95,
+    "unidad": "documento"
+  },
+  "documentos": 500,
+  "hibrido_exclusiones": {
+    "precision": 0.889,
+    "recall": 0.8253,
+    "f1": 0.856,
+    "ic95": {
+      "precision": [
+        0.8581,
+        0.914
+      ],
+      "recall": [
+        0.7943,
+        0.8577
+      ],
+      "f1": [
+        0.8309,
+        0.8777
+      ]
+    },
+    "vp": 633,
+    "fp": 79,
+    "fn": 134
+  },
+  "variantes": {
+    "votos": {
+      "por_pliegue": [
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8674
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 20,
+            "temperatura": 0.05,
+            "umbral": 0.56,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8653
+        },
+        {
+          "configuracion": {
+            "nivel": "capitulo",
+            "k": 20,
+            "temperatura": 0.1,
+            "umbral": 0.52,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8758
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8756
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8682
+        }
+      ],
+      "anidada": {
+        "precision": 0.9197,
+        "recall": 0.8357,
+        "f1": 0.8757,
+        "ic95": {
+          "precision": [
+            0.8957,
+            0.9422
+          ],
+          "recall": [
+            0.8,
+            0.8703
+          ],
+          "f1": [
+            0.8495,
+            0.8979
+          ]
+        },
+        "vp": 641,
+        "fp": 56,
+        "fn": 126
+      },
+      "contra_hibrido": {
+        "precision": {
+          "diferencia": 0.0306,
+          "ic95": [
+            0.0059,
+            0.0567
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0104,
+          "ic95": [
+            -0.0122,
+            0.0341
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0197,
+          "ic95": [
+            0.0033,
+            0.0357
+          ]
+        }
+      },
+      "recuperadas": {
+        "perdidas_base": {
+          "excluida": 0,
+          "bajo_umbral": 23,
+          "top5": 62,
+          "topk": 26,
+          "solo_reglas": 8,
+          "fuera": 15
+        },
+        "recuperadas": {
+          "excluida": 0,
+          "bajo_umbral": 17,
+          "top5": 17,
+          "topk": 0,
+          "solo_reglas": 0,
+          "fuera": 0
+        },
+        "aciertos_base_perdidos": 26,
+        "falsos_positivos_nuevos": 16,
+        "falsos_positivos_quitados": 39
+      }
+    },
+    "votos_umbral_por_categoria": {
+      "por_pliegue": [
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {
+              "hemiplejia": 0.8,
+              "hepatica_leve": 0.78,
+              "renal_cronica": 0.8
+            }
+          },
+          "f1_internos": 0.8692
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 20,
+            "temperatura": 0.05,
+            "umbral": 0.56,
+            "umbrales": {
+              "hepatica_leve": 0.76,
+              "pulmonar_cronica": 0.8,
+              "renal_cronica": 0.76,
+              "vascular_periferica": 0.8
+            }
+          },
+          "f1_internos": 0.8689
+        },
+        {
+          "configuracion": {
+            "nivel": "capitulo",
+            "k": 20,
+            "temperatura": 0.1,
+            "umbral": 0.52,
+            "umbrales": {
+              "cerebrovascular": 0.58,
+              "hemiplejia": 0.74,
+              "pulmonar_cronica": 0.8,
+              "renal_cronica": 0.66,
+              "vascular_periferica": 0.8
+            }
+          },
+          "f1_internos": 0.8832
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8756
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {
+              "hemiplejia": 0.8,
+              "hepatica_leve": 0.78
+            }
+          },
+          "f1_internos": 0.8702
+        }
+      ],
+      "anidada": {
+        "precision": 0.9203,
+        "recall": 0.8279,
+        "f1": 0.8717,
+        "ic95": {
+          "precision": [
+            0.8963,
+            0.9422
+          ],
+          "recall": [
+            0.7908,
+            0.8629
+          ],
+          "f1": [
+            0.8454,
+            0.894
+          ]
+        },
+        "vp": 635,
+        "fp": 55,
+        "fn": 132
+      },
+      "contra_hibrido": {
+        "precision": {
+          "diferencia": 0.0312,
+          "ic95": [
+            0.0066,
+            0.0566
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0026,
+          "ic95": [
+            -0.0198,
+            0.0276
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0157,
+          "ic95": [
+            -0.0013,
+            0.0322
+          ]
+        }
+      },
+      "recuperadas": {
+        "perdidas_base": {
+          "excluida": 0,
+          "bajo_umbral": 23,
+          "top5": 62,
+          "topk": 26,
+          "solo_reglas": 8,
+          "fuera": 15
+        },
+        "recuperadas": {
+          "excluida": 0,
+          "bajo_umbral": 15,
+          "top5": 17,
+          "topk": 0,
+          "solo_reglas": 0,
+          "fuera": 0
+        },
+        "aciertos_base_perdidos": 30,
+        "falsos_positivos_nuevos": 15,
+        "falsos_positivos_quitados": 39
+      }
+    },
+    "solo_categoria": {
+      "por_pliegue": [
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8674
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 20,
+            "temperatura": 0.05,
+            "umbral": 0.56,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8653
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.05,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8698
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8756
+        },
+        {
+          "configuracion": {
+            "nivel": "categoria",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8682
+        }
+      ],
+      "anidada": {
+        "precision": 0.9274,
+        "recall": 0.8331,
+        "f1": 0.8777,
+        "ic95": {
+          "precision": [
+            0.9042,
+            0.949
+          ],
+          "recall": [
+            0.7965,
+            0.8687
+          ],
+          "f1": [
+            0.8512,
+            0.8996
+          ]
+        },
+        "vp": 639,
+        "fp": 50,
+        "fn": 128
+      },
+      "contra_hibrido": {
+        "precision": {
+          "diferencia": 0.0384,
+          "ic95": [
+            0.0161,
+            0.0636
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0078,
+          "ic95": [
+            -0.0143,
+            0.0309
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0218,
+          "ic95": [
+            0.0062,
+            0.0381
+          ]
+        }
+      },
+      "recuperadas": {
+        "perdidas_base": {
+          "excluida": 0,
+          "bajo_umbral": 23,
+          "top5": 62,
+          "topk": 26,
+          "solo_reglas": 8,
+          "fuera": 15
+        },
+        "recuperadas": {
+          "excluida": 0,
+          "bajo_umbral": 17,
+          "top5": 14,
+          "topk": 0,
+          "solo_reglas": 0,
+          "fuera": 0
+        },
+        "aciertos_base_perdidos": 25,
+        "falsos_positivos_nuevos": 10,
+        "falsos_positivos_quitados": 39
+      }
+    },
+    "solo_codigo_3": {
+      "por_pliegue": [
+        {
+          "configuracion": {
+            "nivel": "codigo_3",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.52,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8526
+        },
+        {
+          "configuracion": {
+            "nivel": "codigo_3",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.56,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8509
+        },
+        {
+          "configuracion": {
+            "nivel": "codigo_3",
+            "k": 20,
+            "temperatura": 0.05,
+            "umbral": 0.5,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8491
+        },
+        {
+          "configuracion": {
+            "nivel": "codigo_3",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.58,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8574
+        },
+        {
+          "configuracion": {
+            "nivel": "codigo_3",
+            "k": 5,
+            "temperatura": 0.05,
+            "umbral": 0.62,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8462
+        }
+      ],
+      "anidada": {
+        "precision": 0.8568,
+        "recall": 0.8579,
+        "f1": 0.8573,
+        "ic95": {
+          "precision": [
+            0.8284,
+            0.8852
+          ],
+          "recall": [
+            0.8268,
+            0.8902
+          ],
+          "f1": [
+            0.8338,
+            0.8805
+          ]
+        },
+        "vp": 658,
+        "fp": 110,
+        "fn": 109
+      },
+      "contra_hibrido": {
+        "precision": {
+          "diferencia": -0.0323,
+          "ic95": [
+            -0.0557,
+            -0.0064
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0326,
+          "ic95": [
+            0.0133,
+            0.0512
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0013,
+          "ic95": [
+            -0.0139,
+            0.0175
+          ]
+        }
+      },
+      "recuperadas": {
+        "perdidas_base": {
+          "excluida": 0,
+          "bajo_umbral": 23,
+          "top5": 62,
+          "topk": 26,
+          "solo_reglas": 8,
+          "fuera": 15
+        },
+        "recuperadas": {
+          "excluida": 0,
+          "bajo_umbral": 19,
+          "top5": 15,
+          "topk": 0,
+          "solo_reglas": 0,
+          "fuera": 0
+        },
+        "aciertos_base_perdidos": 9,
+        "falsos_positivos_nuevos": 50,
+        "falsos_positivos_quitados": 19
+      }
+    },
+    "solo_bloque": {
+      "por_pliegue": [
+        {
+          "configuracion": {
+            "nivel": "bloque",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.52,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8663
+        },
+        {
+          "configuracion": {
+            "nivel": "bloque",
+            "k": 20,
+            "temperatura": 0.05,
+            "umbral": 0.58,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8569
+        },
+        {
+          "configuracion": {
+            "nivel": "bloque",
+            "k": 20,
+            "temperatura": 0.1,
+            "umbral": 0.52,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8605
+        },
+        {
+          "configuracion": {
+            "nivel": "bloque",
+            "k": 20,
+            "temperatura": 0.05,
+            "umbral": 0.52,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8633
+        },
+        {
+          "configuracion": {
+            "nivel": "bloque",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8489
+        }
+      ],
+      "anidada": {
+        "precision": 0.8689,
+        "recall": 0.8644,
+        "f1": 0.8667,
+        "ic95": {
+          "precision": [
+            0.8397,
+            0.8954
+          ],
+          "recall": [
+            0.8335,
+            0.8937
+          ],
+          "f1": [
+            0.8429,
+            0.8892
+          ]
+        },
+        "vp": 663,
+        "fp": 100,
+        "fn": 104
+      },
+      "contra_hibrido": {
+        "precision": {
+          "diferencia": -0.0201,
+          "ic95": [
+            -0.0437,
+            0.005
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0391,
+          "ic95": [
+            0.0167,
+            0.061
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0107,
+          "ic95": [
+            -0.0056,
+            0.0272
+          ]
+        }
+      },
+      "recuperadas": {
+        "perdidas_base": {
+          "excluida": 0,
+          "bajo_umbral": 23,
+          "top5": 62,
+          "topk": 26,
+          "solo_reglas": 8,
+          "fuera": 15
+        },
+        "recuperadas": {
+          "excluida": 0,
+          "bajo_umbral": 21,
+          "top5": 20,
+          "topk": 0,
+          "solo_reglas": 0,
+          "fuera": 0
+        },
+        "aciertos_base_perdidos": 11,
+        "falsos_positivos_nuevos": 43,
+        "falsos_positivos_quitados": 22
+      }
+    },
+    "solo_capitulo": {
+      "por_pliegue": [
+        {
+          "configuracion": {
+            "nivel": "capitulo",
+            "k": 10,
+            "temperatura": 0.1,
+            "umbral": 0.54,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8567
+        },
+        {
+          "configuracion": {
+            "nivel": "capitulo",
+            "k": 20,
+            "temperatura": 0.05,
+            "umbral": 0.56,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8648
+        },
+        {
+          "configuracion": {
+            "nivel": "capitulo",
+            "k": 20,
+            "temperatura": 0.1,
+            "umbral": 0.52,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8758
+        },
+        {
+          "configuracion": {
+            "nivel": "capitulo",
+            "k": 20,
+            "temperatura": 0.05,
+            "umbral": 0.52,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8741
+        },
+        {
+          "configuracion": {
+            "nivel": "capitulo",
+            "k": 20,
+            "temperatura": 0.1,
+            "umbral": 0.5,
+            "umbrales": {}
+          },
+          "f1_internos": 0.8647
+        }
+      ],
+      "anidada": {
+        "precision": 0.8864,
+        "recall": 0.8644,
+        "f1": 0.8752,
+        "ic95": {
+          "precision": [
+            0.8599,
+            0.913
+          ],
+          "recall": [
+            0.8336,
+            0.8943
+          ],
+          "f1": [
+            0.8517,
+            0.8978
+          ]
+        },
+        "vp": 663,
+        "fp": 85,
+        "fn": 104
+      },
+      "contra_hibrido": {
+        "precision": {
+          "diferencia": -0.0027,
+          "ic95": [
+            -0.0258,
+            0.0223
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0391,
+          "ic95": [
+            0.0143,
+            0.0642
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0193,
+          "ic95": [
+            0.0012,
+            0.0373
+          ]
+        }
+      },
+      "recuperadas": {
+        "perdidas_base": {
+          "excluida": 0,
+          "bajo_umbral": 23,
+          "top5": 62,
+          "topk": 26,
+          "solo_reglas": 8,
+          "fuera": 15
+        },
+        "recuperadas": {
+          "excluida": 0,
+          "bajo_umbral": 20,
+          "top5": 23,
+          "topk": 0,
+          "solo_reglas": 0,
+          "fuera": 0
+        },
+        "aciertos_base_perdidos": 13,
+        "falsos_positivos_nuevos": 32,
+        "falsos_positivos_quitados": 26
+      }
+    }
+  },
+  "configuracion_final": {
+    "votos": {
+      "configuracion": {
+        "nivel": "categoria",
+        "k": 20,
+        "temperatura": 0.05,
+        "umbral": 0.54,
+        "umbrales": {}
+      },
+      "f1_validacion_cruzada_optimista": 0.8802
+    },
+    "votos_umbral_por_categoria": {
+      "configuracion": {
+        "nivel": "categoria",
+        "k": 20,
+        "temperatura": 0.05,
+        "umbral": 0.54,
+        "umbrales": {
+          "diabetes": 0.74,
+          "hemiplejia": 0.78,
+          "hepatica_leve": 0.78,
+          "renal_cronica": 0.78
+        }
+      },
+      "f1_validacion_cruzada_optimista": 0.883
+    }
+  }
+}

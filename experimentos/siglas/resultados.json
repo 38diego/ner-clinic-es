@@ -1,0 +1,486 @@
+{
+  "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+  "entorno": {
+    "procesador": "desconocido",
+    "cpu": "Intel(R) Core(TM) Ultra 7 255U",
+    "hilos_torch": 12,
+    "dispositivo": "cpu",
+    "torch": "2.15.0+cpu",
+    "transformers": "5.21.0",
+    "python": "3.12.14"
+  },
+  "tiempos_segundos": {
+    "carga_modelo": 2.91,
+    "inferencia": 1.86,
+    "total": 4.78
+  },
+  "notas": 40,
+  "siglas": {
+    "ocurrencias": {
+      "ACV": 4,
+      "AIT": 1,
+      "DM": 2,
+      "DM1": 1,
+      "DM2": 7,
+      "EAP": 1,
+      "ECV": 2,
+      "EPOC": 6,
+      "ERC": 4,
+      "ERGE": 1,
+      "EVP": 1,
+      "FA": 4,
+      "HIV": 1,
+      "HPB": 1,
+      "HTA": 13,
+      "IAM": 5,
+      "ICC": 3,
+      "IMA": 1,
+      "IRC": 2,
+      "IVU": 2,
+      "LES": 2,
+      "SAHOS": 1,
+      "SCA": 1,
+      "SIDA": 1,
+      "TBC": 2,
+      "TEP": 3,
+      "TIA": 1,
+      "TVP": 3,
+      "VIH": 3
+    },
+    "detectadas_por_modelo": {
+      "ACV": 4,
+      "AIT": 1,
+      "DM": 2,
+      "DM1": 1,
+      "DM2": 7,
+      "EAP": 1,
+      "ECV": 2,
+      "EPOC": 6,
+      "ERC": 4,
+      "ERGE": 1,
+      "EVP": 1,
+      "FA": 4,
+      "HIV": 1,
+      "HPB": 1,
+      "HTA": 13,
+      "IAM": 5,
+      "ICC": 3,
+      "IMA": 1,
+      "IRC": 2,
+      "IVU": 2,
+      "LES": 2,
+      "SAHOS": 1,
+      "SCA": 1,
+      "SIDA": 1,
+      "TBC": 2,
+      "TEP": 3,
+      "TIA": 1,
+      "TVP": 3,
+      "VIH": 2
+    },
+    "texto_crudo_del_modelo": {
+      "HTA": [
+        "HTA"
+      ],
+      "DM2": [
+        "DM2",
+        "DM2 no insulinorre"
+      ],
+      "EPOC": [
+        "EPOC",
+        "EPOC exacerbado",
+        "EPOC oxigenodependiente",
+        "exacerbación de su EPOC"
+      ],
+      "ICC": [
+        "ICC"
+      ],
+      "FA": [
+        "FA",
+        "FA paroxística",
+        "FA permanente"
+      ],
+      "IAM": [
+        "IAM"
+      ],
+      "ACV": [
+        "ACV",
+        "ACV hemorrágico"
+      ],
+      "ERC": [
+        "ERC",
+        "ERC estadio 4 secundaria a nefropatía diabética"
+      ],
+      "DM": [
+        "DM",
+        "DM tipo 2"
+      ],
+      "VIH": [
+        "VIH",
+        "coinfección con VIH"
+      ],
+      "SIDA": [
+        "SIDA"
+      ],
+      "TEP": [
+        "TEP"
+      ],
+      "TVP": [
+        "TVP",
+        "TVP en miembro inferior"
+      ],
+      "AIT": [
+        "AIT"
+      ],
+      "EAP": [
+        "EAP"
+      ],
+      "DM1": [
+        "DM1"
+      ],
+      "IRC": [
+        "IRC"
+      ],
+      "ECV": [
+        "ECV",
+        "ECV hemorrágico"
+      ],
+      "LES": [
+        "LES"
+      ],
+      "SCA": [
+        "SCA"
+      ],
+      "HPB": [
+        "HPB"
+      ],
+      "IVU": [
+        "IVU",
+        "IVU a repetición"
+      ],
+      "SAHOS": [
+        "SAHOS"
+      ],
+      "ERGE": [
+        "ERGE"
+      ],
+      "TBC": [
+        "TBC",
+        "TBC pulmonar"
+      ],
+      "HIV": [
+        "HIV"
+      ],
+      "EVP": [
+        "EVP"
+      ],
+      "TIA": [
+        "TIA"
+      ],
+      "IMA": [
+        "IMA"
+      ]
+    },
+    "nunca_detectadas": [],
+    "en_lista_blanca": [
+      "ACV",
+      "AIT",
+      "ASMA",
+      "DM",
+      "DM1",
+      "DM2",
+      "EAP",
+      "ECV",
+      "EPOC",
+      "ERC",
+      "ERGE",
+      "EVP",
+      "FA",
+      "GOTA",
+      "HIV",
+      "HPB",
+      "HTA",
+      "IAM",
+      "ICC",
+      "IMA",
+      "IRC",
+      "IVU",
+      "LES",
+      "SCA",
+      "SIDA",
+      "TBC",
+      "TEP",
+      "TIA",
+      "TVP",
+      "VIH"
+    ]
+  },
+  "variantes": {
+    "lista_blanca": {
+      "siglas_conservadas": 78,
+      "siglas_esperadas": 79,
+      "siglas_conservadas_por_sigla": {
+        "ACV": 4,
+        "AIT": 1,
+        "DM": 2,
+        "DM1": 1,
+        "DM2": 7,
+        "EAP": 1,
+        "ECV": 2,
+        "EPOC": 6,
+        "ERC": 4,
+        "ERGE": 1,
+        "EVP": 1,
+        "FA": 4,
+        "HIV": 1,
+        "HPB": 1,
+        "HTA": 13,
+        "IAM": 5,
+        "ICC": 3,
+        "IMA": 1,
+        "IRC": 2,
+        "IVU": 2,
+        "LES": 2,
+        "SAHOS": 1,
+        "SCA": 1,
+        "SIDA": 1,
+        "TBC": 2,
+        "TEP": 3,
+        "TIA": 1,
+        "TVP": 3,
+        "VIH": 2
+      },
+      "nombres_conservados": 50,
+      "nombres_esperados": 73,
+      "candidatos": 130,
+      "candidatos_no_esperados": [
+        "s08: Alergias",
+        "s09: caídas",
+        "s12: lesiones",
+        "s19: enfermedades crónicas",
+        "s27: alergias"
+      ],
+      "esperadas_perdidas": [
+        "s01: disnea",
+        "s01: dolor torácico",
+        "s02: fiebre",
+        "s07: taquicardia",
+        "s07: dolor pleurítico",
+        "s07: desaturación",
+        "s10: dolor abdominal",
+        "s11: edema de miembros inferiores",
+        "s11: ortopnea",
+        "s12: déficit neurológico",
+        "s12: claudicación intermitente",
+        "s14: disnea",
+        "s15: hiperinsuflación",
+        "s20: palpitaciones",
+        "s21: VIH",
+        "s24: fiebre",
+        "s24: disuria",
+        "s24: polaquiuria",
+        "s28: afasia de expresión",
+        "s29: Pérdida de peso",
+        "s31: disnea",
+        "s31: edemas",
+        "s38: tos",
+        "s38: fiebre"
+      ],
+      "ruido_corto": {}
+    },
+    "tesis": {
+      "siglas_conservadas": 15,
+      "siglas_esperadas": 79,
+      "siglas_conservadas_por_sigla": {
+        "ACV": 1,
+        "DM": 1,
+        "DM2": 1,
+        "ECV": 1,
+        "EPOC": 2,
+        "ERC": 1,
+        "EVP": 1,
+        "FA": 2,
+        "IVU": 1,
+        "SAHOS": 1,
+        "TBC": 1,
+        "TVP": 1,
+        "VIH": 1
+      },
+      "nombres_conservados": 47,
+      "nombres_esperados": 73,
+      "candidatos": 64,
+      "candidatos_no_esperados": [
+        "s08: Alergias",
+        "s09: caídas",
+        "s12: lesiones",
+        "s19: enfermedades crónicas",
+        "s27: alergias"
+      ],
+      "esperadas_perdidas": [
+        "s01: HTA",
+        "s01: DM2",
+        "s01: disnea",
+        "s01: dolor torácico",
+        "s02: ICC",
+        "s02: fiebre",
+        "s03: IAM",
+        "s04: IAM",
+        "s04: ACV",
+        "s05: HTA",
+        "s06: VIH",
+        "s06: SIDA",
+        "s07: TEP",
+        "s07: taquicardia",
+        "s07: dolor pleurítico",
+        "s07: desaturación",
+        "s08: HTA",
+        "s08: DM2",
+        "s08: ERC",
+        "s09: FA",
+        "s10: HTA",
+        "s10: DM",
+        "s10: EPOC",
+        "s10: dolor abdominal",
+        "s11: edema de miembros inferiores",
+        "s11: ortopnea",
+        "s12: AIT",
+        "s12: déficit neurológico",
+        "s12: EAP",
+        "s12: claudicación intermitente",
+        "s13: DM1",
+        "s13: DM2",
+        "s14: IRC",
+        "s14: disnea",
+        "s15: hiperinsuflación",
+        "s16: HTA",
+        "s17: HTA",
+        "s19: HTA",
+        "s19: ACV",
+        "s20: TEP",
+        "s20: palpitaciones",
+        "s21: LES",
+        "s21: VIH",
+        "s22: SCA",
+        "s22: HTA",
+        "s22: DM2",
+        "s22: ERC",
+        "s24: HPB",
+        "s24: ERC",
+        "s24: fiebre",
+        "s24: disuria",
+        "s24: polaquiuria",
+        "s26: HTA",
+        "s26: EPOC",
+        "s26: asma",
+        "s27: DM2",
+        "s27: HTA",
+        "s27: ERGE",
+        "s27: IAM",
+        "s27: ACV",
+        "s28: afasia de expresión",
+        "s29: Pérdida de peso",
+        "s30: TVP",
+        "s30: TEP",
+        "s31: HTA",
+        "s31: ICC",
+        "s31: EPOC",
+        "s31: FA",
+        "s31: disnea",
+        "s31: edemas",
+        "s32: IRC",
+        "s33: IAM",
+        "s33: ICC",
+        "s33: DM2",
+        "s34: HTA",
+        "s34: IAM",
+        "s34: EPOC",
+        "s35: HIV",
+        "s35: TIA",
+        "s36: ECV",
+        "s37: LES",
+        "s38: TVP",
+        "s38: IVU",
+        "s38: TBC",
+        "s38: tos",
+        "s38: fiebre",
+        "s39: asma",
+        "s39: gota",
+        "s39: IMA",
+        "s40: HTA"
+      ],
+      "ruido_corto": {}
+    },
+    "ninguno": {
+      "siglas_conservadas": 78,
+      "siglas_esperadas": 79,
+      "siglas_conservadas_por_sigla": {
+        "ACV": 4,
+        "AIT": 1,
+        "DM": 2,
+        "DM1": 1,
+        "DM2": 7,
+        "EAP": 1,
+        "ECV": 2,
+        "EPOC": 6,
+        "ERC": 4,
+        "ERGE": 1,
+        "EVP": 1,
+        "FA": 4,
+        "HIV": 1,
+        "HPB": 1,
+        "HTA": 13,
+        "IAM": 5,
+        "ICC": 3,
+        "IMA": 1,
+        "IRC": 2,
+        "IVU": 2,
+        "LES": 2,
+        "SAHOS": 1,
+        "SCA": 1,
+        "SIDA": 1,
+        "TBC": 2,
+        "TEP": 3,
+        "TIA": 1,
+        "TVP": 3,
+        "VIH": 2
+      },
+      "nombres_conservados": 50,
+      "nombres_esperados": 73,
+      "candidatos": 130,
+      "candidatos_no_esperados": [
+        "s08: Alergias",
+        "s09: caídas",
+        "s12: lesiones",
+        "s19: enfermedades crónicas",
+        "s27: alergias"
+      ],
+      "esperadas_perdidas": [
+        "s01: disnea",
+        "s01: dolor torácico",
+        "s02: fiebre",
+        "s07: taquicardia",
+        "s07: dolor pleurítico",
+        "s07: desaturación",
+        "s10: dolor abdominal",
+        "s11: edema de miembros inferiores",
+        "s11: ortopnea",
+        "s12: déficit neurológico",
+        "s12: claudicación intermitente",
+        "s14: disnea",
+        "s15: hiperinsuflación",
+        "s20: palpitaciones",
+        "s21: VIH",
+        "s24: fiebre",
+        "s24: disuria",
+        "s24: polaquiuria",
+        "s28: afasia de expresión",
+        "s29: Pérdida de peso",
+        "s31: disnea",
+        "s31: edemas",
+        "s38: tos",
+        "s38: fiebre"
+      ],
+      "ruido_corto": {}
+    }
+  }
+}

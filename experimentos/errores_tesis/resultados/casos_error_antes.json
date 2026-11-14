@@ -1,0 +1,34 @@
+{
+  "notas": 15,
+  "entidades_esperadas": 26,
+  "encontradas": 20,
+  "recall": 0.7692,
+  "estado_correcto": 18,
+  "precision_estado": 0.9,
+  "registrado_correcto": "2/4",
+  "indice_correcto": "10/15",
+  "entidades_salida": 22,
+  "indice_charlson_total": 18,
+  "segundos": 0.74,
+  "perdidas": [
+    "e01: insuficiencia cardiaca",
+    "e02: cáncer de mama",
+    "e03: hipertensión arterial",
+    "e05: disnea",
+    "e05: cefalea",
+    "e06: enfermedad de Alzheimer"
+  ],
+  "estados_mal": [
+    "e04: TEP (esperado negada, salió confirmada)",
+    "e14: TIA (esperado confirmada, salió familiar)"
+  ],
+  "otros_mal": [
+    "e01: índice esperado 3, salió 2",
+    "e02: índice esperado 2, salió 0",
+    "e07: índice esperado 6, salió 0",
+    "e09: índice esperado 2, salió 0",
+    "e11: HTA registrado esperado True, salió False",
+    "e12: insuficiencia renal crónica registrado esperado False, salió True",
+    "e14: índice esperado 1, salió 0"
+  ]
+}

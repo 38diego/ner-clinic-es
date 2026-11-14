@@ -1,0 +1,38 @@
+# Solo entra lo que el Dockerfile copia: pyproject.toml, uv.lock, README.md, src/ y el
+# índice del normalizador.
+# Datos (nunca en la imagen: pueden ser corpus descargados o cachés), salvo el índice
+# del normalizador (catálogo CIE-10-ES y menciones de CodiEsp, CC BY 4.0).
+data/
+!data/normalizacion/indice_final.pt
+models/
+.cache/
+*.parquet
+*.csv
+*.xlsx
+*.docx
+
+# Entornos y cachés de Python
+.venv/
+venv/
+**/__pycache__/
+**/*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+.ipynb_checkpoints/
+.env
+
+# Repo, CI y herramientas
+.git/
+.github/
+.claude/
+.python-version
+CLAUDE.md
+Dockerfile
+.dockerignore
+
+# Lo que no corre en la API
+tests/
+evaluacion/
+experimentos/
+docs/

@@ -1,0 +1,4076 @@
+{
+  "fecha": "2026-11-08T03:53:35Z",
+  "entorno": {
+    "modelo": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "6a0cbfd4cdf52b6b24879e4809aac37d8997d917",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "modelo": {
+    "clave": "sapbert",
+    "nombre": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "revision": "47b6bd041ba61311584bb2494edfda5c7d9b719f",
+    "licencia": "no declarada (entrenado con UMLS)",
+    "transformers": "5.21.0"
+  },
+  "indice": {
+    "modelo": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "revision": "47b6bd041ba61311584bb2494edfda5c7d9b719f",
+    "catalogo": "138cc25f4a41f525d6a38149150f3a3836c89464718d39aad15ea20a726617f0",
+    "codigos": 98288,
+    "dimension": 768,
+    "segundos_construccion": 2097.3,
+    "configuracion": "1e4b2ee1cf658c737a5f5b19a03621b609c99762f5a64bdcbe06187f065322e0",
+    "bytes": 303621631
+  },
+  "particiones": {
+    "eleccion_y_entrenamiento": "train (validación cruzada)",
+    "medicion": "dev, una sola vez (ya mirada en #132 y #133: cifra optimista)",
+    "prueba": "no se lee; solo los nombres de archivo"
+  },
+  "eleccion": {
+    "segunda_etapa": "clasificador (#151)",
+    "fuentes": [
+      "distemist",
+      "cantemist_lexico"
+    ],
+    "declarada_en": "#153, antes de medir"
+  },
+  "pliegues": 5,
+  "k": 20,
+  "umbral_hibrido": 0.69,
+  "semilla_errores": 1,
+  "bootstrap": {
+    "replicas": 1000,
+    "semilla": 0,
+    "nivel": 0.95,
+    "unidad": "documento"
+  },
+  "documentos": {
+    "train": 500,
+    "dev": 250
+  },
+  "menciones_dev": 3430,
+  "fuentes": {
+    "cantemist": {
+      "menciones_leidas": 16032,
+      "descartes": {
+        "tnm": 603
+      },
+      "documentos": 1300,
+      "excluidas_por_codiesp": {
+        "dev": {
+          "documentos": 0,
+          "menciones": 0
+        },
+        "test": {
+          "documentos": 0,
+          "menciones": 0
+        }
+      },
+      "en_codiesp_train": {
+        "documentos": 0,
+        "menciones": 0
+      },
+      "menciones_usables": 15429,
+      "textos_distintos": 3889,
+      "con_categoria": 11601,
+      "casos_compartidos_con_codiesp": {
+        "compartidos": 0,
+        "fraccion_maxima_8gramas": 0.0176,
+        "comparado_con": "train y dev de CodiEsp (prueba no se lee)"
+      }
+    },
+    "distemist": {
+      "menciones_leidas": 5136,
+      "descartes": {
+        "sin_cie10": 3567,
+        "relacion": 69,
+        "rango": 130,
+        "fuera_de_la_tabla": 30
+      },
+      "documentos": 467,
+      "excluidas_por_codiesp": {
+        "dev": {
+          "documentos": 116,
+          "menciones": 369
+        },
+        "test": {
+          "documentos": 113,
+          "menciones": 328
+        }
+      },
+      "en_codiesp_train": {
+        "documentos": 238,
+        "menciones": 643
+      },
+      "menciones_usables": 643,
+      "textos_distintos": 440,
+      "con_categoria": 112
+    },
+    "cantemist_lexico": {
+      "menciones_usables": 11523,
+      "textos_distintos": 2534
+    }
+  },
+  "indice_dev": {
+    "sin_fuentes": {
+      "filas_indice": 101626,
+      "sinonimos_codiesp": 3338,
+      "sinonimos_externos": 0,
+      "verificacion_origen": {
+        "documentos_origen": 500,
+        "ids_dev": 250,
+        "ids_test": 250
+      }
+    },
+    "con_fuentes": {
+      "filas_indice": 104289,
+      "sinonimos_codiesp": 3338,
+      "sinonimos_externos": 2663,
+      "verificacion_origen": {
+        "documentos_origen": 1794,
+        "ids_dev": 250,
+        "ids_test": 250
+      }
+    }
+  },
+  "no_vistas": {
+    "sinonimos_codiesp": 3338,
+    "sinonimos_codiesp_y_fuentes": 6001
+  },
+  "validacion_cruzada": {
+    "metodos": {
+      "hibrido_actual": {
+        "precision": 0.889,
+        "recall": 0.8253,
+        "f1": 0.856,
+        "ic95": {
+          "precision": [
+            0.8581,
+            0.914
+          ],
+          "recall": [
+            0.7943,
+            0.8577
+          ],
+          "f1": [
+            0.8309,
+            0.8777
+          ]
+        },
+        "vp": 633,
+        "fp": 79,
+        "fn": 134
+      },
+      "clasificador_fuentes": {
+        "precision": 0.9375,
+        "recall": 0.8801,
+        "f1": 0.9079,
+        "ic95": {
+          "precision": [
+            0.918,
+            0.9556
+          ],
+          "recall": [
+            0.8438,
+            0.9115
+          ],
+          "f1": [
+            0.8851,
+            0.9277
+          ]
+        },
+        "vp": 675,
+        "fp": 45,
+        "fn": 92
+      }
+    },
+    "comparacion": {
+      "micro": {
+        "precision": {
+          "diferencia": 0.0485,
+          "ic95": [
+            0.0265,
+            0.0748
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0548,
+          "ic95": [
+            0.0286,
+            0.0831
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0519,
+          "ic95": [
+            0.0339,
+            0.0707
+          ]
+        }
+      },
+      "infarto_miocardio": {
+        "precision": {
+          "diferencia": -0.0769,
+          "ic95": [
+            -0.3333,
+            0.0
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0714,
+          "ic95": [
+            0.0,
+            0.2384
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0089,
+          "ic95": [
+            -0.1414,
+            0.1333
+          ]
+        }
+      },
+      "insuficiencia_cardiaca": {
+        "precision": {
+          "diferencia": 0.2857,
+          "ic95": [
+            0.0667,
+            0.5556
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": 0.1524,
+          "ic95": [
+            0.0341,
+            0.3338
+          ]
+        }
+      },
+      "vascular_periferica": {
+        "precision": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "cerebrovascular": {
+        "precision": {
+          "diferencia": 0.1199,
+          "ic95": [
+            -0.004,
+            0.2949
+          ]
+        },
+        "recall": {
+          "diferencia": -0.0476,
+          "ic95": [
+            -0.1702,
+            0.125
+          ]
+        },
+        "f1": {
+          "diferencia": -0.0017,
+          "ic95": [
+            -0.1328,
+            0.1618
+          ]
+        }
+      },
+      "demencia": {
+        "precision": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pulmonar_cronica": {
+        "precision": {
+          "diferencia": 0.0286,
+          "ic95": [
+            0.0,
+            0.0969
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0133,
+          "ic95": [
+            0.0,
+            0.0474
+          ]
+        }
+      },
+      "reumatologica": {
+        "precision": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "ulcera_peptica": {
+        "precision": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "hepatica_leve": {
+        "precision": {
+          "diferencia": 0.0268,
+          "ic95": [
+            -0.0677,
+            0.129
+          ]
+        },
+        "recall": {
+          "diferencia": -0.027,
+          "ic95": [
+            -0.1053,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": -0.0024,
+          "ic95": [
+            -0.0637,
+            0.0539
+          ]
+        }
+      },
+      "diabetes": {
+        "precision": {
+          "diferencia": -0.048,
+          "ic95": [
+            -0.1636,
+            0.0015
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0169,
+          "ic95": [
+            0.0,
+            0.0652
+          ]
+        },
+        "f1": {
+          "diferencia": -0.0155,
+          "ic95": [
+            -0.0782,
+            0.0265
+          ]
+        }
+      },
+      "diabetes_complicada": {
+        "precision": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "hemiplejia": {
+        "precision": {
+          "diferencia": 0.0332,
+          "ic95": [
+            -0.0351,
+            0.1334
+          ]
+        },
+        "recall": {
+          "diferencia": -0.0968,
+          "ic95": [
+            -0.2727,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": -0.027,
+          "ic95": [
+            -0.1423,
+            0.069
+          ]
+        }
+      },
+      "renal_cronica": {
+        "precision": {
+          "diferencia": 0.0139,
+          "ic95": [
+            -0.0037,
+            0.0495
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            -0.0441,
+            0.0435
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0071,
+          "ic95": [
+            -0.0203,
+            0.0383
+          ]
+        }
+      },
+      "tumor_maligno": {
+        "precision": {
+          "diferencia": 0.1084,
+          "ic95": [
+            0.05,
+            0.1769
+          ]
+        },
+        "recall": {
+          "diferencia": 0.1261,
+          "ic95": [
+            0.0611,
+            0.1947
+          ]
+        },
+        "f1": {
+          "diferencia": 0.1181,
+          "ic95": [
+            0.0737,
+            0.1732
+          ]
+        }
+      },
+      "hepatica_severa": {
+        "precision": {
+          "diferencia": 0.04,
+          "ic95": [
+            0.0,
+            0.15
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0357,
+          "ic95": [
+            0.0,
+            0.1113
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0377,
+          "ic95": [
+            0.0,
+            0.1035
+          ]
+        }
+      },
+      "tumor_metastasico": {
+        "precision": {
+          "diferencia": 0.0129,
+          "ic95": [
+            0.0,
+            0.0362
+          ]
+        },
+        "recall": {
+          "diferencia": 0.1316,
+          "ic95": [
+            0.0421,
+            0.2099
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0779,
+          "ic95": [
+            0.0266,
+            0.1272
+          ]
+        }
+      },
+      "vih_sida": {
+        "precision": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "recall": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        },
+        "f1": {
+          "diferencia": 0.0,
+          "ic95": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "elegidas_por_pliegue": [
+      {
+        "penalizacion": 0.001,
+        "umbral": 0.5,
+        "f1_internos": 0.8935
+      },
+      {
+        "penalizacion": 0.001,
+        "umbral": 0.45,
+        "f1_internos": 0.8967
+      },
+      {
+        "penalizacion": 0.01,
+        "umbral": 0.45,
+        "f1_internos": 0.9128
+      },
+      {
+        "penalizacion": 0.01,
+        "umbral": 0.45,
+        "f1_internos": 0.9118
+      },
+      {
+        "penalizacion": 0.01,
+        "umbral": 0.4,
+        "f1_internos": 0.8971
+      }
+    ],
+    "segundos": 50.7
+  },
+  "clasificador_final": {
+    "clasificador_fuentes": {
+      "penalizacion": 0.01,
+      "umbral": 0.4,
+      "f1_validacion_cruzada_optimista": 0.9099,
+      "f1_por_penalizacion": {
+        "1e-06": 0.9037,
+        "1e-05": 0.9037,
+        "0.0001": 0.9049,
+        "0.001": 0.9061,
+        "0.01": 0.9099,
+        "0.1": 0.9072
+      },
+      "pares_entrenamiento": 4451,
+      "atributos": [
+        "similitud",
+        "inverso_rango",
+        "margen_primero",
+        "margen_otra",
+        "voto_t005",
+        "voto_t01",
+        "voto_suma",
+        "ninguna_t005",
+        "fraccion_top5",
+        "fraccion_top20",
+        "voto_capitulo",
+        "voto_bloque",
+        "mejor_es_sinonimo",
+        "fraccion_sinonimos",
+        "exacta",
+        "log_largo",
+        "palabras",
+        "sigla",
+        "reglas_esta",
+        "reglas_otra",
+        "excluida",
+        "en_topk",
+        "categoria_infarto_miocardio",
+        "categoria_insuficiencia_cardiaca",
+        "categoria_vascular_periferica",
+        "categoria_cerebrovascular",
+        "categoria_demencia",
+        "categoria_pulmonar_cronica",
+        "categoria_reumatologica",
+        "categoria_ulcera_peptica",
+        "categoria_hepatica_leve",
+        "categoria_diabetes",
+        "categoria_diabetes_complicada",
+        "categoria_hemiplejia",
+        "categoria_renal_cronica",
+        "categoria_tumor_maligno",
+        "categoria_hepatica_severa",
+        "categoria_tumor_metastasico",
+        "categoria_vih_sida"
+      ],
+      "media": [
+        0.6873441934585571,
+        0.29886165261268616,
+        -0.2236330807209015,
+        -0.18223416805267334,
+        0.1785767674446106,
+        0.18405990302562714,
+        0.19390080869197845,
+        0.7062512040138245,
+        0.19051900506019592,
+        0.1944282054901123,
+        0.39124101400375366,
+        0.23965632915496826,
+        0.7330936789512634,
+        0.6919995546340942,
+        0.08829476684331894,
+        2.662179946899414,
+        1.9932599067687988,
+        0.1204223781824112,
+        0.14625926315784454,
+        0.09593349695205688,
+        0.05886317789554596,
+        0.9955066442489624,
+        0.0096607506275177,
+        0.01864749565720558,
+        0.03392495959997177,
+        0.08380139619112015,
+        0.004268703516572714,
+        0.09054145216941833,
+        0.031228937208652496,
+        0.01011008769273758,
+        0.05010110139846802,
+        0.026735564693808556,
+        0.010334756225347519,
+        0.03841833397746086,
+        0.060885194689035416,
+        0.30262863636016846,
+        0.04965176433324814,
+        0.1556953489780426,
+        0.023365536704659462
+      ],
+      "desviacion": [
+        0.14301934838294983,
+        0.3463079333305359,
+        0.15911920368671417,
+        0.24627205729484558,
+        0.3391115069389343,
+        0.2912220358848572,
+        0.23154732584953308,
+        0.4028815031051636,
+        0.3131427764892578,
+        0.22752049565315247,
+        0.45104604959487915,
+        0.38051271438598633,
+        0.4423927068710327,
+        0.39066407084465027,
+        0.28375497460365295,
+        0.6666881442070007,
+        1.2575880289077759,
+        0.32549136877059937,
+        0.3534056544303894,
+        0.2945331037044525,
+        0.23539488017559052,
+        0.06688936799764633,
+        0.09782417863607407,
+        0.13529182970523834,
+        0.181056410074234,
+        0.2771208584308624,
+        0.06520304083824158,
+        0.28698816895484924,
+        0.17395542562007904,
+        0.10005059838294983,
+        0.21817807853221893,
+        0.16132768988609314,
+        0.1011446863412857,
+        0.19222556054592133,
+        0.23914647102355957,
+        0.45944744348526,
+        0.21724887192249298,
+        0.3626070022583008,
+        0.1510785073041916
+      ],
+      "pesos": [
+        0.07130694389343262,
+        0.20182554423809052,
+        0.2955249547958374,
+        0.30574825406074524,
+        0.3726179897785187,
+        0.353971391916275,
+        0.21079659461975098,
+        -0.3248376250267029,
+        0.18736733496189117,
+        0.19827036559581757,
+        0.10544346272945404,
+        0.19746655225753784,
+        -0.03400975093245506,
+        -0.09954797476530075,
+        0.17639301717281342,
+        -0.050948597490787506,
+        0.032823607325553894,
+        0.17117206752300262,
+        0.4971557557582855,
+        -0.265154629945755,
+        -0.12418418377637863,
+        -0.2611373960971832,
+        0.10914956778287888,
+        -0.13465198874473572,
+        0.04328121617436409,
+        0.08619609475135803,
+        -0.10017842799425125,
+        -0.03818221390247345,
+        -0.0762752965092659,
+        0.02571398764848709,
+        0.03249070793390274,
+        0.009926006197929382,
+        0.05407817289233208,
+        -0.011222928762435913,
+        0.020446278154850006,
+        0.013215744867920876,
+        0.049169108271598816,
+        -0.0623285286128521,
+        -0.04661747068166733
+      ],
+      "sesgo": -3.1522468511749833,
+      "pesos_por_atributo": {
+        "reglas_esta": 0.4972,
+        "voto_t005": 0.3726,
+        "voto_t01": 0.354,
+        "ninguna_t005": -0.3248,
+        "margen_otra": 0.3057,
+        "margen_primero": 0.2955,
+        "reglas_otra": -0.2652,
+        "en_topk": -0.2611,
+        "voto_suma": 0.2108,
+        "inverso_rango": 0.2018,
+        "fraccion_top20": 0.1983,
+        "voto_bloque": 0.1975,
+        "fraccion_top5": 0.1874,
+        "exacta": 0.1764,
+        "sigla": 0.1712,
+        "categoria_insuficiencia_cardiaca": -0.1347,
+        "excluida": -0.1242,
+        "categoria_infarto_miocardio": 0.1091,
+        "voto_capitulo": 0.1054,
+        "categoria_demencia": -0.1002,
+        "fraccion_sinonimos": -0.0995,
+        "categoria_cerebrovascular": 0.0862,
+        "categoria_reumatologica": -0.0763,
+        "similitud": 0.0713,
+        "categoria_tumor_metastasico": -0.0623,
+        "categoria_diabetes_complicada": 0.0541,
+        "log_largo": -0.0509,
+        "categoria_hepatica_severa": 0.0492,
+        "categoria_vih_sida": -0.0466,
+        "categoria_vascular_periferica": 0.0433,
+        "categoria_pulmonar_cronica": -0.0382,
+        "mejor_es_sinonimo": -0.034,
+        "palabras": 0.0328,
+        "categoria_hepatica_leve": 0.0325,
+        "categoria_ulcera_peptica": 0.0257,
+        "categoria_renal_cronica": 0.0204,
+        "categoria_tumor_maligno": 0.0132,
+        "categoria_hemiplejia": -0.0112,
+        "categoria_diabetes": 0.0099
+      }
+    },
+    "clasificador_sin_fuentes": {
+      "penalizacion": 0.001,
+      "umbral": 0.3,
+      "f1_validacion_cruzada_optimista": 0.9003,
+      "f1_por_penalizacion": {
+        "1e-06": 0.899,
+        "1e-05": 0.899,
+        "0.0001": 0.8987,
+        "0.001": 0.9003,
+        "0.01": 0.8958,
+        "0.1": 0.8916
+      },
+      "pares_entrenamiento": 3906
+    }
+  },
+  "desarrollo": {
+    "metodos": {
+      "hibrido_actual": {
+        "categoria": {
+          "original": {
+            "micro": {
+              "precision": 0.9305,
+              "recall": 0.8438,
+              "f1": 0.885,
+              "ic95": {
+                "precision": [
+                  0.8963,
+                  0.9606
+                ],
+                "recall": [
+                  0.8049,
+                  0.8873
+                ],
+                "f1": [
+                  0.8545,
+                  0.9127
+                ]
+              },
+              "vp": 281,
+              "fp": 21,
+              "fn": 52
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 302,
+            "con_categoria_sin_gold": 20,
+            "cie10_3": 0.7868,
+            "por_categoria": {
+              "infarto_miocardio": {
+                "precision": 1.0,
+                "recall": 0.8333,
+                "f1": 0.9091,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.3333,
+                    1.0
+                  ],
+                  "f1": [
+                    0.5,
+                    1.0
+                  ]
+                },
+                "vp": 5,
+                "fp": 0,
+                "fn": 1
+              },
+              "insuficiencia_cardiaca": {
+                "precision": 0.5,
+                "recall": 1.0,
+                "f1": 0.6667,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 3,
+                "fp": 3,
+                "fn": 0
+              },
+              "vascular_periferica": {
+                "precision": 0.8571,
+                "recall": 0.6667,
+                "f1": 0.75,
+                "ic95": {
+                  "precision": [
+                    0.6667,
+                    1.0
+                  ],
+                  "recall": [
+                    0.2495,
+                    1.0
+                  ],
+                  "f1": [
+                    0.3747,
+                    1.0
+                  ]
+                },
+                "vp": 6,
+                "fp": 1,
+                "fn": 3
+              },
+              "cerebrovascular": {
+                "precision": 0.9167,
+                "recall": 0.7857,
+                "f1": 0.8462,
+                "ic95": {
+                  "precision": [
+                    0.6923,
+                    1.0
+                  ],
+                  "recall": [
+                    0.5,
+                    1.0
+                  ],
+                  "f1": [
+                    0.625,
+                    0.9697
+                  ]
+                },
+                "vp": 11,
+                "fp": 1,
+                "fn": 3
+              },
+              "demencia": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 2,
+                "fp": 0,
+                "fn": 0
+              },
+              "pulmonar_cronica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 17,
+                "fp": 0,
+                "fn": 0
+              },
+              "reumatologica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 4,
+                "fp": 0,
+                "fn": 0
+              },
+              "ulcera_peptica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1": 0.9333,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.4286,
+                    1.0
+                  ],
+                  "f1": [
+                    0.6,
+                    1.0
+                  ]
+                },
+                "vp": 7,
+                "fp": 0,
+                "fn": 1
+              },
+              "hepatica_leve": {
+                "precision": 0.9444,
+                "recall": 0.6538,
+                "f1": 0.7727,
+                "ic95": {
+                  "precision": [
+                    0.7778,
+                    1.0
+                  ],
+                  "recall": [
+                    0.375,
+                    0.9048
+                  ],
+                  "f1": [
+                    0.5238,
+                    0.9286
+                  ]
+                },
+                "vp": 17,
+                "fp": 1,
+                "fn": 9
+              },
+              "diabetes": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 22,
+                "fp": 0,
+                "fn": 0
+              },
+              "diabetes_complicada": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    0.0
+                  ],
+                  "recall": [
+                    0.0,
+                    0.0
+                  ],
+                  "f1": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                "vp": 0,
+                "fp": 1,
+                "fn": 0
+              },
+              "hemiplejia": {
+                "precision": 0.9375,
+                "recall": 0.7895,
+                "f1": 0.8571,
+                "ic95": {
+                  "precision": [
+                    0.7143,
+                    1.0
+                  ],
+                  "recall": [
+                    0.4545,
+                    1.0
+                  ],
+                  "f1": [
+                    0.5714,
+                    0.9715
+                  ]
+                },
+                "vp": 15,
+                "fp": 1,
+                "fn": 4
+              },
+              "renal_cronica": {
+                "precision": 1.0,
+                "recall": 0.9677,
+                "f1": 0.9836,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.9048,
+                    1.0
+                  ],
+                  "f1": [
+                    0.95,
+                    1.0
+                  ]
+                },
+                "vp": 30,
+                "fp": 0,
+                "fn": 1
+              },
+              "tumor_maligno": {
+                "precision": 0.8947,
+                "recall": 0.7589,
+                "f1": 0.8213,
+                "ic95": {
+                  "precision": [
+                    0.8101,
+                    0.9649
+                  ],
+                  "recall": [
+                    0.6635,
+                    0.8572
+                  ],
+                  "f1": [
+                    0.7485,
+                    0.8866
+                  ]
+                },
+                "vp": 85,
+                "fp": 10,
+                "fn": 27
+              },
+              "hepatica_severa": {
+                "precision": 0.7778,
+                "recall": 1.0,
+                "f1": 0.875,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 7,
+                "fp": 2,
+                "fn": 0
+              },
+              "tumor_metastasico": {
+                "precision": 1.0,
+                "recall": 0.925,
+                "f1": 0.961,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.8518,
+                    1.0
+                  ],
+                  "f1": [
+                    0.92,
+                    1.0
+                  ]
+                },
+                "vp": 37,
+                "fp": 0,
+                "fn": 3
+              },
+              "vih_sida": {
+                "precision": 0.9286,
+                "recall": 1.0,
+                "f1": 0.963,
+                "ic95": {
+                  "precision": [
+                    0.75,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.8571,
+                    1.0
+                  ]
+                },
+                "vp": 13,
+                "fp": 1,
+                "fn": 0
+              }
+            }
+          },
+          "minusculas": {
+            "micro": {
+              "precision": 0.9305,
+              "recall": 0.8438,
+              "f1": 0.885,
+              "ic95": {
+                "precision": [
+                  0.8963,
+                  0.9606
+                ],
+                "recall": [
+                  0.8049,
+                  0.8873
+                ],
+                "f1": [
+                  0.8545,
+                  0.9127
+                ]
+              },
+              "vp": 281,
+              "fp": 21,
+              "fn": 52
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 302,
+            "con_categoria_sin_gold": 20,
+            "cie10_3": 0.7868
+          },
+          "minusculas_sin_tildes": {
+            "micro": {
+              "precision": 0.9373,
+              "recall": 0.8529,
+              "f1": 0.8931,
+              "ic95": {
+                "precision": [
+                  0.9042,
+                  0.9661
+                ],
+                "recall": [
+                  0.8137,
+                  0.8956
+                ],
+                "f1": [
+                  0.8632,
+                  0.9208
+                ]
+              },
+              "vp": 284,
+              "fp": 19,
+              "fn": 49
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 303,
+            "con_categoria_sin_gold": 18,
+            "cie10_3": 0.7928
+          },
+          "errores_5": {
+            "micro": {
+              "precision": 0.934,
+              "recall": 0.8078,
+              "f1": 0.8663,
+              "ic95": {
+                "precision": [
+                  0.8997,
+                  0.9645
+                ],
+                "recall": [
+                  0.7596,
+                  0.8549
+                ],
+                "f1": [
+                  0.8348,
+                  0.8971
+                ]
+              },
+              "vp": 269,
+              "fp": 19,
+              "fn": 64
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 288,
+            "con_categoria_sin_gold": 18,
+            "cie10_3": 0.7538
+          },
+          "errores_10": {
+            "micro": {
+              "precision": 0.9266,
+              "recall": 0.7958,
+              "f1": 0.8562,
+              "ic95": {
+                "precision": [
+                  0.8877,
+                  0.9606
+                ],
+                "recall": [
+                  0.7463,
+                  0.8468
+                ],
+                "f1": [
+                  0.8231,
+                  0.8885
+                ]
+              },
+              "vp": 265,
+              "fp": 21,
+              "fn": 68
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 286,
+            "con_categoria_sin_gold": 20,
+            "cie10_3": 0.7387
+          }
+        },
+        "no_vistas": {
+          "sinonimos_codiesp": {
+            "micro": {
+              "precision": 0.8765,
+              "recall": 0.7513,
+              "f1": 0.8091,
+              "ic95": {
+                "precision": [
+                  0.8134,
+                  0.9334
+                ],
+                "recall": [
+                  0.6818,
+                  0.8205
+                ],
+                "f1": [
+                  0.7552,
+                  0.8571
+                ]
+              },
+              "vp": 142,
+              "fp": 20,
+              "fn": 47
+            },
+            "menciones": 1403,
+            "menciones_gold_charlson": 189,
+            "menciones_con_categoria": 162,
+            "con_categoria_sin_gold": 19,
+            "cie10_3": 0.6667
+          },
+          "sinonimos_codiesp_y_fuentes": {
+            "micro": {
+              "precision": 0.8701,
+              "recall": 0.7486,
+              "f1": 0.8048,
+              "ic95": {
+                "precision": [
+                  0.8037,
+                  0.9308
+                ],
+                "recall": [
+                  0.6778,
+                  0.8224
+                ],
+                "f1": [
+                  0.7507,
+                  0.8556
+                ]
+              },
+              "vp": 134,
+              "fp": 20,
+              "fn": 45
+            },
+            "menciones": 1382,
+            "menciones_gold_charlson": 179,
+            "menciones_con_categoria": 154,
+            "con_categoria_sin_gold": 19,
+            "cie10_3": 0.6592
+          }
+        },
+        "caida_errores_10": 0.0288
+      },
+      "clasificador_fuentes": {
+        "categoria": {
+          "original": {
+            "micro": {
+              "precision": 0.9369,
+              "recall": 0.8919,
+              "f1": 0.9138,
+              "ic95": {
+                "precision": [
+                  0.9031,
+                  0.9661
+                ],
+                "recall": [
+                  0.8496,
+                  0.9301
+                ],
+                "f1": [
+                  0.8817,
+                  0.9401
+                ]
+              },
+              "vp": 297,
+              "fp": 20,
+              "fn": 36
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 317,
+            "con_categoria_sin_gold": 16,
+            "cie10_3": 0.7508,
+            "por_categoria": {
+              "infarto_miocardio": {
+                "precision": 1.0,
+                "recall": 0.8333,
+                "f1": 0.9091,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.3333,
+                    1.0
+                  ],
+                  "f1": [
+                    0.5,
+                    1.0
+                  ]
+                },
+                "vp": 5,
+                "fp": 0,
+                "fn": 1
+              },
+              "insuficiencia_cardiaca": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 3,
+                "fp": 0,
+                "fn": 0
+              },
+              "vascular_periferica": {
+                "precision": 0.8889,
+                "recall": 0.8889,
+                "f1": 0.8889,
+                "ic95": {
+                  "precision": [
+                    0.7273,
+                    1.0
+                  ],
+                  "recall": [
+                    0.5,
+                    1.0
+                  ],
+                  "f1": [
+                    0.6667,
+                    1.0
+                  ]
+                },
+                "vp": 8,
+                "fp": 1,
+                "fn": 1
+              },
+              "cerebrovascular": {
+                "precision": 0.8462,
+                "recall": 0.7857,
+                "f1": 0.8148,
+                "ic95": {
+                  "precision": [
+                    0.6364,
+                    1.0
+                  ],
+                  "recall": [
+                    0.5,
+                    1.0
+                  ],
+                  "f1": [
+                    0.6,
+                    0.9475
+                  ]
+                },
+                "vp": 11,
+                "fp": 2,
+                "fn": 3
+              },
+              "demencia": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 2,
+                "fp": 0,
+                "fn": 0
+              },
+              "pulmonar_cronica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 17,
+                "fp": 0,
+                "fn": 0
+              },
+              "reumatologica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 4,
+                "fp": 0,
+                "fn": 0
+              },
+              "ulcera_peptica": {
+                "precision": 1.0,
+                "recall": 0.875,
+                "f1": 0.9333,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.4286,
+                    1.0
+                  ],
+                  "f1": [
+                    0.6,
+                    1.0
+                  ]
+                },
+                "vp": 7,
+                "fp": 0,
+                "fn": 1
+              },
+              "hepatica_leve": {
+                "precision": 1.0,
+                "recall": 0.6538,
+                "f1": 0.7907,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.375,
+                    0.9048
+                  ],
+                  "f1": [
+                    0.5455,
+                    0.95
+                  ]
+                },
+                "vp": 17,
+                "fp": 0,
+                "fn": 9
+              },
+              "diabetes": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 22,
+                "fp": 0,
+                "fn": 0
+              },
+              "diabetes_complicada": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    0.0
+                  ],
+                  "recall": [
+                    0.0,
+                    0.0
+                  ],
+                  "f1": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                "vp": 0,
+                "fp": 0,
+                "fn": 0
+              },
+              "hemiplejia": {
+                "precision": 0.9375,
+                "recall": 0.7895,
+                "f1": 0.8571,
+                "ic95": {
+                  "precision": [
+                    0.7143,
+                    1.0
+                  ],
+                  "recall": [
+                    0.4545,
+                    1.0
+                  ],
+                  "f1": [
+                    0.5714,
+                    0.9715
+                  ]
+                },
+                "vp": 15,
+                "fp": 1,
+                "fn": 4
+              },
+              "renal_cronica": {
+                "precision": 1.0,
+                "recall": 0.9677,
+                "f1": 0.9836,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.9048,
+                    1.0
+                  ],
+                  "f1": [
+                    0.95,
+                    1.0
+                  ]
+                },
+                "vp": 30,
+                "fp": 0,
+                "fn": 1
+              },
+              "tumor_maligno": {
+                "precision": 0.8684,
+                "recall": 0.8839,
+                "f1": 0.8761,
+                "ic95": {
+                  "precision": [
+                    0.7912,
+                    0.9375
+                  ],
+                  "recall": [
+                    0.8151,
+                    0.9496
+                  ],
+                  "f1": [
+                    0.8163,
+                    0.927
+                  ]
+                },
+                "vp": 99,
+                "fp": 15,
+                "fn": 13
+              },
+              "hepatica_severa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 7,
+                "fp": 0,
+                "fn": 0
+              },
+              "tumor_metastasico": {
+                "precision": 1.0,
+                "recall": 0.925,
+                "f1": 0.961,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.7826,
+                    1.0
+                  ],
+                  "f1": [
+                    0.878,
+                    1.0
+                  ]
+                },
+                "vp": 37,
+                "fp": 0,
+                "fn": 3
+              },
+              "vih_sida": {
+                "precision": 0.9286,
+                "recall": 1.0,
+                "f1": 0.963,
+                "ic95": {
+                  "precision": [
+                    0.75,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.8571,
+                    1.0
+                  ]
+                },
+                "vp": 13,
+                "fp": 1,
+                "fn": 0
+              }
+            }
+          },
+          "minusculas": {
+            "micro": {
+              "precision": 0.9369,
+              "recall": 0.8919,
+              "f1": 0.9138,
+              "ic95": {
+                "precision": [
+                  0.9031,
+                  0.9661
+                ],
+                "recall": [
+                  0.8496,
+                  0.9301
+                ],
+                "f1": [
+                  0.8817,
+                  0.9401
+                ]
+              },
+              "vp": 297,
+              "fp": 20,
+              "fn": 36
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 317,
+            "con_categoria_sin_gold": 16,
+            "cie10_3": 0.7508
+          },
+          "minusculas_sin_tildes": {
+            "micro": {
+              "precision": 0.9367,
+              "recall": 0.8889,
+              "f1": 0.9122,
+              "ic95": {
+                "precision": [
+                  0.9035,
+                  0.9669
+                ],
+                "recall": [
+                  0.8467,
+                  0.9271
+                ],
+                "f1": [
+                  0.8811,
+                  0.9394
+                ]
+              },
+              "vp": 296,
+              "fp": 20,
+              "fn": 37
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 316,
+            "con_categoria_sin_gold": 15,
+            "cie10_3": 0.7477
+          },
+          "errores_5": {
+            "micro": {
+              "precision": 0.9385,
+              "recall": 0.8709,
+              "f1": 0.9034,
+              "ic95": {
+                "precision": [
+                  0.9046,
+                  0.9696
+                ],
+                "recall": [
+                  0.8248,
+                  0.9128
+                ],
+                "f1": [
+                  0.8696,
+                  0.9329
+                ]
+              },
+              "vp": 290,
+              "fp": 19,
+              "fn": 43
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 309,
+            "con_categoria_sin_gold": 15,
+            "cie10_3": 0.7207
+          },
+          "errores_10": {
+            "micro": {
+              "precision": 0.9143,
+              "recall": 0.8649,
+              "f1": 0.8889,
+              "ic95": {
+                "precision": [
+                  0.878,
+                  0.9472
+                ],
+                "recall": [
+                  0.8221,
+                  0.9067
+                ],
+                "f1": [
+                  0.8575,
+                  0.9182
+                ]
+              },
+              "vp": 288,
+              "fp": 27,
+              "fn": 45
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 315,
+            "con_categoria_sin_gold": 23,
+            "cie10_3": 0.7117
+          }
+        },
+        "no_vistas": {
+          "sinonimos_codiesp": {
+            "micro": {
+              "precision": 0.8927,
+              "recall": 0.836,
+              "f1": 0.8634,
+              "ic95": {
+                "precision": [
+                  0.8372,
+                  0.9431
+                ],
+                "recall": [
+                  0.7688,
+                  0.8995
+                ],
+                "f1": [
+                  0.8083,
+                  0.9106
+                ]
+              },
+              "vp": 158,
+              "fp": 19,
+              "fn": 31
+            },
+            "menciones": 1403,
+            "menciones_gold_charlson": 189,
+            "menciones_con_categoria": 177,
+            "con_categoria_sin_gold": 15,
+            "cie10_3": 0.6032
+          },
+          "sinonimos_codiesp_y_fuentes": {
+            "micro": {
+              "precision": 0.8916,
+              "recall": 0.8268,
+              "f1": 0.858,
+              "ic95": {
+                "precision": [
+                  0.8354,
+                  0.9441
+                ],
+                "recall": [
+                  0.7537,
+                  0.8929
+                ],
+                "f1": [
+                  0.8012,
+                  0.9048
+                ]
+              },
+              "vp": 148,
+              "fp": 18,
+              "fn": 31
+            },
+            "menciones": 1382,
+            "menciones_gold_charlson": 179,
+            "menciones_con_categoria": 166,
+            "con_categoria_sin_gold": 14,
+            "cie10_3": 0.6257
+          }
+        },
+        "caida_errores_10": 0.0249
+      },
+      "hibrido_fuentes": {
+        "categoria": {
+          "original": {
+            "micro": {
+              "precision": 0.9188,
+              "recall": 0.8498,
+              "f1": 0.883,
+              "ic95": {
+                "precision": [
+                  0.8775,
+                  0.9542
+                ],
+                "recall": [
+                  0.8099,
+                  0.8923
+                ],
+                "f1": [
+                  0.8514,
+                  0.913
+                ]
+              },
+              "vp": 283,
+              "fp": 25,
+              "fn": 50
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 308,
+            "con_categoria_sin_gold": 23,
+            "cie10_3": 0.7477,
+            "por_categoria": {
+              "infarto_miocardio": {
+                "precision": 1.0,
+                "recall": 0.8333,
+                "f1": 0.9091,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.3333,
+                    1.0
+                  ],
+                  "f1": [
+                    0.5,
+                    1.0
+                  ]
+                },
+                "vp": 5,
+                "fp": 0,
+                "fn": 1
+              },
+              "insuficiencia_cardiaca": {
+                "precision": 0.5,
+                "recall": 1.0,
+                "f1": 0.6667,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 3,
+                "fp": 3,
+                "fn": 0
+              },
+              "vascular_periferica": {
+                "precision": 0.8571,
+                "recall": 0.6667,
+                "f1": 0.75,
+                "ic95": {
+                  "precision": [
+                    0.6667,
+                    1.0
+                  ],
+                  "recall": [
+                    0.2495,
+                    1.0
+                  ],
+                  "f1": [
+                    0.3747,
+                    1.0
+                  ]
+                },
+                "vp": 6,
+                "fp": 1,
+                "fn": 3
+              },
+              "cerebrovascular": {
+                "precision": 0.9167,
+                "recall": 0.7857,
+                "f1": 0.8462,
+                "ic95": {
+                  "precision": [
+                    0.6923,
+                    1.0
+                  ],
+                  "recall": [
+                    0.5,
+                    1.0
+                  ],
+                  "f1": [
+                    0.625,
+                    0.9697
+                  ]
+                },
+                "vp": 11,
+                "fp": 1,
+                "fn": 3
+              },
+              "demencia": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 2,
+                "fp": 0,
+                "fn": 0
+              },
+              "pulmonar_cronica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 17,
+                "fp": 0,
+                "fn": 0
+              },
+              "reumatologica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 4,
+                "fp": 0,
+                "fn": 0
+              },
+              "ulcera_peptica": {
+                "precision": 0.875,
+                "recall": 0.875,
+                "f1": 0.875,
+                "ic95": {
+                  "precision": [
+                    0.7778,
+                    1.0
+                  ],
+                  "recall": [
+                    0.4286,
+                    1.0
+                  ],
+                  "f1": [
+                    0.6,
+                    1.0
+                  ]
+                },
+                "vp": 7,
+                "fp": 1,
+                "fn": 1
+              },
+              "hepatica_leve": {
+                "precision": 0.9444,
+                "recall": 0.6538,
+                "f1": 0.7727,
+                "ic95": {
+                  "precision": [
+                    0.7778,
+                    1.0
+                  ],
+                  "recall": [
+                    0.375,
+                    0.9048
+                  ],
+                  "f1": [
+                    0.5238,
+                    0.9286
+                  ]
+                },
+                "vp": 17,
+                "fp": 1,
+                "fn": 9
+              },
+              "diabetes": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 22,
+                "fp": 0,
+                "fn": 0
+              },
+              "diabetes_complicada": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    0.0
+                  ],
+                  "recall": [
+                    0.0,
+                    0.0
+                  ],
+                  "f1": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                "vp": 0,
+                "fp": 1,
+                "fn": 0
+              },
+              "hemiplejia": {
+                "precision": 0.9375,
+                "recall": 0.7895,
+                "f1": 0.8571,
+                "ic95": {
+                  "precision": [
+                    0.7143,
+                    1.0
+                  ],
+                  "recall": [
+                    0.4545,
+                    1.0
+                  ],
+                  "f1": [
+                    0.5714,
+                    0.9715
+                  ]
+                },
+                "vp": 15,
+                "fp": 1,
+                "fn": 4
+              },
+              "renal_cronica": {
+                "precision": 1.0,
+                "recall": 0.9677,
+                "f1": 0.9836,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.9048,
+                    1.0
+                  ],
+                  "f1": [
+                    0.95,
+                    1.0
+                  ]
+                },
+                "vp": 30,
+                "fp": 0,
+                "fn": 1
+              },
+              "tumor_maligno": {
+                "precision": 0.8878,
+                "recall": 0.7768,
+                "f1": 0.8286,
+                "ic95": {
+                  "precision": [
+                    0.809,
+                    0.9584
+                  ],
+                  "recall": [
+                    0.6852,
+                    0.8761
+                  ],
+                  "f1": [
+                    0.7543,
+                    0.8934
+                  ]
+                },
+                "vp": 87,
+                "fp": 11,
+                "fn": 25
+              },
+              "hepatica_severa": {
+                "precision": 0.7778,
+                "recall": 1.0,
+                "f1": 0.875,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 7,
+                "fp": 2,
+                "fn": 0
+              },
+              "tumor_metastasico": {
+                "precision": 0.9487,
+                "recall": 0.925,
+                "f1": 0.9367,
+                "ic95": {
+                  "precision": [
+                    0.8667,
+                    1.0
+                  ],
+                  "recall": [
+                    0.8518,
+                    1.0
+                  ],
+                  "f1": [
+                    0.8846,
+                    0.9822
+                  ]
+                },
+                "vp": 37,
+                "fp": 2,
+                "fn": 3
+              },
+              "vih_sida": {
+                "precision": 0.9286,
+                "recall": 1.0,
+                "f1": 0.963,
+                "ic95": {
+                  "precision": [
+                    0.75,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.8571,
+                    1.0
+                  ]
+                },
+                "vp": 13,
+                "fp": 1,
+                "fn": 0
+              }
+            }
+          },
+          "minusculas": {
+            "micro": {
+              "precision": 0.9188,
+              "recall": 0.8498,
+              "f1": 0.883,
+              "ic95": {
+                "precision": [
+                  0.8775,
+                  0.9542
+                ],
+                "recall": [
+                  0.8099,
+                  0.8923
+                ],
+                "f1": [
+                  0.8514,
+                  0.913
+                ]
+              },
+              "vp": 283,
+              "fp": 25,
+              "fn": 50
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 308,
+            "con_categoria_sin_gold": 23,
+            "cie10_3": 0.7477
+          },
+          "minusculas_sin_tildes": {
+            "micro": {
+              "precision": 0.9137,
+              "recall": 0.8589,
+              "f1": 0.8854,
+              "ic95": {
+                "precision": [
+                  0.8725,
+                  0.9497
+                ],
+                "recall": [
+                  0.8161,
+                  0.8994
+                ],
+                "f1": [
+                  0.8536,
+                  0.9167
+                ]
+              },
+              "vp": 286,
+              "fp": 27,
+              "fn": 47
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 313,
+            "con_categoria_sin_gold": 23,
+            "cie10_3": 0.7477
+          },
+          "errores_5": {
+            "micro": {
+              "precision": 0.9223,
+              "recall": 0.8198,
+              "f1": 0.868,
+              "ic95": {
+                "precision": [
+                  0.8821,
+                  0.9575
+                ],
+                "recall": [
+                  0.7724,
+                  0.867
+                ],
+                "f1": [
+                  0.8325,
+                  0.9004
+                ]
+              },
+              "vp": 273,
+              "fp": 23,
+              "fn": 60
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 296,
+            "con_categoria_sin_gold": 21,
+            "cie10_3": 0.7147
+          },
+          "errores_10": {
+            "micro": {
+              "precision": 0.9097,
+              "recall": 0.8168,
+              "f1": 0.8608,
+              "ic95": {
+                "precision": [
+                  0.866,
+                  0.9462
+                ],
+                "recall": [
+                  0.7704,
+                  0.8626
+                ],
+                "f1": [
+                  0.8268,
+                  0.8926
+                ]
+              },
+              "vp": 272,
+              "fp": 27,
+              "fn": 61
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 299,
+            "con_categoria_sin_gold": 25,
+            "cie10_3": 0.7057
+          }
+        },
+        "no_vistas": {
+          "sinonimos_codiesp": {
+            "micro": {
+              "precision": 0.8571,
+              "recall": 0.7619,
+              "f1": 0.8067,
+              "ic95": {
+                "precision": [
+                  0.7902,
+                  0.9185
+                ],
+                "recall": [
+                  0.6935,
+                  0.8308
+                ],
+                "f1": [
+                  0.7478,
+                  0.8604
+                ]
+              },
+              "vp": 144,
+              "fp": 24,
+              "fn": 45
+            },
+            "menciones": 1403,
+            "menciones_gold_charlson": 189,
+            "menciones_con_categoria": 168,
+            "con_categoria_sin_gold": 22,
+            "cie10_3": 0.5979
+          },
+          "sinonimos_codiesp_y_fuentes": {
+            "micro": {
+              "precision": 0.8535,
+              "recall": 0.7486,
+              "f1": 0.7976,
+              "ic95": {
+                "precision": [
+                  0.7787,
+                  0.9193
+                ],
+                "recall": [
+                  0.6783,
+                  0.8218
+                ],
+                "f1": [
+                  0.7391,
+                  0.8539
+                ]
+              },
+              "vp": 134,
+              "fp": 23,
+              "fn": 45
+            },
+            "menciones": 1382,
+            "menciones_gold_charlson": 179,
+            "menciones_con_categoria": 157,
+            "con_categoria_sin_gold": 21,
+            "cie10_3": 0.6201
+          }
+        },
+        "caida_errores_10": 0.0222
+      },
+      "clasificador_sin_fuentes": {
+        "categoria": {
+          "original": {
+            "micro": {
+              "precision": 0.9297,
+              "recall": 0.9129,
+              "f1": 0.9212,
+              "ic95": {
+                "precision": [
+                  0.8969,
+                  0.9578
+                ],
+                "recall": [
+                  0.8743,
+                  0.9485
+                ],
+                "f1": [
+                  0.8932,
+                  0.9446
+                ]
+              },
+              "vp": 304,
+              "fp": 23,
+              "fn": 29
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 327,
+            "con_categoria_sin_gold": 21,
+            "cie10_3": 0.8108,
+            "por_categoria": {
+              "infarto_miocardio": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 6,
+                "fp": 0,
+                "fn": 0
+              },
+              "insuficiencia_cardiaca": {
+                "precision": 1.0,
+                "recall": 0.6667,
+                "f1": 0.8,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 2,
+                "fp": 0,
+                "fn": 1
+              },
+              "vascular_periferica": {
+                "precision": 0.8889,
+                "recall": 0.8889,
+                "f1": 0.8889,
+                "ic95": {
+                  "precision": [
+                    0.7273,
+                    1.0
+                  ],
+                  "recall": [
+                    0.5,
+                    1.0
+                  ],
+                  "f1": [
+                    0.6667,
+                    1.0
+                  ]
+                },
+                "vp": 8,
+                "fp": 1,
+                "fn": 1
+              },
+              "cerebrovascular": {
+                "precision": 0.8,
+                "recall": 0.8571,
+                "f1": 0.8276,
+                "ic95": {
+                  "precision": [
+                    0.5996,
+                    1.0
+                  ],
+                  "recall": [
+                    0.6429,
+                    1.0
+                  ],
+                  "f1": [
+                    0.6427,
+                    0.9524
+                  ]
+                },
+                "vp": 12,
+                "fp": 3,
+                "fn": 2
+              },
+              "demencia": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 2,
+                "fp": 0,
+                "fn": 0
+              },
+              "pulmonar_cronica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 17,
+                "fp": 0,
+                "fn": 0
+              },
+              "reumatologica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 4,
+                "fp": 0,
+                "fn": 0
+              },
+              "ulcera_peptica": {
+                "precision": 0.8889,
+                "recall": 1.0,
+                "f1": 0.9412,
+                "ic95": {
+                  "precision": [
+                    0.6,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.75,
+                    1.0
+                  ]
+                },
+                "vp": 8,
+                "fp": 1,
+                "fn": 0
+              },
+              "hepatica_leve": {
+                "precision": 0.9444,
+                "recall": 0.6538,
+                "f1": 0.7727,
+                "ic95": {
+                  "precision": [
+                    0.7778,
+                    1.0
+                  ],
+                  "recall": [
+                    0.375,
+                    0.9048
+                  ],
+                  "f1": [
+                    0.5238,
+                    0.9286
+                  ]
+                },
+                "vp": 17,
+                "fp": 1,
+                "fn": 9
+              },
+              "diabetes": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 22,
+                "fp": 0,
+                "fn": 0
+              },
+              "diabetes_complicada": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    0.0
+                  ],
+                  "recall": [
+                    0.0,
+                    0.0
+                  ],
+                  "f1": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                "vp": 0,
+                "fp": 0,
+                "fn": 0
+              },
+              "hemiplejia": {
+                "precision": 0.9375,
+                "recall": 0.7895,
+                "f1": 0.8571,
+                "ic95": {
+                  "precision": [
+                    0.7143,
+                    1.0
+                  ],
+                  "recall": [
+                    0.4545,
+                    1.0
+                  ],
+                  "f1": [
+                    0.5714,
+                    0.9715
+                  ]
+                },
+                "vp": 15,
+                "fp": 1,
+                "fn": 4
+              },
+              "renal_cronica": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                "vp": 31,
+                "fp": 0,
+                "fn": 0
+              },
+              "tumor_maligno": {
+                "precision": 0.8729,
+                "recall": 0.9196,
+                "f1": 0.8957,
+                "ic95": {
+                  "precision": [
+                    0.7909,
+                    0.9397
+                  ],
+                  "recall": [
+                    0.8505,
+                    0.9732
+                  ],
+                  "f1": [
+                    0.8372,
+                    0.9412
+                  ]
+                },
+                "vp": 103,
+                "fp": 15,
+                "fn": 9
+              },
+              "hepatica_severa": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "ic95": {
+                  "precision": [
+                    0.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                "vp": 7,
+                "fp": 0,
+                "fn": 0
+              },
+              "tumor_metastasico": {
+                "precision": 1.0,
+                "recall": 0.925,
+                "f1": 0.961,
+                "ic95": {
+                  "precision": [
+                    1.0,
+                    1.0
+                  ],
+                  "recall": [
+                    0.7826,
+                    1.0
+                  ],
+                  "f1": [
+                    0.878,
+                    1.0
+                  ]
+                },
+                "vp": 37,
+                "fp": 0,
+                "fn": 3
+              },
+              "vih_sida": {
+                "precision": 0.9286,
+                "recall": 1.0,
+                "f1": 0.963,
+                "ic95": {
+                  "precision": [
+                    0.75,
+                    1.0
+                  ],
+                  "recall": [
+                    1.0,
+                    1.0
+                  ],
+                  "f1": [
+                    0.8571,
+                    1.0
+                  ]
+                },
+                "vp": 13,
+                "fp": 1,
+                "fn": 0
+              }
+            }
+          },
+          "minusculas": {
+            "micro": {
+              "precision": 0.9292,
+              "recall": 0.9069,
+              "f1": 0.9179,
+              "ic95": {
+                "precision": [
+                  0.8968,
+                  0.9576
+                ],
+                "recall": [
+                  0.8659,
+                  0.9448
+                ],
+                "f1": [
+                  0.8914,
+                  0.9422
+                ]
+              },
+              "vp": 302,
+              "fp": 23,
+              "fn": 31
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 325,
+            "con_categoria_sin_gold": 21,
+            "cie10_3": 0.8108
+          },
+          "minusculas_sin_tildes": {
+            "micro": {
+              "precision": 0.9319,
+              "recall": 0.9039,
+              "f1": 0.9177,
+              "ic95": {
+                "precision": [
+                  0.8996,
+                  0.958
+                ],
+                "recall": [
+                  0.8631,
+                  0.9415
+                ],
+                "f1": [
+                  0.8894,
+                  0.9415
+                ]
+              },
+              "vp": 301,
+              "fp": 22,
+              "fn": 32
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 323,
+            "con_categoria_sin_gold": 19,
+            "cie10_3": 0.8048
+          },
+          "errores_5": {
+            "micro": {
+              "precision": 0.9286,
+              "recall": 0.8979,
+              "f1": 0.913,
+              "ic95": {
+                "precision": [
+                  0.8983,
+                  0.9569
+                ],
+                "recall": [
+                  0.8567,
+                  0.9364
+                ],
+                "f1": [
+                  0.886,
+                  0.9372
+                ]
+              },
+              "vp": 299,
+              "fp": 23,
+              "fn": 34
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 322,
+            "con_categoria_sin_gold": 21,
+            "cie10_3": 0.7928
+          },
+          "errores_10": {
+            "micro": {
+              "precision": 0.9167,
+              "recall": 0.8919,
+              "f1": 0.9041,
+              "ic95": {
+                "precision": [
+                  0.8805,
+                  0.9485
+                ],
+                "recall": [
+                  0.8523,
+                  0.9309
+                ],
+                "f1": [
+                  0.8735,
+                  0.9304
+                ]
+              },
+              "vp": 297,
+              "fp": 27,
+              "fn": 36
+            },
+            "menciones": 3430,
+            "menciones_gold_charlson": 333,
+            "menciones_con_categoria": 324,
+            "con_categoria_sin_gold": 24,
+            "cie10_3": 0.7778
+          }
+        },
+        "no_vistas": {
+          "sinonimos_codiesp": {
+            "micro": {
+              "precision": 0.8824,
+              "recall": 0.873,
+              "f1": 0.8777,
+              "ic95": {
+                "precision": [
+                  0.8278,
+                  0.9291
+                ],
+                "recall": [
+                  0.8075,
+                  0.9305
+                ],
+                "f1": [
+                  0.8313,
+                  0.9174
+                ]
+              },
+              "vp": 165,
+              "fp": 22,
+              "fn": 24
+            },
+            "menciones": 1403,
+            "menciones_gold_charlson": 189,
+            "menciones_con_categoria": 187,
+            "con_categoria_sin_gold": 20,
+            "cie10_3": 0.709
+          },
+          "sinonimos_codiesp_y_fuentes": {
+            "micro": {
+              "precision": 0.8757,
+              "recall": 0.8659,
+              "f1": 0.8708,
+              "ic95": {
+                "precision": [
+                  0.8196,
+                  0.9254
+                ],
+                "recall": [
+                  0.799,
+                  0.9255
+                ],
+                "f1": [
+                  0.8208,
+                  0.9118
+                ]
+              },
+              "vp": 155,
+              "fp": 22,
+              "fn": 24
+            },
+            "menciones": 1382,
+            "menciones_gold_charlson": 179,
+            "menciones_con_categoria": 177,
+            "con_categoria_sin_gold": 20,
+            "cie10_3": 0.7039
+          }
+        },
+        "caida_errores_10": 0.0171
+      }
+    },
+    "comparaciones": {
+      "clasificador_fuentes": {
+        "micro": {
+          "precision": {
+            "diferencia": 0.0064,
+            "ic95": [
+              -0.0249,
+              0.0367
+            ]
+          },
+          "recall": {
+            "diferencia": 0.048,
+            "ic95": [
+              0.0133,
+              0.082
+            ]
+          },
+          "f1": {
+            "diferencia": 0.0288,
+            "ic95": [
+              0.0017,
+              0.0534
+            ]
+          }
+        },
+        "variantes": {
+          "minusculas": {
+            "precision": {
+              "diferencia": 0.0064,
+              "ic95": [
+                -0.0249,
+                0.0367
+              ]
+            },
+            "recall": {
+              "diferencia": 0.048,
+              "ic95": [
+                0.0133,
+                0.082
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0288,
+              "ic95": [
+                0.0017,
+                0.0534
+              ]
+            }
+          },
+          "minusculas_sin_tildes": {
+            "precision": {
+              "diferencia": -0.0006,
+              "ic95": [
+                -0.0309,
+                0.032
+              ]
+            },
+            "recall": {
+              "diferencia": 0.036,
+              "ic95": [
+                0.0,
+                0.069
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0191,
+              "ic95": [
+                -0.0065,
+                0.0445
+              ]
+            }
+          },
+          "errores_5": {
+            "precision": {
+              "diferencia": 0.0045,
+              "ic95": [
+                -0.0253,
+                0.0337
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0631,
+              "ic95": [
+                0.0298,
+                0.0966
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0371,
+              "ic95": [
+                0.0119,
+                0.0616
+              ]
+            }
+          },
+          "errores_10": {
+            "precision": {
+              "diferencia": -0.0123,
+              "ic95": [
+                -0.0444,
+                0.0223
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0691,
+              "ic95": [
+                0.0304,
+                0.1094
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0327,
+              "ic95": [
+                0.0034,
+                0.0623
+              ]
+            }
+          }
+        },
+        "por_categoria": {
+          "infarto_miocardio": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "insuficiencia_cardiaca": {
+            "precision": {
+              "diferencia": 0.5,
+              "ic95": [
+                0.0,
+                0.75
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.3333,
+              "ic95": [
+                0.0,
+                0.6
+              ]
+            }
+          },
+          "vascular_periferica": {
+            "precision": {
+              "diferencia": 0.0317,
+              "ic95": [
+                0.0,
+                0.1092
+              ]
+            },
+            "recall": {
+              "diferencia": 0.2222,
+              "ic95": [
+                0.0,
+                0.6667
+              ]
+            },
+            "f1": {
+              "diferencia": 0.1389,
+              "ic95": [
+                0.0,
+                0.5
+              ]
+            }
+          },
+          "cerebrovascular": {
+            "precision": {
+              "diferencia": -0.0705,
+              "ic95": [
+                -0.1833,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": -0.0313,
+              "ic95": [
+                -0.0899,
+                0.0
+              ]
+            }
+          },
+          "demencia": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "pulmonar_cronica": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "reumatologica": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ulcera_peptica": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "hepatica_leve": {
+            "precision": {
+              "diferencia": 0.0556,
+              "ic95": [
+                0.0,
+                0.2222
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.018,
+              "ic95": [
+                0.0,
+                0.0718
+              ]
+            }
+          },
+          "diabetes": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "diabetes_complicada": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "hemiplejia": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "renal_cronica": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "tumor_maligno": {
+            "precision": {
+              "diferencia": -0.0263,
+              "ic95": [
+                -0.0905,
+                0.0368
+              ]
+            },
+            "recall": {
+              "diferencia": 0.125,
+              "ic95": [
+                0.0431,
+                0.2188
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0549,
+              "ic95": [
+                -0.0046,
+                0.1217
+              ]
+            }
+          },
+          "hepatica_severa": {
+            "precision": {
+              "diferencia": 0.2222,
+              "ic95": [
+                0.0,
+                0.5714
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.125,
+              "ic95": [
+                0.0,
+                0.4
+              ]
+            }
+          },
+          "tumor_metastasico": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                -0.1539,
+                0.0952
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                -0.0902,
+                0.0511
+              ]
+            }
+          },
+          "vih_sida": {
+            "precision": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0,
+              "ic95": [
+                0.0,
+                0.0
+              ]
+            }
+          }
+        }
+      },
+      "hibrido_fuentes": {
+        "micro": {
+          "precision": {
+            "diferencia": -0.0116,
+            "ic95": [
+              -0.024,
+              -0.002
+            ]
+          },
+          "recall": {
+            "diferencia": 0.006,
+            "ic95": [
+              -0.0059,
+              0.0187
+            ]
+          },
+          "f1": {
+            "diferencia": -0.002,
+            "ic95": [
+              -0.0127,
+              0.0072
+            ]
+          }
+        },
+        "variantes": {
+          "minusculas": {
+            "precision": {
+              "diferencia": -0.0116,
+              "ic95": [
+                -0.024,
+                -0.002
+              ]
+            },
+            "recall": {
+              "diferencia": 0.006,
+              "ic95": [
+                -0.0059,
+                0.0187
+              ]
+            },
+            "f1": {
+              "diferencia": -0.002,
+              "ic95": [
+                -0.0127,
+                0.0072
+              ]
+            }
+          },
+          "minusculas_sin_tildes": {
+            "precision": {
+              "diferencia": -0.0236,
+              "ic95": [
+                -0.0399,
+                -0.0092
+              ]
+            },
+            "recall": {
+              "diferencia": 0.006,
+              "ic95": [
+                -0.0059,
+                0.0188
+              ]
+            },
+            "f1": {
+              "diferencia": -0.0076,
+              "ic95": [
+                -0.0187,
+                0.0029
+              ]
+            }
+          },
+          "errores_5": {
+            "precision": {
+              "diferencia": -0.0117,
+              "ic95": [
+                -0.0251,
+                -0.0015
+              ]
+            },
+            "recall": {
+              "diferencia": 0.012,
+              "ic95": [
+                -0.0027,
+                0.0266
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0017,
+              "ic95": [
+                -0.0095,
+                0.0125
+              ]
+            }
+          },
+          "errores_10": {
+            "precision": {
+              "diferencia": -0.0169,
+              "ic95": [
+                -0.0315,
+                -0.004
+              ]
+            },
+            "recall": {
+              "diferencia": 0.021,
+              "ic95": [
+                0.0031,
+                0.0418
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0045,
+              "ic95": [
+                -0.009,
+                0.0186
+              ]
+            }
+          }
+        }
+      },
+      "clasificador_sin_fuentes": {
+        "micro": {
+          "precision": {
+            "diferencia": -0.0008,
+            "ic95": [
+              -0.0263,
+              0.0261
+            ]
+          },
+          "recall": {
+            "diferencia": 0.0691,
+            "ic95": [
+              0.0303,
+              0.1076
+            ]
+          },
+          "f1": {
+            "diferencia": 0.0362,
+            "ic95": [
+              0.0123,
+              0.0599
+            ]
+          }
+        },
+        "variantes": {
+          "minusculas": {
+            "precision": {
+              "diferencia": -0.0012,
+              "ic95": [
+                -0.0265,
+                0.0255
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0631,
+              "ic95": [
+                0.0256,
+                0.0992
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0329,
+              "ic95": [
+                0.0094,
+                0.0566
+              ]
+            }
+          },
+          "minusculas_sin_tildes": {
+            "precision": {
+              "diferencia": -0.0054,
+              "ic95": [
+                -0.0324,
+                0.0233
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0511,
+              "ic95": [
+                0.0185,
+                0.0839
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0246,
+              "ic95": [
+                0.0022,
+                0.0464
+              ]
+            }
+          },
+          "errores_5": {
+            "precision": {
+              "diferencia": -0.0055,
+              "ic95": [
+                -0.0308,
+                0.0208
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0901,
+              "ic95": [
+                0.053,
+                0.1297
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0466,
+              "ic95": [
+                0.0232,
+                0.0727
+              ]
+            }
+          },
+          "errores_10": {
+            "precision": {
+              "diferencia": -0.0099,
+              "ic95": [
+                -0.0386,
+                0.021
+              ]
+            },
+            "recall": {
+              "diferencia": 0.0961,
+              "ic95": [
+                0.0508,
+                0.1424
+              ]
+            },
+            "f1": {
+              "diferencia": 0.0479,
+              "ic95": [
+                0.0181,
+                0.0784
+              ]
+            }
+          }
+        }
+      }
+    },
+    "perdidas_hibrido": {
+      "perdidas": 52,
+      "causas": {
+        "excluida": 0,
+        "bajo_umbral": 12,
+        "top5": 26,
+        "topk": 11,
+        "solo_reglas": 0,
+        "fuera": 3
+      },
+      "por_categoria": {
+        "tumor_maligno": 27,
+        "hepatica_leve": 9,
+        "hemiplejia": 4,
+        "tumor_metastasico": 3,
+        "cerebrovascular": 3,
+        "vascular_periferica": 3,
+        "renal_cronica": 1,
+        "ulcera_peptica": 1,
+        "infarto_miocardio": 1
+      },
+      "falsos_positivos": {
+        "gold_sin_categoria": 20,
+        "gold_otra_categoria": 1
+      },
+      "reproduce_149": true
+    },
+    "recuperadas": {
+      "perdidas_base": {
+        "excluida": 0,
+        "bajo_umbral": 12,
+        "top5": 26,
+        "topk": 11,
+        "solo_reglas": 0,
+        "fuera": 3
+      },
+      "recuperadas": {
+        "excluida": 0,
+        "bajo_umbral": 9,
+        "top5": 11,
+        "topk": 0,
+        "solo_reglas": 0,
+        "fuera": 0
+      },
+      "aciertos_base_perdidos": 4,
+      "falsos_positivos_nuevos": 9,
+      "falsos_positivos_quitados": 10
+    }
+  },
+  "costo_segunda_etapa": {
+    "hibrido_actual": {
+      "milisegundos_por_mencion": 0.006,
+      "milisegundos_por_documento": 0.079
+    },
+    "clasificador_fuentes": {
+      "milisegundos_por_mencion": 0.048,
+      "milisegundos_por_documento": 0.655
+    },
+    "hibrido_fuentes": {
+      "milisegundos_por_mencion": 0.003,
+      "milisegundos_por_documento": 0.042
+    },
+    "clasificador_sin_fuentes": {
+      "milisegundos_por_mencion": 0.028,
+      "milisegundos_por_documento": 0.381
+    }
+  },
+  "metas": [
+    {
+      "meta": "Validación cruzada: el IC de la diferencia de F1 contra el híbrido no incluye el cero",
+      "valor": "+0.052 [+0.034; +0.071]",
+      "cumple": true
+    },
+    {
+      "meta": "Desarrollo: F1 mayor que 0.885",
+      "valor": "0.914 (híbrido 0.885)",
+      "cumple": true
+    },
+    {
+      "meta": "Desarrollo: la precisión cae 0.01 como máximo",
+      "valor": "+0.006",
+      "cumple": true
+    },
+    {
+      "meta": "Desarrollo: meta orientativa de F1 0.9",
+      "valor": "0.914",
+      "cumple": true
+    },
+    {
+      "meta": "Desarrollo: recupera al menos la mitad de las perdidas del top-5",
+      "valor": "11 de 26",
+      "cumple": false
+    },
+    {
+      "meta": "Errores al 10 %: no cae más que el híbrido",
+      "valor": "cae 0.025 (híbrido 0.029)",
+      "cumple": true
+    }
+  ]
+}

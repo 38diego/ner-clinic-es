@@ -1,0 +1,1289 @@
+{
+  "fecha": "2026-11-09T00:44:01Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "bdb387824bfea3a20dbab7aaeee947acf8873c27",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "normalizador": {
+    "huella_indice": "010bb894b1d6dd1a10b6f7960568a12ae366aa0f6773b50085a6cf22cffabbbc",
+    "commit_clasificador": "7f7a6d1e623128272f4f37cb9bbd5de1f1485061",
+    "umbral": 0.3
+  },
+  "particion": "CodiEsp desarrollo (ya mirada en #132, #133 y #154: optimista)",
+  "documentos": 250,
+  "documentos_con_categoria_gold": 123,
+  "pares_gold": 197,
+  "bootstrap": {
+    "replicas": 1000,
+    "semilla": 0,
+    "nivel": 0.95,
+    "unidad": "documento"
+  },
+  "metodos": {
+    "reglas": {
+      "micro": {
+        "precision": 0.8366,
+        "recall": 0.6497,
+        "f1": 0.7314,
+        "ic95": {
+          "precision": [
+            0.7801,
+            0.894
+          ],
+          "recall": [
+            0.5882,
+            0.7104
+          ],
+          "f1": [
+            0.6797,
+            0.7816
+          ]
+        },
+        "vp": 128,
+        "fp": 25,
+        "fn": 69
+      },
+      "por_categoria": {
+        "infarto_miocardio": {
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "ic95": {
+            "precision": [
+              0.4,
+              1.0
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "f1": [
+              0.5714,
+              1.0
+            ]
+          },
+          "vp": 5,
+          "fp": 1,
+          "fn": 0
+        },
+        "insuficiencia_cardiaca": {
+          "precision": 0.2,
+          "recall": 0.6667,
+          "f1": 0.3077,
+          "ic95": {
+            "precision": [
+              0.0,
+              0.5
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              0.6154
+            ]
+          },
+          "vp": 2,
+          "fp": 8,
+          "fn": 1
+        },
+        "vascular_periferica": {
+          "precision": 0.6667,
+          "recall": 0.2857,
+          "f1": 0.4,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              0.6667
+            ],
+            "f1": [
+              0.0,
+              0.75
+            ]
+          },
+          "vp": 2,
+          "fp": 1,
+          "fn": 5
+        },
+        "cerebrovascular": {
+          "precision": 0.4615,
+          "recall": 0.6,
+          "f1": 0.5217,
+          "ic95": {
+            "precision": [
+              0.1667,
+              0.7778
+            ],
+            "recall": [
+              0.25,
+              0.8889
+            ],
+            "f1": [
+              0.2222,
+              0.7586
+            ]
+          },
+          "vp": 6,
+          "fp": 7,
+          "fn": 4
+        },
+        "demencia": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "pulmonar_cronica": {
+          "precision": 1.0,
+          "recall": 0.9286,
+          "f1": 0.963,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.7778,
+              1.0
+            ],
+            "f1": [
+              0.875,
+              1.0
+            ]
+          },
+          "vp": 13,
+          "fp": 0,
+          "fn": 1
+        },
+        "reumatologica": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 3,
+          "fp": 1,
+          "fn": 0
+        },
+        "ulcera_peptica": {
+          "precision": 0.6667,
+          "recall": 0.3333,
+          "f1": 0.4444,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              0.75
+            ],
+            "f1": [
+              0.0,
+              0.8
+            ]
+          },
+          "vp": 2,
+          "fp": 1,
+          "fn": 4
+        },
+        "hepatica_leve": {
+          "precision": 0.8571,
+          "recall": 0.4286,
+          "f1": 0.5714,
+          "ic95": {
+            "precision": [
+              0.5,
+              1.0
+            ],
+            "recall": [
+              0.1429,
+              0.7145
+            ],
+            "f1": [
+              0.2353,
+              0.8
+            ]
+          },
+          "vp": 6,
+          "fp": 1,
+          "fn": 8
+        },
+        "diabetes": {
+          "precision": 1.0,
+          "recall": 0.8947,
+          "f1": 0.9444,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.7222,
+              1.0
+            ],
+            "f1": [
+              0.8387,
+              1.0
+            ]
+          },
+          "vp": 17,
+          "fp": 0,
+          "fn": 2
+        },
+        "diabetes_complicada": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ic95": {
+            "precision": [
+              0.0,
+              0.0
+            ],
+            "recall": [
+              0.0,
+              0.0
+            ],
+            "f1": [
+              0.0,
+              0.0
+            ]
+          },
+          "vp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "hemiplejia": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "f1": 0.7692,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.25,
+              1.0
+            ],
+            "f1": [
+              0.4,
+              1.0
+            ]
+          },
+          "vp": 5,
+          "fp": 0,
+          "fn": 3
+        },
+        "renal_cronica": {
+          "precision": 1.0,
+          "recall": 0.5294,
+          "f1": 0.6923,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.2778,
+              0.7694
+            ],
+            "f1": [
+              0.4348,
+              0.8697
+            ]
+          },
+          "vp": 9,
+          "fp": 0,
+          "fn": 8
+        },
+        "tumor_maligno": {
+          "precision": 0.9286,
+          "recall": 0.6964,
+          "f1": 0.7959,
+          "ic95": {
+            "precision": [
+              0.8437,
+              1.0
+            ],
+            "recall": [
+              0.5763,
+              0.8149
+            ],
+            "f1": [
+              0.7013,
+              0.8776
+            ]
+          },
+          "vp": 39,
+          "fp": 3,
+          "fn": 17
+        },
+        "hepatica_severa": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 1,
+          "fp": 0,
+          "fn": 1
+        },
+        "tumor_metastasico": {
+          "precision": 0.8824,
+          "recall": 0.75,
+          "f1": 0.8108,
+          "ic95": {
+            "precision": [
+              0.7059,
+              1.0
+            ],
+            "recall": [
+              0.5417,
+              0.9286
+            ],
+            "f1": [
+              0.6667,
+              0.9302
+            ]
+          },
+          "vp": 15,
+          "fp": 2,
+          "fn": 5
+        },
+        "vih_sida": {
+          "precision": 1.0,
+          "recall": 0.1667,
+          "f1": 0.2857,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              0.4004
+            ],
+            "f1": [
+              0.0,
+              0.5718
+            ]
+          },
+          "vp": 2,
+          "fp": 0,
+          "fn": 10
+        }
+      },
+      "indice": {
+        "exacto": 0.724,
+        "a_1": 0.856,
+        "error_absoluto_medio": 0.68,
+        "sesgo_medio": -0.488
+      }
+    },
+    "normalizador": {
+      "micro": {
+        "precision": 0.788,
+        "recall": 0.736,
+        "f1": 0.7612,
+        "ic95": {
+          "precision": [
+            0.7267,
+            0.8448
+          ],
+          "recall": [
+            0.6715,
+            0.796
+          ],
+          "f1": [
+            0.7062,
+            0.8111
+          ]
+        },
+        "vp": 145,
+        "fp": 39,
+        "fn": 52
+      },
+      "por_categoria": {
+        "infarto_miocardio": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "f1": [
+              1.0,
+              1.0
+            ]
+          },
+          "vp": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "insuficiencia_cardiaca": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 2,
+          "fp": 0,
+          "fn": 1
+        },
+        "vascular_periferica": {
+          "precision": 0.75,
+          "recall": 0.4286,
+          "f1": 0.5455,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              0.8333
+            ],
+            "f1": [
+              0.0,
+              0.8333
+            ]
+          },
+          "vp": 3,
+          "fp": 1,
+          "fn": 4
+        },
+        "cerebrovascular": {
+          "precision": 0.5294,
+          "recall": 0.9,
+          "f1": 0.6667,
+          "ic95": {
+            "precision": [
+              0.2727,
+              0.7858
+            ],
+            "recall": [
+              0.6667,
+              1.0
+            ],
+            "f1": [
+              0.4,
+              0.8571
+            ]
+          },
+          "vp": 9,
+          "fp": 8,
+          "fn": 1
+        },
+        "demencia": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "pulmonar_cronica": {
+          "precision": 1.0,
+          "recall": 0.8571,
+          "f1": 0.9231,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.6364,
+              1.0
+            ],
+            "f1": [
+              0.7778,
+              1.0
+            ]
+          },
+          "vp": 12,
+          "fp": 0,
+          "fn": 2
+        },
+        "reumatologica": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 2,
+          "fp": 0,
+          "fn": 1
+        },
+        "ulcera_peptica": {
+          "precision": 0.8,
+          "recall": 0.6667,
+          "f1": 0.7273,
+          "ic95": {
+            "precision": [
+              0.3333,
+              1.0
+            ],
+            "recall": [
+              0.2,
+              1.0
+            ],
+            "f1": [
+              0.25,
+              1.0
+            ]
+          },
+          "vp": 4,
+          "fp": 1,
+          "fn": 2
+        },
+        "hepatica_leve": {
+          "precision": 0.7778,
+          "recall": 0.5,
+          "f1": 0.6087,
+          "ic95": {
+            "precision": [
+              0.4444,
+              1.0
+            ],
+            "recall": [
+              0.222,
+              0.8
+            ],
+            "f1": [
+              0.3077,
+              0.8333
+            ]
+          },
+          "vp": 7,
+          "fp": 2,
+          "fn": 7
+        },
+        "diabetes": {
+          "precision": 1.0,
+          "recall": 0.8947,
+          "f1": 0.9444,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.7222,
+              1.0
+            ],
+            "f1": [
+              0.8387,
+              1.0
+            ]
+          },
+          "vp": 17,
+          "fp": 0,
+          "fn": 2
+        },
+        "diabetes_complicada": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ic95": {
+            "precision": [
+              0.0,
+              0.0
+            ],
+            "recall": [
+              0.0,
+              0.0
+            ],
+            "f1": [
+              0.0,
+              0.0
+            ]
+          },
+          "vp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "hemiplejia": {
+          "precision": 0.8333,
+          "recall": 0.625,
+          "f1": 0.7143,
+          "ic95": {
+            "precision": [
+              0.4279,
+              1.0
+            ],
+            "recall": [
+              0.25,
+              1.0
+            ],
+            "f1": [
+              0.3333,
+              0.9474
+            ]
+          },
+          "vp": 5,
+          "fp": 1,
+          "fn": 3
+        },
+        "renal_cronica": {
+          "precision": 1.0,
+          "recall": 0.6471,
+          "f1": 0.7857,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.4115,
+              0.889
+            ],
+            "f1": [
+              0.583,
+              0.9413
+            ]
+          },
+          "vp": 11,
+          "fp": 0,
+          "fn": 6
+        },
+        "tumor_maligno": {
+          "precision": 0.7966,
+          "recall": 0.8393,
+          "f1": 0.8174,
+          "ic95": {
+            "precision": [
+              0.6857,
+              0.898
+            ],
+            "recall": [
+              0.7407,
+              0.9246
+            ],
+            "f1": [
+              0.7347,
+              0.8889
+            ]
+          },
+          "vp": 47,
+          "fp": 12,
+          "fn": 9
+        },
+        "hepatica_severa": {
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 2,
+          "fp": 1,
+          "fn": 0
+        },
+        "tumor_metastasico": {
+          "precision": 0.5667,
+          "recall": 0.85,
+          "f1": 0.68,
+          "ic95": {
+            "precision": [
+              0.4,
+              0.7353
+            ],
+            "recall": [
+              0.6842,
+              1.0
+            ],
+            "f1": [
+              0.5262,
+              0.8126
+            ]
+          },
+          "vp": 17,
+          "fp": 13,
+          "fn": 3
+        },
+        "vih_sida": {
+          "precision": 1.0,
+          "recall": 0.0833,
+          "f1": 0.1538,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              0.2859
+            ],
+            "f1": [
+              0.0,
+              0.4447
+            ]
+          },
+          "vp": 1,
+          "fp": 0,
+          "fn": 11
+        }
+      },
+      "indice": {
+        "exacto": 0.728,
+        "a_1": 0.816,
+        "error_absoluto_medio": 0.84,
+        "sesgo_medio": -0.112
+      }
+    },
+    "hibrido": {
+      "micro": {
+        "precision": 0.7772,
+        "recall": 0.7614,
+        "f1": 0.7692,
+        "ic95": {
+          "precision": [
+            0.7207,
+            0.829
+          ],
+          "recall": [
+            0.7039,
+            0.8186
+          ],
+          "f1": [
+            0.7191,
+            0.812
+          ]
+        },
+        "vp": 150,
+        "fp": 43,
+        "fn": 47
+      },
+      "por_categoria": {
+        "infarto_miocardio": {
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "ic95": {
+            "precision": [
+              0.4,
+              1.0
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "f1": [
+              0.5714,
+              1.0
+            ]
+          },
+          "vp": 5,
+          "fp": 1,
+          "fn": 0
+        },
+        "insuficiencia_cardiaca": {
+          "precision": 0.2,
+          "recall": 0.6667,
+          "f1": 0.3077,
+          "ic95": {
+            "precision": [
+              0.0,
+              0.5
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              0.6154
+            ]
+          },
+          "vp": 2,
+          "fp": 8,
+          "fn": 1
+        },
+        "vascular_periferica": {
+          "precision": 0.6,
+          "recall": 0.4286,
+          "f1": 0.5,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              0.8333
+            ],
+            "f1": [
+              0.0,
+              0.7779
+            ]
+          },
+          "vp": 3,
+          "fp": 2,
+          "fn": 4
+        },
+        "cerebrovascular": {
+          "precision": 0.4737,
+          "recall": 0.9,
+          "f1": 0.6207,
+          "ic95": {
+            "precision": [
+              0.2308,
+              0.7143
+            ],
+            "recall": [
+              0.6667,
+              1.0
+            ],
+            "f1": [
+              0.357,
+              0.8182
+            ]
+          },
+          "vp": 9,
+          "fp": 10,
+          "fn": 1
+        },
+        "demencia": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "pulmonar_cronica": {
+          "precision": 1.0,
+          "recall": 0.9286,
+          "f1": 0.963,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.7778,
+              1.0
+            ],
+            "f1": [
+              0.875,
+              1.0
+            ]
+          },
+          "vp": 13,
+          "fp": 0,
+          "fn": 1
+        },
+        "reumatologica": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 3,
+          "fp": 1,
+          "fn": 0
+        },
+        "ulcera_peptica": {
+          "precision": 0.8,
+          "recall": 0.6667,
+          "f1": 0.7273,
+          "ic95": {
+            "precision": [
+              0.3333,
+              1.0
+            ],
+            "recall": [
+              0.2,
+              1.0
+            ],
+            "f1": [
+              0.25,
+              1.0
+            ]
+          },
+          "vp": 4,
+          "fp": 1,
+          "fn": 2
+        },
+        "hepatica_leve": {
+          "precision": 0.7,
+          "recall": 0.5,
+          "f1": 0.5833,
+          "ic95": {
+            "precision": [
+              0.375,
+              1.0
+            ],
+            "recall": [
+              0.222,
+              0.8
+            ],
+            "f1": [
+              0.2857,
+              0.8
+            ]
+          },
+          "vp": 7,
+          "fp": 3,
+          "fn": 7
+        },
+        "diabetes": {
+          "precision": 1.0,
+          "recall": 0.8947,
+          "f1": 0.9444,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.7222,
+              1.0
+            ],
+            "f1": [
+              0.8387,
+              1.0
+            ]
+          },
+          "vp": 17,
+          "fp": 0,
+          "fn": 2
+        },
+        "diabetes_complicada": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ic95": {
+            "precision": [
+              0.0,
+              0.0
+            ],
+            "recall": [
+              0.0,
+              0.0
+            ],
+            "f1": [
+              0.0,
+              0.0
+            ]
+          },
+          "vp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "hemiplejia": {
+          "precision": 0.8333,
+          "recall": 0.625,
+          "f1": 0.7143,
+          "ic95": {
+            "precision": [
+              0.4279,
+              1.0
+            ],
+            "recall": [
+              0.25,
+              1.0
+            ],
+            "f1": [
+              0.3333,
+              0.9474
+            ]
+          },
+          "vp": 5,
+          "fp": 1,
+          "fn": 3
+        },
+        "renal_cronica": {
+          "precision": 1.0,
+          "recall": 0.7647,
+          "f1": 0.8667,
+          "ic95": {
+            "precision": [
+              1.0,
+              1.0
+            ],
+            "recall": [
+              0.5385,
+              0.961
+            ],
+            "f1": [
+              0.7,
+              0.9801
+            ]
+          },
+          "vp": 13,
+          "fp": 0,
+          "fn": 4
+        },
+        "tumor_maligno": {
+          "precision": 0.8033,
+          "recall": 0.875,
+          "f1": 0.8376,
+          "ic95": {
+            "precision": [
+              0.7,
+              0.9014
+            ],
+            "recall": [
+              0.7846,
+              0.9565
+            ],
+            "f1": [
+              0.7586,
+              0.9053
+            ]
+          },
+          "vp": 49,
+          "fp": 12,
+          "fn": 7
+        },
+        "hepatica_severa": {
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              1.0
+            ],
+            "f1": [
+              0.0,
+              1.0
+            ]
+          },
+          "vp": 2,
+          "fp": 1,
+          "fn": 0
+        },
+        "tumor_metastasico": {
+          "precision": 0.8333,
+          "recall": 0.75,
+          "f1": 0.7895,
+          "ic95": {
+            "precision": [
+              0.6316,
+              1.0
+            ],
+            "recall": [
+              0.5417,
+              0.9286
+            ],
+            "f1": [
+              0.625,
+              0.9093
+            ]
+          },
+          "vp": 15,
+          "fp": 3,
+          "fn": 5
+        },
+        "vih_sida": {
+          "precision": 1.0,
+          "recall": 0.1667,
+          "f1": 0.2857,
+          "ic95": {
+            "precision": [
+              0.0,
+              1.0
+            ],
+            "recall": [
+              0.0,
+              0.4004
+            ],
+            "f1": [
+              0.0,
+              0.5718
+            ]
+          },
+          "vp": 2,
+          "fp": 0,
+          "fn": 10
+        }
+      },
+      "indice": {
+        "exacto": 0.728,
+        "a_1": 0.864,
+        "error_absoluto_medio": 0.64,
+        "sesgo_medio": -0.216
+      }
+    }
+  },
+  "diferencia_normalizador_menos_reglas": {
+    "precision": [
+      -0.1186,
+      0.0209
+    ],
+    "recall": [
+      0.0382,
+      0.1386
+    ],
+    "f1": [
+      -0.0146,
+      0.0735
+    ]
+  },
+  "delta_f1": 0.0298,
+  "diferencia_hibrido_menos_reglas": {
+    "precision": [
+      -0.1008,
+      -0.0236
+    ],
+    "recall": [
+      0.0722,
+      0.1569
+    ],
+    "f1": [
+      0.0045,
+      0.0701
+    ]
+  },
+  "delta_f1_hibrido": 0.0378,
+  "respaldo_menciones": {
+    "entidades": 1,
+    "en_el_gold": 1,
+    "por_categoria": {
+      "tumor_maligno": 1
+    }
+  }
+}

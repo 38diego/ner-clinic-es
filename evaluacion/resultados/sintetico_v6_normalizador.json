@@ -1,0 +1,917 @@
+{
+  "mapeo": "normalizador",
+  "configuracion": {
+    "max_distancia_fusion": null,
+    "expandir_palabras": true,
+    "filtro_longitud": "minimo",
+    "usar_lista_negra": true,
+    "descartar_sufijos_truncados": true,
+    "barreras_fusion": "tesis"
+  },
+  "set": {
+    "notas": 100,
+    "ruta": "evaluacion/sintetico/notas.jsonl",
+    "sha256": "a9d7045ec22468041a72cd9e43a8243fbea72eb02839026b2461f57d593f73b1"
+  },
+  "fecha": "2026-11-08T19:44:41Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "a91c8c1f525211c7e2781491fe74ff10d53fde77",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "entidades": {
+    "esperadas": 339,
+    "encontradas": 332,
+    "recall": 0.9794,
+    "perdidas": [
+      {
+        "id": "sin016",
+        "entidad": "VIH",
+        "salida": null,
+        "esperado": "negada",
+        "obtenido": null
+      },
+      {
+        "id": "sin020",
+        "entidad": "VIH",
+        "salida": null,
+        "esperado": "negada",
+        "obtenido": null
+      },
+      {
+        "id": "sin055",
+        "entidad": "nefropatía diabética",
+        "salida": null,
+        "esperado": "confirmada",
+        "obtenido": null
+      },
+      {
+        "id": "sin061",
+        "entidad": "DETERIORO COGNITIVO MAYOR",
+        "salida": null,
+        "esperado": "negada",
+        "obtenido": null
+      },
+      {
+        "id": "sin076",
+        "entidad": "várices",
+        "salida": null,
+        "esperado": "negada",
+        "obtenido": null
+      },
+      {
+        "id": "sin087",
+        "entidad": "VIH",
+        "salida": null,
+        "esperado": "negada",
+        "obtenido": null
+      },
+      {
+        "id": "sin099",
+        "entidad": "SIDA",
+        "salida": null,
+        "esperado": "confirmada",
+        "obtenido": null
+      }
+    ],
+    "salida_total": 372,
+    "fuera_del_gold": 43,
+    "lista_fuera_del_gold": [
+      {
+        "id": "sin007",
+        "entidad": "fístula",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin010",
+        "entidad": "ascitis a tensión",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin012",
+        "entidad": "Tabaquismo pesado",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin024",
+        "entidad": "trauma raquimedular",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin038",
+        "entidad": "hemiparesia derecha",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": "hemiplejia"
+      },
+      {
+        "id": "sin042",
+        "entidad": "exfumador",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin047",
+        "entidad": "síndrome hereditario",
+        "esperado": null,
+        "obtenido": "posible",
+        "categoria": null
+      },
+      {
+        "id": "sin053",
+        "entidad": "tabaquismo",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin055",
+        "entidad": "amaurosis",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin065",
+        "entidad": "amputacion supracondilea izquierda",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin068",
+        "entidad": "broncoaspiración a repetición",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin082",
+        "entidad": "de falanges",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin082",
+        "entidad": "Tabaquismo activo",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin087",
+        "entidad": "tos crónica",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin091",
+        "entidad": "ascitis refractaria",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin093",
+        "entidad": "consumo de SPA",
+        "esperado": null,
+        "obtenido": "negada",
+        "categoria": null
+      },
+      {
+        "id": "sin095",
+        "entidad": "EDEMA DE MIEMBROS INFERIORES",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin095",
+        "entidad": "DISNEA PAROXISTICA",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin095",
+        "entidad": "QUIRURGICOS",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin095",
+        "entidad": "TOXICOS",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin095",
+        "entidad": "INGURGITACION",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin095",
+        "entidad": "CREPITOS BIBASALES",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin095",
+        "entidad": "EN MMII",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin095",
+        "entidad": "HIPERGLICEMIAS",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin096",
+        "entidad": "hematemesis",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin096",
+        "entidad": "melenas",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin096",
+        "entidad": "consumo de alcohol",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin096",
+        "entidad": "ictericia escleral leve",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin096",
+        "entidad": "ascitis moderada",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin096",
+        "entidad": "red venosa colateral",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin096",
+        "entidad": "cirrosis descompensada",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": "hepatica_leve"
+      },
+      {
+        "id": "sin097",
+        "entidad": "sangrado digestivo",
+        "esperado": null,
+        "obtenido": "negada",
+        "categoria": null
+      },
+      {
+        "id": "sin097",
+        "entidad": "ascitis leve",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin097",
+        "entidad": "hepatomegalia",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin097",
+        "entidad": "lesiones hepaticas",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": "hepatica_leve"
+      },
+      {
+        "id": "sin097",
+        "entidad": "implante peritoneal en flanco",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin098",
+        "entidad": "trauma",
+        "esperado": null,
+        "obtenido": "familiar",
+        "categoria": null
+      },
+      {
+        "id": "sin098",
+        "entidad": "moderado",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin098",
+        "entidad": "oclusion de segmento M1 de arteria cerebral media izquierda",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": "cerebrovascular"
+      },
+      {
+        "id": "sin099",
+        "entidad": "caquectico",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin099",
+        "entidad": "adenopatias cervicales",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin100",
+        "entidad": "deformidad en cuello de cisne",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      },
+      {
+        "id": "sin100",
+        "entidad": "Sinovitis leve en carpos",
+        "esperado": null,
+        "obtenido": "confirmada",
+        "categoria": null
+      }
+    ]
+  },
+  "estado": {
+    "matriz": {
+      "confirmada": {
+        "confirmada": 215,
+        "negada": 0,
+        "posible": 0,
+        "familiar": 0
+      },
+      "negada": {
+        "confirmada": 0,
+        "negada": 66,
+        "posible": 0,
+        "familiar": 0
+      },
+      "familiar": {
+        "confirmada": 0,
+        "negada": 0,
+        "posible": 0,
+        "familiar": 51
+      }
+    },
+    "aciertos": 332,
+    "total": 332,
+    "exactitud": 1.0,
+    "por_clase": {
+      "confirmada": {
+        "aciertos": 215,
+        "total": 215,
+        "exactitud": 1.0
+      },
+      "negada": {
+        "aciertos": 66,
+        "total": 66,
+        "exactitud": 1.0
+      },
+      "familiar": {
+        "aciertos": 51,
+        "total": 51,
+        "exactitud": 1.0
+      }
+    },
+    "errores": []
+  },
+  "categoria": {
+    "entidades": 215,
+    "excluidas_por_estado": 0,
+    "por_categoria": {
+      "infarto_miocardio": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "vp": 7,
+        "fp": 0,
+        "fn": 0
+      },
+      "insuficiencia_cardiaca": {
+        "precision": 0.75,
+        "recall": 0.375,
+        "f1": 0.5,
+        "vp": 3,
+        "fp": 1,
+        "fn": 5
+      },
+      "vascular_periferica": {
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8889,
+        "vp": 4,
+        "fp": 0,
+        "fn": 1
+      },
+      "cerebrovascular": {
+        "precision": 1.0,
+        "recall": 0.8333,
+        "f1": 0.9091,
+        "vp": 5,
+        "fp": 0,
+        "fn": 1
+      },
+      "demencia": {
+        "precision": 1.0,
+        "recall": 0.7143,
+        "f1": 0.8333,
+        "vp": 5,
+        "fp": 0,
+        "fn": 2
+      },
+      "pulmonar_cronica": {
+        "precision": 1.0,
+        "recall": 0.8333,
+        "f1": 0.9091,
+        "vp": 10,
+        "fp": 0,
+        "fn": 2
+      },
+      "reumatologica": {
+        "precision": 1.0,
+        "recall": 0.875,
+        "f1": 0.9333,
+        "vp": 7,
+        "fp": 0,
+        "fn": 1
+      },
+      "ulcera_peptica": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "vp": 7,
+        "fp": 0,
+        "fn": 0
+      },
+      "hepatica_leve": {
+        "precision": 0.6923,
+        "recall": 0.9,
+        "f1": 0.7826,
+        "vp": 9,
+        "fp": 4,
+        "fn": 1
+      },
+      "diabetes": {
+        "precision": 0.9333,
+        "recall": 1.0,
+        "f1": 0.9655,
+        "vp": 14,
+        "fp": 1,
+        "fn": 0
+      },
+      "diabetes_complicada": {
+        "precision": 1.0,
+        "recall": 0.4286,
+        "f1": 0.6,
+        "vp": 3,
+        "fp": 0,
+        "fn": 4
+      },
+      "hemiplejia": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "vp": 5,
+        "fp": 0,
+        "fn": 0
+      },
+      "renal_cronica": {
+        "precision": 1.0,
+        "recall": 0.8,
+        "f1": 0.8889,
+        "vp": 8,
+        "fp": 0,
+        "fn": 2
+      },
+      "tumor_maligno": {
+        "precision": 1.0,
+        "recall": 0.8182,
+        "f1": 0.9,
+        "vp": 9,
+        "fp": 0,
+        "fn": 2
+      },
+      "hepatica_severa": {
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.75,
+        "vp": 6,
+        "fp": 0,
+        "fn": 4
+      },
+      "tumor_metastasico": {
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1": 0.8889,
+        "vp": 8,
+        "fp": 2,
+        "fn": 0
+      },
+      "vih_sida": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "vp": 6,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "global": {
+      "precision": 0.9355,
+      "recall": 0.8227,
+      "f1": 0.8755,
+      "vp": 116,
+      "fp": 8,
+      "fn": 25
+    },
+    "errores": [
+      {
+        "id": "sin003",
+        "entidad": "ICC",
+        "salida": "ICC descompensada",
+        "esperado": "insuficiencia_cardiaca",
+        "obtenido": null
+      },
+      {
+        "id": "sin004",
+        "entidad": "demencia tipo Alzheimer",
+        "salida": "demencia tipo Alzheimer en estadio moderado",
+        "esperado": "demencia",
+        "obtenido": null
+      },
+      {
+        "id": "sin007",
+        "entidad": "ERC",
+        "salida": "ERC estadio 4 secundaria a nefropatía diabética",
+        "esperado": "renal_cronica",
+        "obtenido": null
+      },
+      {
+        "id": "sin007",
+        "entidad": "nefropatía diabética",
+        "salida": "ERC estadio 4 secundaria a nefropatía diabética",
+        "esperado": "diabetes_complicada",
+        "obtenido": null
+      },
+      {
+        "id": "sin010",
+        "entidad": "cirrosis hepática",
+        "salida": "cirrosis hepática por alcohol",
+        "esperado": "hepatica_severa",
+        "obtenido": "hepatica_leve"
+      },
+      {
+        "id": "sin012",
+        "entidad": "cáncer de pulmón",
+        "salida": "cáncer de pulmón con metástasis óseas",
+        "esperado": "tumor_maligno",
+        "obtenido": "tumor_metastasico"
+      },
+      {
+        "id": "sin012",
+        "entidad": "EPOC",
+        "salida": "EPOC severo",
+        "esperado": "pulmonar_cronica",
+        "obtenido": null
+      },
+      {
+        "id": "sin016",
+        "entidad": "LES",
+        "salida": "LES con compromiso renal",
+        "esperado": "reumatologica",
+        "obtenido": null
+      },
+      {
+        "id": "sin018",
+        "entidad": "ICC",
+        "salida": "ICC",
+        "esperado": "insuficiencia_cardiaca",
+        "obtenido": null
+      },
+      {
+        "id": "sin019",
+        "entidad": "pie diabético",
+        "salida": "pie diabético",
+        "esperado": "diabetes_complicada",
+        "obtenido": null
+      },
+      {
+        "id": "sin022",
+        "entidad": "ICC",
+        "salida": "ICC",
+        "esperado": "insuficiencia_cardiaca",
+        "obtenido": null
+      },
+      {
+        "id": "sin035",
+        "entidad": "fibrosis pulmonar idiopática",
+        "salida": "fibrosis pulmonar idiopática",
+        "esperado": "pulmonar_cronica",
+        "obtenido": null
+      },
+      {
+        "id": "sin036",
+        "entidad": "cáncer de mama izquierda",
+        "salida": "cáncer de mama izquierda con metástasis hepáticas y pulmonares",
+        "esperado": "tumor_maligno",
+        "obtenido": "tumor_metastasico"
+      },
+      {
+        "id": "sin039",
+        "entidad": "hepatitis autoinmune",
+        "salida": "hepatitis autoinmune",
+        "esperado": "hepatica_leve",
+        "obtenido": null
+      },
+      {
+        "id": "sin048",
+        "entidad": "cirrosis hepática Child-Pugh C",
+        "salida": "cirrosis hepática Child-Pugh C por esteatohepatitis",
+        "esperado": "hepatica_severa",
+        "obtenido": "hepatica_leve"
+      },
+      {
+        "id": "sin052",
+        "entidad": "insuficiencia arterial crónica de miembros inferiores",
+        "salida": "insuficiencia arterial crónica de miembros inferiores",
+        "esperado": "vascular_periferica",
+        "obtenido": null
+      },
+      {
+        "id": "sin060",
+        "entidad": "pie diabético",
+        "salida": "pie diabético",
+        "esperado": "diabetes_complicada",
+        "obtenido": null
+      },
+      {
+        "id": "sin062",
+        "entidad": "ICC",
+        "salida": "ICC",
+        "esperado": "insuficiencia_cardiaca",
+        "obtenido": null
+      },
+      {
+        "id": "sin072",
+        "entidad": "ERC",
+        "salida": "ERC secundaria a riñón de mieloma",
+        "esperado": "renal_cronica",
+        "obtenido": null
+      },
+      {
+        "id": "sin077",
+        "entidad": "FA",
+        "salida": "falla cardiaca descompensada",
+        "esperado": null,
+        "obtenido": "insuficiencia_cardiaca"
+      },
+      {
+        "id": "sin080",
+        "entidad": "demencia mixta",
+        "salida": "demencia mixta",
+        "esperado": "demencia",
+        "obtenido": null
+      },
+      {
+        "id": "sin089",
+        "entidad": "DM2 con nefropatía y retinopatía diabéticas",
+        "salida": "DM2",
+        "esperado": "diabetes_complicada",
+        "obtenido": "diabetes"
+      },
+      {
+        "id": "sin091",
+        "entidad": "cirrosis hepática",
+        "salida": "cirrosis hepática",
+        "esperado": "hepatica_severa",
+        "obtenido": "hepatica_leve"
+      },
+      {
+        "id": "sin095",
+        "entidad": "ICC",
+        "salida": "ICC",
+        "esperado": "insuficiencia_cardiaca",
+        "obtenido": null
+      },
+      {
+        "id": "sin096",
+        "entidad": "cirrosis hepática",
+        "salida": "cirrosis hepática de origen alcohólico",
+        "esperado": "hepatica_severa",
+        "obtenido": "hepatica_leve"
+      },
+      {
+        "id": "sin098",
+        "entidad": "ACV isquemico agudo cardioembolico",
+        "salida": "ACV isquemico agudo cardioembolico en territorio de ACM izquierda",
+        "esperado": "cerebrovascular",
+        "obtenido": null
+      }
+    ]
+  },
+  "indice": {
+    "notas": 100,
+    "exacto": {
+      "aciertos": 82,
+      "total": 100,
+      "exactitud": 0.82
+    },
+    "a_1_punto": {
+      "aciertos": 97,
+      "total": 100,
+      "exactitud": 0.97
+    },
+    "errores": [
+      {
+        "id": "sin003",
+        "esperado": 1,
+        "obtenido": 0
+      },
+      {
+        "id": "sin004",
+        "esperado": 1,
+        "obtenido": 0
+      },
+      {
+        "id": "sin007",
+        "esperado": 4,
+        "obtenido": 1
+      },
+      {
+        "id": "sin012",
+        "esperado": 7,
+        "obtenido": 6
+      },
+      {
+        "id": "sin016",
+        "esperado": 1,
+        "obtenido": 0
+      },
+      {
+        "id": "sin018",
+        "esperado": 4,
+        "obtenido": 3
+      },
+      {
+        "id": "sin019",
+        "esperado": 3,
+        "obtenido": 2
+      },
+      {
+        "id": "sin022",
+        "esperado": 2,
+        "obtenido": 1
+      },
+      {
+        "id": "sin035",
+        "esperado": 1,
+        "obtenido": 0
+      },
+      {
+        "id": "sin038",
+        "esperado": 1,
+        "obtenido": 3
+      },
+      {
+        "id": "sin039",
+        "esperado": 1,
+        "obtenido": 0
+      },
+      {
+        "id": "sin052",
+        "esperado": 1,
+        "obtenido": 0
+      },
+      {
+        "id": "sin060",
+        "esperado": 4,
+        "obtenido": 3
+      },
+      {
+        "id": "sin062",
+        "esperado": 2,
+        "obtenido": 1
+      },
+      {
+        "id": "sin072",
+        "esperado": 4,
+        "obtenido": 2
+      },
+      {
+        "id": "sin080",
+        "esperado": 1,
+        "obtenido": 0
+      },
+      {
+        "id": "sin095",
+        "esperado": 5,
+        "obtenido": 4
+      },
+      {
+        "id": "sin097",
+        "esperado": 7,
+        "obtenido": 8
+      }
+    ]
+  },
+  "registrado": {
+    "con_valor_esperado": 69,
+    "no_encontradas": 1,
+    "aciertos": 64,
+    "total": 68,
+    "exactitud": 0.9412,
+    "errores": [
+      {
+        "id": "sin033",
+        "entidad": "retinopatía diabética",
+        "salida": "retinopatía diabética",
+        "esperado": true,
+        "obtenido": false
+      },
+      {
+        "id": "sin045",
+        "entidad": "neumonía broncoaspirativa",
+        "salida": "neumonía broncoaspirativa",
+        "esperado": true,
+        "obtenido": false
+      },
+      {
+        "id": "sin060",
+        "entidad": "pie diabético",
+        "salida": "pie diabético",
+        "esperado": true,
+        "obtenido": false
+      },
+      {
+        "id": "sin098",
+        "entidad": "HTA",
+        "salida": "HTA",
+        "esperado": false,
+        "obtenido": true
+      }
+    ]
+  },
+  "segundos": 5.22,
+  "cache": {
+    "aciertos": 100,
+    "fallos": 0,
+    "llamadas": 0
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "notas": 40,
+  "entidades_esperadas": 152,
+  "encontradas": 127,
+  "recall": 0.8355,
+  "estado_correcto": 124,
+  "precision_estado": 0.9764,
+  "entidades_salida": 130,
+  "indice_charlson_total": 78,
+  "segundos": 1.74,
+  "perdidas": [
+    "s01: disnea",
+    "s01: dolor torácico",
+    "s02: fiebre",
+    "s07: taquicardia",
+    "s07: dolor pleurítico",
+    "s07: desaturación",
+    "s10: dolor abdominal",
+    "s11: edema de miembros inferiores",
+    "s11: ortopnea",
+    "s12: déficit neurológico",
+    "s12: claudicación intermitente",
+    "s14: disnea",
+    "s15: hiperinsuflación",
+    "s20: palpitaciones",
+    "s21: VIH",
+    "s24: fiebre",
+    "s24: disuria",
+    "s24: polaquiuria",
+    "s28: afasia de expresión",
+    "s29: Pérdida de peso",
+    "s31: disnea",
+    "s31: edemas",
+    "s35: úlcera en pie derecho",
+    "s38: tos",
+    "s38: fiebre"
+  ],
+  "estados_mal": [
+    "s18: melenas (esperado negada, salió confirmada)",
+    "s26: asma (esperado negada, salió confirmada)",
+    "s35: TIA (esperado negada, salió familiar)"
+  ]
+}

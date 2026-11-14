@@ -1,0 +1,468 @@
+{
+  "fecha": "2026-11-07T04:01:42Z",
+  "entorno": {
+    "modelo": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "0cba9abb6b9b81c5053c347f8e52cfb691f8fe58",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "modelo": {
+    "clave": "sapbert",
+    "nombre": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "revision": "47b6bd041ba61311584bb2494edfda5c7d9b719f",
+    "licencia": "no declarada (entrenado con UMLS)",
+    "transformers": "5.21.0"
+  },
+  "indice": {
+    "modelo": "cambridgeltl/SapBERT-UMLS-2020AB-all-lang-from-XLMR",
+    "revision": "47b6bd041ba61311584bb2494edfda5c7d9b719f",
+    "catalogo": "138cc25f4a41f525d6a38149150f3a3836c89464718d39aad15ea20a726617f0",
+    "codigos": 98288,
+    "dimension": 768,
+    "segundos_construccion": 2097.3,
+    "configuracion": "1e4b2ee1cf658c737a5f5b19a03621b609c99762f5a64bdcbe06187f065322e0",
+    "bytes": 303621631
+  },
+  "particion": "train (validación cruzada anidada); desarrollo y prueba no se leen",
+  "pliegues": 5,
+  "k_guardado": 20,
+  "rejilla": {
+    "penalizaciones": [
+      1e-06,
+      1e-05,
+      0.0001,
+      0.001,
+      0.01,
+      0.1
+    ],
+    "umbrales": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ]
+  },
+  "atributos": [
+    "similitud",
+    "inverso_rango",
+    "margen_primero",
+    "margen_otra",
+    "voto_t005",
+    "voto_t01",
+    "voto_suma",
+    "ninguna_t005",
+    "fraccion_top5",
+    "fraccion_top20",
+    "voto_capitulo",
+    "voto_bloque",
+    "mejor_es_sinonimo",
+    "fraccion_sinonimos",
+    "exacta",
+    "log_largo",
+    "palabras",
+    "sigla",
+    "reglas_esta",
+    "reglas_otra",
+    "excluida",
+    "en_topk",
+    "categoria_infarto_miocardio",
+    "categoria_insuficiencia_cardiaca",
+    "categoria_vascular_periferica",
+    "categoria_cerebrovascular",
+    "categoria_demencia",
+    "categoria_pulmonar_cronica",
+    "categoria_reumatologica",
+    "categoria_ulcera_peptica",
+    "categoria_hepatica_leve",
+    "categoria_diabetes",
+    "categoria_diabetes_complicada",
+    "categoria_hemiplejia",
+    "categoria_renal_cronica",
+    "categoria_tumor_maligno",
+    "categoria_hepatica_severa",
+    "categoria_tumor_metastasico",
+    "categoria_vih_sida"
+  ],
+  "bootstrap": {
+    "replicas": 1000,
+    "semilla": 0,
+    "nivel": 0.95,
+    "unidad": "documento"
+  },
+  "documentos": 500,
+  "por_pliegue": [
+    {
+      "penalizacion": 0.0001,
+      "umbral": 0.45,
+      "f1_internos": 0.8852,
+      "f1_internos_por_penalizacion": {
+        "1e-06": 0.8833,
+        "1e-05": 0.8825,
+        "0.0001": 0.8852,
+        "0.001": 0.8838,
+        "0.01": 0.885,
+        "0.1": 0.8819
+      },
+      "votos": {
+        "nivel": "categoria",
+        "k": 10,
+        "temperatura": 0.1,
+        "umbral": 0.54,
+        "umbrales": {},
+        "f1_internos": 0.8674
+      }
+    },
+    {
+      "penalizacion": 0.0001,
+      "umbral": 0.4,
+      "f1_internos": 0.8891,
+      "f1_internos_por_penalizacion": {
+        "1e-06": 0.8889,
+        "1e-05": 0.8889,
+        "0.0001": 0.8891,
+        "0.001": 0.8881,
+        "0.01": 0.8827,
+        "0.1": 0.8776
+      },
+      "votos": {
+        "nivel": "categoria",
+        "k": 20,
+        "temperatura": 0.05,
+        "umbral": 0.56,
+        "umbrales": {},
+        "f1_internos": 0.8653
+      }
+    },
+    {
+      "penalizacion": 0.001,
+      "umbral": 0.3,
+      "f1_internos": 0.8946,
+      "f1_internos_por_penalizacion": {
+        "1e-06": 0.8926,
+        "1e-05": 0.8917,
+        "0.0001": 0.8926,
+        "0.001": 0.8946,
+        "0.01": 0.8944,
+        "0.1": 0.8909
+      },
+      "votos": {
+        "nivel": "capitulo",
+        "k": 20,
+        "temperatura": 0.1,
+        "umbral": 0.52,
+        "umbrales": {},
+        "f1_internos": 0.8758
+      }
+    },
+    {
+      "penalizacion": 0.001,
+      "umbral": 0.4,
+      "f1_internos": 0.8944,
+      "f1_internos_por_penalizacion": {
+        "1e-06": 0.8893,
+        "1e-05": 0.8895,
+        "0.0001": 0.8883,
+        "0.001": 0.8944,
+        "0.01": 0.8924,
+        "0.1": 0.8828
+      },
+      "votos": {
+        "nivel": "categoria",
+        "k": 10,
+        "temperatura": 0.1,
+        "umbral": 0.54,
+        "umbrales": {},
+        "f1_internos": 0.8756
+      }
+    },
+    {
+      "penalizacion": 1e-06,
+      "umbral": 0.45,
+      "f1_internos": 0.8863,
+      "f1_internos_por_penalizacion": {
+        "1e-06": 0.8863,
+        "1e-05": 0.8854,
+        "0.0001": 0.8849,
+        "0.001": 0.8854,
+        "0.01": 0.8844,
+        "0.1": 0.8802
+      },
+      "votos": {
+        "nivel": "categoria",
+        "k": 10,
+        "temperatura": 0.1,
+        "umbral": 0.54,
+        "umbrales": {},
+        "f1_internos": 0.8682
+      }
+    }
+  ],
+  "metodos": {
+    "hibrido_exclusiones": {
+      "precision": 0.889,
+      "recall": 0.8253,
+      "f1": 0.856,
+      "ic95": {
+        "precision": [
+          0.8581,
+          0.914
+        ],
+        "recall": [
+          0.7943,
+          0.8577
+        ],
+        "f1": [
+          0.8309,
+          0.8777
+        ]
+      },
+      "vp": 633,
+      "fp": 79,
+      "fn": 134
+    },
+    "votos": {
+      "precision": 0.9197,
+      "recall": 0.8357,
+      "f1": 0.8757,
+      "ic95": {
+        "precision": [
+          0.8957,
+          0.9422
+        ],
+        "recall": [
+          0.8,
+          0.8703
+        ],
+        "f1": [
+          0.8495,
+          0.8979
+        ]
+      },
+      "vp": 641,
+      "fp": 56,
+      "fn": 126
+    },
+    "clasificador": {
+      "precision": 0.916,
+      "recall": 0.8814,
+      "f1": 0.8983,
+      "ic95": {
+        "precision": [
+          0.8917,
+          0.9396
+        ],
+        "recall": [
+          0.8472,
+          0.9119
+        ],
+        "f1": [
+          0.8748,
+          0.9193
+        ]
+      },
+      "vp": 676,
+      "fp": 62,
+      "fn": 91
+    }
+  },
+  "comparaciones": {
+    "votos_menos_hibrido": {
+      "precision": {
+        "diferencia": 0.0306,
+        "ic95": [
+          0.0059,
+          0.0567
+        ]
+      },
+      "recall": {
+        "diferencia": 0.0104,
+        "ic95": [
+          -0.0122,
+          0.0341
+        ]
+      },
+      "f1": {
+        "diferencia": 0.0197,
+        "ic95": [
+          0.0033,
+          0.0357
+        ]
+      }
+    },
+    "clasificador_menos_hibrido": {
+      "precision": {
+        "diferencia": 0.0269,
+        "ic95": [
+          0.0052,
+          0.0504
+        ]
+      },
+      "recall": {
+        "diferencia": 0.0561,
+        "ic95": [
+          0.0272,
+          0.0854
+        ]
+      },
+      "f1": {
+        "diferencia": 0.0424,
+        "ic95": [
+          0.0245,
+          0.0628
+        ]
+      }
+    },
+    "clasificador_menos_votos": {
+      "precision": {
+        "diferencia": -0.0037,
+        "ic95": [
+          -0.0246,
+          0.0168
+        ]
+      },
+      "recall": {
+        "diferencia": 0.0456,
+        "ic95": [
+          0.0218,
+          0.0717
+        ]
+      },
+      "f1": {
+        "diferencia": 0.0227,
+        "ic95": [
+          0.0052,
+          0.0415
+        ]
+      }
+    }
+  },
+  "recuperadas": {
+    "votos": {
+      "perdidas_base": {
+        "excluida": 0,
+        "bajo_umbral": 23,
+        "top5": 62,
+        "topk": 26,
+        "solo_reglas": 8,
+        "fuera": 15
+      },
+      "recuperadas": {
+        "excluida": 0,
+        "bajo_umbral": 17,
+        "top5": 17,
+        "topk": 0,
+        "solo_reglas": 0,
+        "fuera": 0
+      },
+      "aciertos_base_perdidos": 26,
+      "falsos_positivos_nuevos": 16,
+      "falsos_positivos_quitados": 39
+    },
+    "clasificador": {
+      "perdidas_base": {
+        "excluida": 0,
+        "bajo_umbral": 23,
+        "top5": 62,
+        "topk": 26,
+        "solo_reglas": 8,
+        "fuera": 15
+      },
+      "recuperadas": {
+        "excluida": 0,
+        "bajo_umbral": 20,
+        "top5": 37,
+        "topk": 3,
+        "solo_reglas": 6,
+        "fuera": 0
+      },
+      "aciertos_base_perdidos": 23,
+      "falsos_positivos_nuevos": 22,
+      "falsos_positivos_quitados": 39
+    }
+  },
+  "final": {
+    "penalizacion": 0.001,
+    "umbral": 0.3,
+    "f1_validacion_cruzada_optimista": 0.9003,
+    "f1_por_penalizacion": {
+      "1e-06": 0.899,
+      "1e-05": 0.899,
+      "0.0001": 0.8987,
+      "0.001": 0.9003,
+      "0.01": 0.8958,
+      "0.1": 0.8916
+    },
+    "parametros": 40,
+    "pesos": {
+      "voto_t01": 0.8503,
+      "reglas_esta": 0.7802,
+      "margen_otra": 0.7365,
+      "margen_primero": 0.7123,
+      "voto_t005": 0.57,
+      "reglas_otra": -0.5256,
+      "similitud": -0.3427,
+      "categoria_tumor_metastasico": 0.3337,
+      "en_topk": -0.3196,
+      "sigla": 0.3098,
+      "exacta": 0.2996,
+      "categoria_vih_sida": -0.2846,
+      "categoria_reumatologica": -0.2744,
+      "categoria_demencia": -0.2662,
+      "categoria_insuficiencia_cardiaca": -0.2593,
+      "voto_suma": 0.2513,
+      "excluida": -0.2285,
+      "fraccion_top20": 0.2151,
+      "categoria_pulmonar_cronica": -0.1842,
+      "mejor_es_sinonimo": -0.1615,
+      "fraccion_top5": 0.1422,
+      "categoria_hepatica_severa": 0.1405,
+      "categoria_diabetes_complicada": 0.1401,
+      "categoria_tumor_maligno": 0.1323,
+      "ninguna_t005": -0.1275,
+      "voto_capitulo": 0.0991,
+      "categoria_diabetes": -0.0955,
+      "categoria_hepatica_leve": 0.088,
+      "categoria_infarto_miocardio": 0.0824,
+      "log_largo": -0.0822,
+      "fraccion_sinonimos": -0.0704,
+      "inverso_rango": -0.0613,
+      "categoria_renal_cronica": -0.0566,
+      "voto_bloque": 0.049,
+      "categoria_hemiplejia": -0.0349,
+      "categoria_cerebrovascular": 0.0329,
+      "categoria_vascular_periferica": 0.0327,
+      "categoria_ulcera_peptica": 0.0215,
+      "palabras": 0.003
+    },
+    "sesgo": -3.3394,
+    "pares_entrenamiento": 3906
+  },
+  "costo": {
+    "milisegundos_por_mencion": 0.031,
+    "milisegundos_por_documento": 0.441,
+    "menciones_por_documento": 14.4
+  }
+}

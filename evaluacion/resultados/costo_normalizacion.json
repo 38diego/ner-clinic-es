@@ -1,0 +1,83 @@
+{
+  "fecha": "2026-11-07T00:56:12Z",
+  "entorno": {
+    "modelo": "BSC-NLP4BIA/bsc-bio-ehr-es-distemist",
+    "stride_tokens": 128,
+    "transformers": "5.21.0",
+    "torch": "2.15.0+cpu",
+    "python": "3.12.14",
+    "commit": "0f6c35a9c250705411ea619a787acfa3f043a700",
+    "cambios_sin_commitear": false,
+    "cpu": {
+      "nombre": "Intel(R) Core(TM) Ultra 7 255U",
+      "nucleos_logicos": 14,
+      "maquina": "x86_64"
+    }
+  },
+  "docker_run": {
+    "cpus": "2",
+    "memoria": "4g"
+  },
+  "notas": "DisTEMIST test de más de 2.000 caracteres, recortadas a 2.000; sin texto aquí",
+  "indice": {
+    "filas": 101626,
+    "catalogo": "138cc25f4a41f525d6a38149150f3a3836c89464718d39aad15ea20a726617f0",
+    "bytes": 313926306
+  },
+  "base": {
+    "carga_s": 2.5,
+    "entidades": 1084,
+    "pipeline": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.372,
+      "p95_s": 0.664,
+      "max_s": 1.49,
+      "ms_por_1000_caracteres": 204.5
+    },
+    "total": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.372,
+      "p95_s": 0.664,
+      "max_s": 1.49,
+      "ms_por_1000_caracteres": 204.5
+    },
+    "memoria_pico_mib": 369,
+    "imagen": {
+      "nombre": "ner-clinic-es",
+      "id": "sha256:8f28f1e17950d852ac49f502993378484e9acc227a3c8bab1996e61318cbee71",
+      "tamano_mb": 856
+    }
+  },
+  "candidata": {
+    "carga_s": 5.5,
+    "entidades": 1084,
+    "pipeline": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.366,
+      "p95_s": 0.725,
+      "max_s": 1.622,
+      "ms_por_1000_caracteres": 209.5
+    },
+    "total": {
+      "notas": 138,
+      "caracteres_mediana": 1996.0,
+      "caracteres_max": 1999,
+      "mediana_s": 0.53,
+      "p95_s": 1.05,
+      "max_s": 1.862,
+      "ms_por_1000_caracteres": 294.4
+    },
+    "memoria_pico_mib": 1026,
+    "imagen": {
+      "nombre": "ner-clinic-es-normalizacion",
+      "id": "sha256:71bfd803e004c8ebcf858eaa14f97cb720edb979c1fe6294befd329a70e576f2",
+      "tamano_mb": 2020
+    }
+  }
+}

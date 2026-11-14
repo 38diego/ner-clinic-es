@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Datos: nunca subir datos reales; los públicos se descargan con scripts
+data/
+*.parquet
+*.csv
+*.xlsx
+*.docx
+
+# Modelos y caché
+models/
+.cache/
+
+# Notas e instrucciones para el asistente de código (Claude Code): son locales, no del repo
+CLAUDE.md
+.claude/
+
+# Tests
+.coverage
+.pytest_cache/
+.ruff_cache/
+
+# Grafo de graphify: se regenera con `graphify update .`
+graphify-out/

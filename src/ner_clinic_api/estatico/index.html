@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Extrae comorbilidades de notas clínicas en español, con su contexto, CIE-10 e índice de Charlson.">
+  <title>Demo NER clínico</title>
+  <link rel="icon" href="/estatico/icono.svg" type="image/svg+xml">
+  <link rel="preload" href="/estatico/fuentes/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/estatico/estilos.css">
+  <script src="/estatico/app.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#nota">Ir a la nota</a>
+
+  <header class="cabecera">
+    <p class="marca">ner-clinic-es</p>
+    <h1>Comorbilidades de una nota clínica, cada una con su lugar en el texto</h1>
+    <p class="bajada">Pega una nota de evolución o de egreso. El sistema encuentra las
+      enfermedades, dice si están confirmadas, a confirmar, negadas o son de un familiar,
+      sugiere su código CIE-10 y calcula el índice de Charlson.</p>
+    <p class="aviso" id="aviso"><strong>No pegues datos reales de pacientes; el texto no se guarda.</strong>
+      Usa notas inventadas o los ejemplos: el texto se analiza y se descarta, sin quedar
+      en registros.</p>
+  </header>
+
+  <main class="mesa">
+    <section class="hoja" aria-labelledby="hoja-titulo">
+      <h2 id="hoja-titulo" class="visualmente-oculto">Nota clínica</h2>
+
+      <div class="hoja-barra">
+        <div class="ejemplos" role="group" aria-labelledby="ejemplos-titulo">
+          <span id="ejemplos-titulo" class="ejemplos-titulo">Ejemplos inventados:</span>
+          <button type="button" class="ejemplo" data-ejemplo="0">Egreso de medicina interna</button>
+          <button type="button" class="ejemplo" data-ejemplo="1">Urgencias</button>
+          <button type="button" class="ejemplo" data-ejemplo="2">Consulta externa</button>
+          <button type="button" class="ejemplo" data-ejemplo="3">Oncología</button>
+        </div>
+      </div>
+
+      <div id="despertando" class="despertando" role="status" aria-live="polite" hidden>
+        <span class="despertando-punto" aria-hidden="true"></span>
+        <p><strong>Despertando el modelo<span id="despertando-segundos"></span>.</strong>
+          La demo se apaga cuando nadie la usa para no gastar; la primera visita tarda
+          menos de un minuto. Puedes ir eligiendo un ejemplo: se analiza apenas esté listo.</p>
+      </div>
+      <form id="formulario" novalidate>
+        <label for="nota" class="visualmente-oculto">Texto de la nota clínica</label>
+        <textarea id="nota" name="nota" spellcheck="false" autocomplete="off"
+          aria-describedby="contador"
+          placeholder="Paciente de 72 años con antecedente de HTA y DM2. Niega EPOC. Madre con cáncer de mama."></textarea>
+        <div id="nota-resaltada" class="nota-resaltada" role="region" tabindex="0" hidden
+          aria-label="Nota analizada, con las comorbilidades resaltadas"></div>
+
+        <div class="hoja-pie">
+          <div class="acciones">
+            <button type="submit" id="analizar" class="boton boton-principal">Analizar nota</button>
+            <button type="button" id="editar" class="boton boton-secundario" hidden>Editar nota</button>
+            <button type="button" id="limpiar" class="boton boton-texto">Borrar</button>
+          </div>
+          <p id="contador" class="contador">0 de 5.000 caracteres</p>
+        </div>
+        <p id="estado-peticion" class="estado-peticion" role="status" aria-live="polite"></p>
+      </form>
+
+      <div id="error" class="error" role="alert" hidden>
+        <p id="error-titulo" class="error-titulo"></p>
+        <p id="error-detalle" class="error-detalle"></p>
+      </div>
+    </section>
+
+    <aside class="panel" id="panel" aria-labelledby="charlson-titulo">
+      <section class="charlson" aria-labelledby="charlson-titulo">
+        <div class="charlson-cabeza">
+          <h2 id="charlson-titulo">Índice de Charlson</h2>
+          <p class="charlson-total"><span id="indice-charlson">–</span></p>
+        </div>
+        <p id="charlson-si" class="charlson-si">Suma el peso de cada categoría confirmada.</p>
+        <div id="hoja-charlson" class="hoja-charlson"></div>
+      </section>
+
+      <section class="hallazgos" aria-labelledby="hallazgos-titulo">
+        <div class="hallazgos-cabeza">
+          <h2 id="hallazgos-titulo" tabindex="-1">Comorbilidades</h2>
+          <p id="meta" class="meta"></p>
+        </div>
+        <p id="desactualizado" class="desactualizado" hidden>Editaste la nota. Analízala
+          de nuevo para actualizar el resultado.</p>
+        <div id="vacio" class="vacio">
+          <p>Carga un ejemplo o pega una nota y presiona <strong>Analizar nota</strong>.</p>
+          <p>Aquí aparece cada enfermedad con su estado y su código. Al tocarla, la nota
+            salta al lugar donde se menciona.</p>
+        </div>
+        <ul class="leyenda" aria-label="Cómo se marca cada estado en la nota">
+          <li><span class="muestra estado-confirmada">confirmada</span></li>
+          <li><span class="muestra estado-posible">a confirmar</span></li>
+          <li><span class="muestra estado-negada">negada</span></li>
+          <li><span class="muestra estado-familiar">de un familiar</span></li>
+        </ul>
+        <div id="grupos" class="grupos"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="pie">
+    <p class="pie-aviso"><strong>Es una ayuda, no reemplaza leer la historia clínica.</strong>
+      Puede omitir una comorbilidad o equivocarse en su estado: revisa siempre el contexto.
+      El código CIE-10 es una sugerencia del catálogo CIE-10-ES (España): verifícalo antes
+      de usarlo para codificar o facturar.</p>
+    <ul class="pie-enlaces">
+      <li><a href="https://github.com/38diego/ner-clinic-es">Código en GitHub</a></li>
+      <li><a href="https://github.com/38diego/ner-clinic-es/blob/main/docs/evaluacion.md">Evaluación y métricas</a></li>
+      <li><a href="https://github.com/38diego">Hecho por Diego Galindo</a></li>
+    </ul>
+    <p class="pie-legal">Modelo NER:
+      <a href="https://huggingface.co/BSC-NLP4BIA/bsc-bio-ehr-es-distemist"><code>BSC-NLP4BIA/bsc-bio-ehr-es-distemist</code></a>
+      (CC BY 4.0). Normalizador: <a href="https://github.com/cambridgeltl/sapbert">SapBERT</a>
+      (MIT), con el catálogo CIE-10-ES y el corpus
+      <a href="https://doi.org/10.5281/zenodo.3837305">CodiEsp</a> (CC BY 4.0). Fuentes
+      Hanken Grotesk y Source Serif 4 (SIL OFL 1.1). Las notas de ejemplo son inventadas.</p>
+  </footer>
+</body>
+</html>

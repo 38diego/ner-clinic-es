@@ -1,0 +1,135 @@
+name: Despliegue
+
+# Despliega la demo en Cloud Run al fusionar a main (#103). Sin llaves JSON: GitHub se
+# identifica ante Google con Workload Identity Federation y recibe un permiso temporal de
+# la cuenta `desplegador`. Los permisos y el proveedor los crea infra/github_wif.sh; el
+# proveedor solo acepta tokens de este repo en la rama main.
+#
+# Solo corre si cambió algo que va en la imagen (los cambios de documentación no
+# despliegan). A mano: pestaña Actions o `gh workflow run Despliegue`.
+# Plan B, desde la máquina de Diego: infra/desplegar.sh.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "Dockerfile"
+      - ".dockerignore"
+      - "pyproject.toml"
+      - "uv.lock"
+      - "infra/servicio.sh"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+# Un despliegue a la vez; si llega otro merge, el que está en cola espera al actual.
+concurrency:
+  group: despliegue
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  PROYECTO: ner-clinic-es-demo
+  REGION: us-central1
+  REPO: ner-clinic
+  BUCKET: ner-clinic-es-demo-artefactos
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run pytest -q
+
+  # Corre en paralelo con los tests (#236): si fallan, `desplegar` no corre y la imagen
+  # subida solo queda en el registro, que guarda las 2 más recientes.
+  construir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      id-token: write  # el token OIDC que se cambia por el permiso temporal de GCP
+    outputs:
+      imagen: ${{ steps.imagen.outputs.nombre }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Autenticarse en GCP (WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_PROVEEDOR_WIF }}
+          service_account: ${{ vars.GCP_CUENTA_DESPLIEGUE }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      # El índice del normalizador no se versiona: está en un bucket privado.
+      - name: Descargar el índice del normalizador
+        run: |
+          mkdir -p data/normalizacion
+          gcloud storage cp "gs://${BUCKET}/normalizacion/indice_final.pt" data/normalizacion/
+
+      - name: Imagen
+        id: imagen
+        run: |
+          echo "nombre=${REGION}-docker.pkg.dev/${PROYECTO}/${REPO}/ner-clinic-es:${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          gcloud auth configure-docker "${REGION}-docker.pkg.dev" --quiet
+
+      - uses: docker/setup-buildx-action@v3
+
+      # Las dependencias y los modelos van en capas que no cambian con el código; un
+      # cambio en `src/` solo reconstruye y sube una capa de ~1 MB (Dockerfile, #236).
+      - name: Construir y subir
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: completa
+          push: true
+          tags: ${{ steps.imagen.outputs.nombre }}
+          # Scope propio: no pisa la caché del job `docker` de ci.yml.
+          cache-from: type=gha,scope=despliegue
+          cache-to: type=gha,scope=despliegue,mode=max
+
+      - name: Espacio en disco
+        run: df -h /
+
+  desplegar:
+    needs: [tests, construir]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Autenticarse en GCP (WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_PROVEEDOR_WIF }}
+          service_account: ${{ vars.GCP_CUENTA_DESPLIEGUE }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Desplegar en Cloud Run
+        run: infra/servicio.sh "${{ needs.construir.outputs.imagen }}"
+
+      # Solo /api/salud: un análisis gastaría del tope diario de la demo.
+      - name: Comprobar el servicio
+        run: |
+          URL=$(gcloud run services describe ner-clinic-es --project "$PROYECTO" \
+            --region "$REGION" --format='value(status.url)')
+          for i in $(seq 1 12); do
+            if curl -sf --max-time 40 "$URL/api/salud?esperar=25" | tee salud.json \
+              | grep -q '"estado":"ok"'; then
+              break
+            fi
+            sleep 5
+          done
+          cat salud.json
+          grep -q '"mapeo":"hibrido"' salud.json
