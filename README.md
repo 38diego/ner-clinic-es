@@ -242,3 +242,5 @@ con un cliente:
 ## Autor
 
 **Diego Galindo**: científico de datos · NLP clínico · ML aplicado
+
+Desarrollado con asistencia de [Claude Code](https://claude.com/claude-code).
