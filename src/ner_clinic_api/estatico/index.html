@@ -39,12 +39,6 @@
         </div>
       </div>
 
-      <div id="despertando" class="despertando" role="status" aria-live="polite" hidden>
-        <span class="despertando-punto" aria-hidden="true"></span>
-        <p><strong>Despertando el modelo<span id="despertando-segundos"></span>.</strong>
-          La demo se apaga cuando nadie la usa para no gastar; la primera visita tarda
-          menos de un minuto. Puedes ir eligiendo un ejemplo: se analiza apenas esté listo.</p>
-      </div>
       <form id="formulario" novalidate>
         <label for="nota" class="visualmente-oculto">Texto de la nota clínica</label>
         <textarea id="nota" name="nota" spellcheck="false" autocomplete="off"
@@ -120,5 +114,13 @@
       <a href="https://doi.org/10.5281/zenodo.3837305">CodiEsp</a> (CC BY 4.0). Fuentes
       Hanken Grotesk y Source Serif 4 (SIL OFL 1.1). Las notas de ejemplo son inventadas.</p>
   </footer>
+
+  <div id="carga" class="carga" role="status" aria-live="polite" hidden>
+    <div class="carga-centro">
+      <span class="carga-anillo" aria-hidden="true"></span>
+      <p class="carga-marca">ner-clinic-es</p>
+      <p class="carga-texto">Cargando el modelo…</p>
+    </div>
+  </div>
 </body>
 </html>
