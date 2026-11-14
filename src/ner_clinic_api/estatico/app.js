@@ -123,8 +123,7 @@ const ui = {
   editar: $("editar"),
   limpiar: $("limpiar"),
   estadoPeticion: $("estado-peticion"),
-  despertando: $("despertando"),
-  despertandoSegundos: $("despertando-segundos"),
+  carga: $("carga"),
   error: $("error"),
   errorTitulo: $("error-titulo"),
   errorDetalle: $("error-detalle"),
@@ -314,14 +313,21 @@ function mensajeDeError(codigo, detalleApi) {
 const ESPERA_SALUD_S = 25;
 let esperandoModelo = false;
 
-function mostrarDespertando(desde) {
-  ui.despertando.hidden = false;
-  const contar = () => {
-    const s = Math.round((Date.now() - desde) / 1000);
-    ui.despertandoSegundos.textContent = s >= 3 ? ` (${s} s)` : "";
-  };
-  contar();
-  return setInterval(contar, 1000);
+/** Pantalla de carga: tapa la página mientras el modelo despierta. */
+function mostrarCarga() {
+  ui.carga.classList.remove("saliendo");
+  ui.carga.hidden = false;
+  document.body.setAttribute("aria-busy", "true");
+}
+
+function ocultarCarga() {
+  document.body.removeAttribute("aria-busy");
+  if (ui.carga.hidden) return;
+  ui.carga.classList.add("saliendo");
+  setTimeout(() => {
+    ui.carga.hidden = true;
+    ui.carga.classList.remove("saliendo");
+  }, 300);
 }
 
 /**
@@ -333,8 +339,6 @@ async function esperarModelo() {
   esperandoModelo = true;
   modeloListo = false;
   actualizarContador();
-  const desde = Date.now();
-  let reloj = null;
   let fallos = 0;
   let espera = 0;
   try {
@@ -358,7 +362,7 @@ async function esperarModelo() {
         mostrarError("No hay conexión con el servidor.", "Recarga la página en un momento.");
         return;
       }
-      if (!reloj) reloj = mostrarDespertando(desde);
+      mostrarCarga();
       if (!datos) await new Promise((r) => setTimeout(r, 3000));
       espera = ESPERA_SALUD_S;
     }
@@ -369,8 +373,7 @@ async function esperarModelo() {
       ui.formulario.requestSubmit();
     }
   } finally {
-    clearInterval(reloj);
-    ui.despertando.hidden = true;
+    ocultarCarga();
     esperandoModelo = false;
   }
 }

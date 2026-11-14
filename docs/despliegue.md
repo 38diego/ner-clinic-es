@@ -47,8 +47,8 @@ cambios de documentación no despliegan. A mano: pestaña Actions o
 
 **Arranque en frío (#3).** El servicio se apaga cuando nadie lo usa, y al despertar el
 modelo tarda unos 40 s en cargar. La app abre el puerto de una vez y carga el modelo en
-segundo plano: la página sale en un par de segundos y avisa "Despertando el modelo"
-mientras tanto; `/api/analizar` responde 503 sin contar el uso, y lo que se pida desde la
+segundo plano: la página sale en un par de segundos con una pantalla de carga que se
+quita sola cuando el modelo está listo; `/api/analizar` responde 503 sin contar el uso, y lo que se pida desde la
 página se analiza apenas carga. Antes, la carga bloqueaba el puerto y Cloud Run respondía
 500 a los ~20 s de espera.
 

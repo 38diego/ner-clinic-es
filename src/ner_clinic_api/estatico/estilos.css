@@ -367,44 +367,66 @@ button {
   font-weight: 700;
 }
 
-.despertando {
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
-  margin: 1rem 2.5rem 0;
-  padding: 0.75rem 1rem;
-  border-left: 3px solid var(--quirurgico);
-  border-radius: var(--radio);
-  background: var(--quirurgico-claro);
-  font-size: 0.9375rem;
-  color: var(--tinta);
+.carga {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--fondo);
+  transition: opacity 0.3s ease;
 }
 
-.despertando[hidden] {
+.carga[hidden] {
   display: none;
 }
 
-.despertando p {
+.carga.saliendo {
+  opacity: 0;
+}
+
+.carga-centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.carga-anillo {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 3px solid var(--quirurgico-claro);
+  border-top-color: var(--quirurgico);
+  border-radius: 50%;
+  animation: girar 0.9s linear infinite;
+}
+
+.carga-marca,
+.carga-texto {
   margin: 0;
 }
 
-.despertando-punto {
-  flex: none;
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-top: 0.35rem;
-  border-radius: 50%;
-  background: var(--quirurgico);
-  animation: latido 1.2s ease-in-out infinite;
+.carga-marca {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--quirurgico);
+  letter-spacing: 0.01em;
 }
 
-@keyframes latido {
-  0%, 100% { opacity: 0.35; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1); }
+.carga-texto {
+  margin-top: -0.75rem;
+  color: var(--tinta-suave);
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .despertando-punto { animation: none; }
+  .carga-anillo { animation-duration: 2.4s; }
+  .carga { transition: none; }
 }
 
 .estado-peticion:empty {
@@ -1059,10 +1081,6 @@ mark.activa {
   .hoja-pie,
   .estado-peticion {
     padding-inline: 1.25rem;
-  }
-
-  .despertando {
-    margin-inline: 1.25rem;
   }
 
   #nota,
