@@ -4,7 +4,7 @@
 
 **[Probar la demo →](https://ner-clinic-es-355389257185.us-central1.run.app)** · pega una nota (o usa un ejemplo) y mira cada comorbilidad con su estado, su código y su lugar en el texto. No pegues datos reales: la demo no guarda el texto.
 
-https://github.com/user-attachments/assets/201f9f5e-b685-4ccc-8db1-6a5a905fae58
+https://github.com/user-attachments/assets/bbd86fa3-2890-4929-ac57-84c5497b7dde
 
 *Video sin sonido, 1 min: el subregistro de comorbilidades, la demo con una interconsulta de oncología y las métricas.*
 
